@@ -13,7 +13,7 @@
     <header>
         <h1><a href="index.php">BugBlitz</a></h1>
     </header>
-    <p class="title">Register</p>
+    <p class="sign-title">Register</p>
     <form action="register.php" method="post">
         <input type="text" name="username" placeholder="Choose a username" required />
         <input type="text" name="email" placeholder="Enter your email address" required />
