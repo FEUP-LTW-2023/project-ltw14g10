@@ -13,7 +13,7 @@
   <header>
     <h1><a href="index.php">BugBlitz</a></h1>
   </header>
-  <p class="title">Log in</p>
+  <p class="sign-title">Log in</p>
   <form action="login.php" method="post">
     <input type="text" name="username" placeholder="Username" />
     <input type="text" name="password" placeholder="Password" />
