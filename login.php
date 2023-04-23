@@ -13,19 +13,19 @@
   <header>
     <h1><a href="index.php">BugBlitz</a></h1>
   </header>
-  <p class="sign-in">Log in</p>
+  <p class="title">Log in</p>
   <form action="login.php" method="post">
     <input type="text" name="username" placeholder="Username" />
-    <input type="password" name="password" placeholder="Password" />
+    <input type="text" name="password" placeholder="Password" />
     <input type="submit" value="Sign in" />
   </form>
-  <p class="sign-up">
+  <p class="bottom-text">
     <a href="register.php">Don't have an account? Sign up</a>
   </p>
-  <p class="forgot-password">
+  <p class="bottom-text">
     <a href="forgot-password.html">Forgot your password? Reset it</a>
   </p>
-  <p class="forgot-password">
+  <p class="bottom-text">
     <a href="forgot-username.html">Forgot your username? Reset it</a>
   </p>
 </body>

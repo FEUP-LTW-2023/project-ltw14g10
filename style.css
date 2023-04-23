@@ -46,8 +46,7 @@ body {
     border-bottom: 0.0625em solid #444;
   }
   
-  input[type="text"],
-  input[type="password"] {
+  input[type="text"] {
     width: 100%;
     padding: 0.625em;
     margin-bottom: 1.25em;
@@ -67,15 +66,6 @@ body {
     font-size: 1em;
     cursor: pointer;
   }
-
-  input[type="password"] {
-    width: 100%;
-    padding: 0.625em;
-    margin-bottom: 1.25em;
-    border-radius: 0.3125em;
-    border: 0.0625em solid #ccc;
-    font-size: 1em;
-  }
   
   /* Link styles */
   a {
@@ -88,23 +78,21 @@ body {
     color: lightskyblue
   }
   
-  /* Additional text styles */
-  .sign-in,
-  .sign-up,
-  .forgot-password {
+  
+  .bottom-text {
     margin: 1.25em auto;
     text-align: center;
     font-size: 1em;
   }
   
-  .sign-in {
+  .title {
     font-size: 1.5em;
+    margin: 1.25em auto;
     font-weight: bold;
+    text-align: center;
   }
   
-  .forgot-password {
-    margin-top: 2.5em;
-  }
+
   
   hr {
     border: none;

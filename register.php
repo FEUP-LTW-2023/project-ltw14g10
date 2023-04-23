@@ -13,15 +13,15 @@
     <header>
         <h1><a href="index.php">BugBlitz</a></h1>
     </header>
-    <p class="sign-in">Register</p>
+    <p class="title">Register</p>
     <form action="register.php" method="post">
         <input type="text" name="username" placeholder="Choose a username" required />
         <input type="text" name="email" placeholder="Enter your email address" required />
-        <input type="password" name="password" placeholder="Choose a password" required />
-        <input type="password" name="confirm-password" placeholder="Confirm your password" required />
+        <input type="text" name="password" placeholder="Choose a password" required />
+        <input type="text" name="confirm-password" placeholder="Confirm your password" required />
         <input type="submit" value="Sign up" />
     </form>
-    <p class="forgot-password">
+    <p class="bottom-text">
         <a href="login.php">Already have an account? Log in</a>
     </p>
 </body>
