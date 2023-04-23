@@ -20,7 +20,7 @@
     <input type="submit" value="Sign in" />
   </form>
   <p class="sign-up">
-    <a href="signup.html">Don't have an account? Sign up</a>
+    <a href="register.php">Don't have an account? Sign up</a>
   </p>
   <p class="forgot-password">
     <a href="forgot-password.html">Forgot your password? Reset it</a>
