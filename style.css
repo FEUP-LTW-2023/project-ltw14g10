@@ -1,0 +1,106 @@
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1.25em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 1.75em;
+  }
+  
+  .logo {
+    font-size: 2.25em;
+  }
+  
+  header a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  header a:hover{
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  /* Form styles */
+  form {
+    margin: 1.25em auto;
+    max-width: 25em;
+    background-color: #fff;
+    padding: 2.5em;
+    border-radius: 0.625em;
+    box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.1);
+    border-bottom: 0.0625em solid #444;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.625em;
+    margin-bottom: 1.25em;
+    border-radius: 0.3125em;
+    border: 0.0625em solid #ccc;
+    font-size: 1em;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 0.625em;
+    margin-top: 1.25em;
+    background-color: #333;
+    color: #fff;
+    border-radius: 0.3125em;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  /* Link styles */
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: lightskyblue
+  }
+  
+  /* Additional text styles */
+  .sign-in,
+  .sign-up,
+  .forgot-password {
+    margin: 1.25em auto;
+    text-align: center;
+    font-size: 1em;
+  }
+  
+  .sign-in {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .forgot-password {
+    margin-top: 2.5em;
+  }
+  
+  hr {
+    border: none;
+    border-top: 0.0625em solid #444;
+    height: 0.0625em;
+    margin: 1.25em 0;
+  }
+  
