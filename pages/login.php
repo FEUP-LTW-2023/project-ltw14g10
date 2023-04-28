@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BugBlitz Login</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body>
   <header>
-    <h1><a href="index.php">BugBlitz</a></h1>
+    <h1><a href="../index.php">BugBlitz</a></h1>
   </header>
   <p class="sign-title">Log in</p>
   <form action="login.php" method="post">
