@@ -12,8 +12,10 @@
 <body>
     <header>
         <h1><a href="index.php">BugBlitz</a></h1>
-        <h2><a href="index.php">Where your bugs, are fixed in a blitz!</a></h2>
         <div id="signup">
+            <a href="pages/contact.php" id="contact">Contact us</a>
+            <a href="pages/about.php" id="about">About</a>
+            <a href="pages/faq.php" id="faq">FAQ</a>
             <a href="pages/login.php" id="login">Login</a>
             <a href="pages/register.php" id="register">Register</a>
         </div>

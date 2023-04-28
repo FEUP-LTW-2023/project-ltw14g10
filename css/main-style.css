@@ -47,7 +47,16 @@ body {
     text-decoration: none;
     transition: background-color 0.2s;
   }
+
+  #faq, #about, #contact{
+    padding: 10px 20px;
+    margin: 0 5px;
+    color: #fff;
+    text-decoration: none;
+  }
   
+  
+
   #login:hover,
   #register:hover {
     background-color: #0066cc;
