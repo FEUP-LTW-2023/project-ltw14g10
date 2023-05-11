@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>help.eic</title>
     <link href="../css/main-style.css" rel="stylesheet">
+    <script src="../javascript/animation.js" defer></script>
 </head>
 <body>
 
@@ -40,6 +41,12 @@
 
     <main>
 <?php } ?>
+
+<?php function drawBody() { ?>  
+  <h1 class="hacker" data-value="help.eic">
+        help.eic
+    </h1>
+    <?php } ?>
 
 <?php function drawFooter() { ?>
     </main>
