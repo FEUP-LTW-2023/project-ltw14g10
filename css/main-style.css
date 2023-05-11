@@ -47,7 +47,16 @@ body {
     text-decoration: none;
     transition: background-color 0.2s;
   }
+
+  #faq, #about, #contact{
+    padding: 10px 20px;
+    margin: 0 5px;
+    color: #fff;
+    text-decoration: none;
+  }
   
+  
+
   #login:hover,
   #register:hover {
     background-color: #0066cc;
@@ -60,4 +69,14 @@ body {
   #register:hover {
     background-color: #ff0066;
   }
+
+  .hacker {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(3rem, 10vw, 10rem);
+    color: #141414;
+    padding-top: 1em;
+    border-radius: clamp(0.4rem, 0.75vw, 1rem);
+    text-align: center;
+  }
+  
   
