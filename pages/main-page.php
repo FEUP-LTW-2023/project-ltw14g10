@@ -6,11 +6,10 @@
 
   require_once(__DIR__ . '/../database/connection.db.php');
 
-  require_once(__DIR__ . '/../templates/register.tpl.php');
+  require_once(__DIR__ . '/../templates/main-page.tpl.php');
 
   $db = getDatabaseConnection();
 
-  drawHeaderRegister($session);
-  drawRegisterForm();
-  drawFooterRegister();
+  drawHeader($session);
+  drawFooter();
 ?>
