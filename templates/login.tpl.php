@@ -24,15 +24,7 @@
 
 <?php } ?>
 
-<?php function drawFooterLogin() { ?>
-    </main>
 
-    <footer>
-      help.eic Project &copy; 2023
-    </footer>
-  </body>
-</html>
-<?php } ?>
 
 <?php function drawLoginForm() { ?>
     <p class="sign-title">Log in</p>

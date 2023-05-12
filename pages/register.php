@@ -12,5 +12,5 @@
 
   drawHeaderRegister($session);
   drawRegisterForm();
-  drawFooterRegister();
+  drawFooter();
 ?>

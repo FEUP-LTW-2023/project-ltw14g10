@@ -24,15 +24,7 @@
 
 <?php } ?>
 
-<?php function drawFooterRegister() { ?>
-    </main>
 
-    <footer>
-      help.eic Project &copy; 2023
-    </footer>
-  </body>
-</html>
-<?php } ?>
 
 <?php function drawRegisterForm() { ?>
     <p class="sign-title">Register</p>
