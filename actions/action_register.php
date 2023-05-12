@@ -11,16 +11,13 @@
 
   if (User::validateUsername($db, $_POST['username']) == "" && User::validateEmail($db, $_POST['email']) == ""){
     $user = User::registerUser($db, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['name']);
-
-    if ($user) {
-      $session->setId($user->id);
-      $session->setName($user->name);
-      $session->addMessage('success', 'Login successful!');
-    } else {
-      $session->addMessage('error', 'Wrong password!');
-    }
-
-  header('Location: /../pages/main-page.php');
+    $session->setId($user->id);
+    $session->setName($user->name);
+    $session->addMessage('success', 'Registration successful!');
+    header('Location: /../pages/main-page.php');
   }
-  else header('Location: ' . $_SERVER['HTTP_REFERER']);
+  else{
+    $session->addMessage('error', 'Registration unsuccessful!');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
 ?>
