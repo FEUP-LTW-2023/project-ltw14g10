@@ -9,15 +9,18 @@
 
   $db = getDatabaseConnection();
 
-  $user = User::registerUser($db, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['name']);
+  if (User::validateUsername($db, $_POST['username']) == "" && User::validateEmail($db, $_POST['email']) == ""){
+    $user = User::registerUser($db, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['name']);
 
-  if ($user) {
-    $session->setId($user->id);
-    $session->setName($user->name);
-    $session->addMessage('success', 'Login successful!');
-  } else {
-    $session->addMessage('error', 'Wrong password!');
+    if ($user) {
+      $session->setId($user->id);
+      $session->setName($user->name);
+      $session->addMessage('success', 'Login successful!');
+    } else {
+      $session->addMessage('error', 'Wrong password!');
+    }
+
+  header('Location: /../pages/main-page.php');
   }
-
-  header('Location:'. __DIR__ .'../pages/main-page.php');
+  else header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
