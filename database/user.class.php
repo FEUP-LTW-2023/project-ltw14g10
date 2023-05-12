@@ -18,7 +18,6 @@
         }
 
         static function validateUsername(PDO $db, string $username){
-
             $stmt = $db->prepare('
               SELECT USERNAME
               FROM USER 
@@ -34,7 +33,6 @@
         }
 
         static function validateEmail(PDO $db, string $email){
-
             $stmt = $db->prepare('
               SELECT EMAIL
               FROM USER 
@@ -66,7 +64,32 @@
             } else {
                 return null;
             }
-          }
+        }
 
+        static function getUserWithPassword(PDO $db, string $username, string $password) : ?User {
+            $stmt = $db->prepare('
+              SELECT ID, USERNAME, PASSWORD, EMAIL, NAME
+              FROM USER 
+              WHERE USERNAME = ?
+            ');
+      
+            $stmt->execute(array($username));
+
+            $user = $stmt->fetch();
+            if(!$user){
+                return null;
+            }
+
+            $hashedPassword = $user['PASSWORD'];
+            if(password_verify($password, $hashedPassword)){
+                return new User(
+                    (int) $user['ID'],
+                    $user['USERNAME'],
+                    $password,
+                    $user['EMAIL'],
+                    $user['NAME']
+                );
+            } else return null;
+        }
     }
 ?>
