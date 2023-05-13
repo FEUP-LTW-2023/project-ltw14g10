@@ -36,7 +36,7 @@
 
 <?php function drawLoginForm() { ?>
     <p class="sign-title">Log in</p>
-  <form action="login.php" method="post">
+  <form action="../actions/action_login.php" method="post">
     <input type="text" name="username" placeholder="Username" />
     <input type="text" name="password" placeholder="Password" />
     <input type="submit" value="Sign in" />

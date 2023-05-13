@@ -36,7 +36,8 @@
 
 <?php function drawRegisterForm() { ?>
     <p class="sign-title">Register</p>
-    <form action="register.php" method="post">
+    <form action="../actions/action_register.php" method="post">
+        <input type="text" name="name" placeholder="Enter your name here" required />
         <input type="text" name="username" placeholder="Choose a username" required />
         <input type="text" name="email" placeholder="Enter your email address" required />
         <input type="text" name="password" placeholder="Choose a password" required />
