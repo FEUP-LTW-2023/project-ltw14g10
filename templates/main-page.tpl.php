@@ -18,11 +18,11 @@
 <body>
 
     <header>
-    <h1><a href="index.php">Home Page</a></h1>
+    <h1><a href="main-page.php">Home Page</a></h1>
         <div id="signup">
-            <a href="pages/contact.php" id="contact">Contact us</a>
-            <a href="pages/about.php" id="about">About</a>
-            <a href="pages/faq.php" id="faq">FAQ</a>
+            <a href="contact.php" id="contact">Contact us</a>
+            <a href="about.php" id="about">About</a>
+            <a href="faq.php" id="faq">FAQ</a>
         </div>
     
       <?php 

@@ -9,7 +9,21 @@
 
   $db = getDatabaseConnection();
 
-  if (User::validateUsername($db, $_POST['username']) == "" && User::validateEmail($db, $_POST['email']) == ""){
+  $validRegister = true;
+
+  if (User::usernameExists($db, $_POST['username'])) {
+    $validRegister = false;
+    $session->addMessage('error', 'Username already exists');
+  } 
+  if (User::emailExists($db, $_POST['email'])){
+    $validRegister = false;
+    $session->addMessage('error', 'Email already exists');
+  }
+  if ($_POST['password'] != $_POST['confirm-password']){
+    $validRegister = false;
+    $session->addMessage('error', "Passwords don't match");
+  }
+  if($validRegister){
     $user = User::registerUser($db, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['name']);
     $session->setId($user->id);
     $session->setName($user->name);
@@ -17,7 +31,6 @@
     header('Location: /../pages/main-page.php');
   }
   else{
-    $session->addMessage('error', 'Registration unsuccessful!');
     header('Location: ' . $_SERVER['HTTP_REFERER']);
   }
 ?>

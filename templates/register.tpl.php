@@ -34,19 +34,58 @@
 </html>
 <?php } ?>
 
-<?php function drawRegisterForm() { ?>
+<?php function drawRegisterForm(Session $session) { ?>
     <p class="sign-title">Register</p>
     <form action="../actions/action_register.php" method="post">
       <div class = "input-box">
         <input type="text" name="name" placeholder="Enter your name here" required />
         <input type="text" name="username" placeholder="Choose a username" required />
+        <?php drawValidateUsername($session); ?>
         <input type="email" name="email" placeholder="Enter your email address" required />
+        <?php drawValidateEmail($session); ?>
         <input type="password" name="password" placeholder="Choose a password" required />
         <input type="password" name="confirm-password" placeholder="Confirm your password" required />
+        <?php drawValidatePassword($session); ?>
         <input type="submit" value="Sign up" />
       </div>
     </form>
     <p class="bottom-text">
         <a href="../pages/login.php">Already have an account? Log in</a>
     </p>
+<?php } ?>
+
+<?php function drawValidateEmail(Session $session) { ?>
+  <div class="error-message">
+    <?php
+    foreach($session->getMessages() as $message){
+      if ($message['text'] == 'Email already exists'){
+        echo 'Email already exists';
+      }
+    }
+    ?>
+  </div>
+<?php } ?>
+
+<?php function drawValidateUsername(Session $session) { ?>
+  <div class="error-message">
+    <?php
+    foreach($session->getMessages() as $message){
+      if ($message['text'] == 'Username already exists'){
+        echo 'Username already exists';
+      }
+    }
+    ?>
+  </div>
+<?php } ?>
+
+<?php function drawValidatePassword(Session $session) { ?>
+  <div class="error-message">
+    <?php
+    foreach($session->getMessages() as $message){
+      if ($message['text'] == "Passwords don't match"){
+        echo "Passwords don't match";
+      }
+    }
+    ?>
+  </div>
 <?php } ?>
