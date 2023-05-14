@@ -10,7 +10,8 @@
 
   $db = getDatabaseConnection();
 
-  drawHeaderRegister($session);
-  drawRegisterForm();
+  drawHeaderRegister();
+  drawRegisterForm($session);
   drawFooterRegister();
+  $session->clearMessages();
 ?>

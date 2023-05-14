@@ -4,7 +4,7 @@
   require_once(__DIR__ . '/../utils/session.php');
 ?>
 
-<?php function drawHeaderLogin(Session $session) { ?>
+<?php function drawHeaderLogin() { ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,20 +34,42 @@
 </html>
 <?php } ?>
 
-<?php function drawLoginForm() { ?>
+<?php function drawLoginForm(Session $session) { ?>
     <p class="sign-title">Log in</p>
   <form action="../actions/action_login.php" method="post">
-    <input type="text" name="username" placeholder="Username" />
-    <input type="text" name="password" placeholder="Password" />
+    <div class = "input-box">
+      <input type="text" name="username" placeholder="Username" />
+      <?php drawValidateUsername($session) ?>
+      <input type="password" name="password" placeholder="Password" />
+      <?php drawValidatePassword($session) ?>
+    </div>
     <input type="submit" value="Sign in" />
   </form>
   <p class="bottom-text">
     <a href="../pages/register.php">Don't have an account? Sign up</a>
   </p>
-  <p class="bottom-text">
-    <a href="forgot-password.html">Forgot your password? Reset it</a>
-  </p>
-  <p class="bottom-text">
-    <a href="forgot-username.html">Forgot your username? Reset it</a>
-  </p>
+<?php } ?>
+
+<?php function drawValidateUsername(Session $session) { ?>
+  <div class="error-message">
+    <?php
+    foreach($session->getMessages() as $message){
+      if ($message['text'] == "Username doesn't exist"){
+        echo "Username doesn't exist";
+      }
+    }
+    ?>
+  </div>
+<?php } ?>
+
+<?php function drawValidatePassword(Session $session) { ?>
+  <div class="error-message">
+    <?php
+    foreach($session->getMessages() as $message){
+      if ($message['text'] == 'Wrong password'){
+        echo 'Wrong password';
+      }
+    }
+    ?>
+  </div>
 <?php } ?>

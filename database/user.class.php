@@ -17,7 +17,7 @@
             $this->name = $name;
         }
 
-        static function validateUsername(PDO $db, string $username){
+        static function usernameExists(PDO $db, string $username): bool{
             $stmt = $db->prepare('
               SELECT USERNAME
               FROM USER 
@@ -27,12 +27,12 @@
             $stmt->execute(array($username));
 
             if($stmt->fetch()) {
-                return 'Username already exists';
+                return true;
             }
-            return '';
+            return false;
         }
 
-        static function validateEmail(PDO $db, string $email){
+        static function emailExists(PDO $db, string $email): bool{
             $stmt = $db->prepare('
               SELECT EMAIL
               FROM USER 
@@ -42,9 +42,9 @@
             $stmt->execute(array($email));
 
             if($stmt->fetch()) {
-                return 'Email already in use';
+                return true;
             }
-            return '';
+            return false;
         }
 
         static function registerUser(PDO $db, string $username, string $password, string $email, string $name) : ?User {

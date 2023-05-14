@@ -13,4 +13,5 @@
   drawHeader($session);
   drawBody();
   drawFooter();
+  $session->clearMessages();
 ?>
