@@ -1,4 +1,3 @@
-
 <?php
   declare(strict_types = 1);
 
@@ -7,13 +6,12 @@
 
   require_once(__DIR__ . '/../database/connection.db.php');
 
-  require_once(__DIR__ . '/../templates/register.tpl.php');
+  require_once(__DIR__ . '/../templates/faq.tpl.php');
   require_once(__DIR__ . '/../templates/main-page.tpl.php');
 
   $db = getDatabaseConnection();
 
-  setHeaderRegister($session);
+  setHeaderFaq($session);
   drawHeader($session);
-  drawRegisterForm($session);
   drawFooter();
-  $session->clearMessages();
+?>

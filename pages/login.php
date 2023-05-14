@@ -7,11 +7,12 @@
   require_once(__DIR__ . '/../database/connection.db.php');
 
   require_once(__DIR__ . '/../templates/login.tpl.php');
+  require_once(__DIR__ . '/../templates/main-page.tpl.php');
 
   $db = getDatabaseConnection();
 
-  drawHeaderLogin();
+  setHeaderLogin($session);
+  drawHeader($session);
   drawLoginForm($session);
-  drawFooterLogin();
+  drawFooter();
   $session->clearMessages();
-?>

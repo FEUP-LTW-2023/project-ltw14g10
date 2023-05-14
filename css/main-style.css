@@ -54,8 +54,6 @@ body {
     color: #fff;
     text-decoration: none;
   }
-  
-  
 
   #login:hover,
   #register:hover {
@@ -74,9 +72,51 @@ body {
     font-family: 'Space Mono', monospace;
     font-size: clamp(3rem, 10vw, 10rem);
     color: #141414;
-    padding-top: 1em;
+    padding-top: 0.6em;
     border-radius: clamp(0.4rem, 0.75vw, 1rem);
     text-align: center;
   }
   
+  .sub {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(1rem, 3vw, 3rem);
+    color: #141414;
+    padding-top: 0.1em;
+    border-radius: clamp(0.4rem, 0.75vw, 1rem);
+    text-align: center;
+  }
   
+  .description{
+    font-family: 'Space Mono', monospace;
+    font-size: 1em;
+    color: #141414;
+    padding-top: 0.5em;
+    padding-left: 20%;
+    padding-right: 20%;
+    border-radius: clamp(0.4rem, 0.75vw, 1rem);
+    text-align: center;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #686666;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+  }
+  
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-left {
+    text-align: left;
+  }
+ 
+

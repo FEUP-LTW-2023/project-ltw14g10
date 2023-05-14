@@ -1,3 +1,4 @@
+
 <?php
   declare(strict_types = 1);
 
@@ -10,8 +11,8 @@
 
   $db = getDatabaseConnection();
 
+  setHeaderMain($session);
   drawHeader($session);
   drawBody();
   drawFooter();
   $session->clearMessages();
-?>

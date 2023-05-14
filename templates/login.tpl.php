@@ -1,11 +1,12 @@
+
 <?php 
   declare(strict_types = 1); 
 
   require_once(__DIR__ . '/../utils/session.php');
 ?>
-
-<?php function drawHeaderLogin() { ?>
-<!DOCTYPE html>
+<?php function setHeaderLogin(Session $session)
+{ ?>
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,25 +15,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>help.eic Login</title>
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/main-style.css" />
+
 </head>
 
-<body>
-  <header>
-    <h1><a href="../pages/main-page.php">help.eic</a></h1>
-  </header>
-  <main>
-
+  
 <?php } ?>
 
-<?php function drawFooterLogin() { ?>
-    </main>
-
-    <footer>
-      help.eic Project &copy; 2023
-    </footer>
-  </body>
-</html>
-<?php } ?>
 
 <?php function drawLoginForm(Session $session) { ?>
     <p class="sign-title">Log in</p>
@@ -49,6 +38,20 @@
     <a href="../pages/register.php">Don't have an account? Sign up</a>
   </p>
 <?php } ?>
+
+<?php function drawValidateUsername(Session $session) { ?>
+  <div class="error-message">
+    <?php
+    foreach($session->getMessages() as $message){
+      if ($message['text'] == "Username doesn't exist"){
+        echo "Username doesn't exist";
+      }
+    }
+    ?>
+  </div>
+<?php } ?>
+
+
 
 <?php function drawValidateUsername(Session $session) { ?>
   <div class="error-message">
