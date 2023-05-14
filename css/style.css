@@ -16,6 +16,7 @@ body {
     align-items: center;
   }
   
+  
   h1 {
     margin: 0;
     font-size: 1.75em;
@@ -45,15 +46,7 @@ body {
     box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.1);
     border-bottom: 0.0625em solid #444;
   }
-  
-  input[type="text"] {
-    width: 100%;
-    padding: 0.625em;
-    margin-bottom: 1.25em;
-    border-radius: 0.3125em;
-    border: 0.0625em solid #ccc;
-    font-size: 1em;
-  }
+ 
   
   input[type="submit"] {
     width: 100%;
@@ -65,6 +58,15 @@ body {
     border: none;
     font-size: 1em;
     cursor: pointer;
+  }
+
+  .input-box input {
+    width: 100%;
+    padding: 0.625em;
+    margin-bottom: 1.25em;
+    border-radius: 0.3125em;
+    border: 0.0625em solid #ccc;
+    font-size: 1em;
   }
   
   /* Link styles */
@@ -101,16 +103,6 @@ body {
     margin: 1.25em 0;
   }
   
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #686666;
-    color: #fff;
-    padding: 10px;
-    text-align: right;
-  }
   
   .about {
     max-width: 60%;
@@ -132,4 +124,5 @@ body {
   .about p {
     margin-bottom: 10px;
   }
+
   

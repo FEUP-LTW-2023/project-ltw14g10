@@ -1,3 +1,4 @@
+
 <?php
   declare(strict_types = 1);
 
@@ -13,6 +14,6 @@
 
   setHeaderRegister($session);
   drawHeader($session);
-  drawRegisterForm();
+  drawRegisterForm($session);
   drawFooter();
-?>
+  $session->clearMessages();

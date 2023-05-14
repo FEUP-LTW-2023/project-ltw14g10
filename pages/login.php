@@ -13,6 +13,6 @@
 
   setHeaderLogin($session);
   drawHeader($session);
-  drawLoginForm();
+  drawLoginForm($session);
   drawFooter();
-?>
+  $session->clearMessages();

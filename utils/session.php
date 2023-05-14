@@ -6,7 +6,6 @@
       session_start();
 
       $this->messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
-      unset($_SESSION['messages']);
     }
 
     public function isLoggedIn() : bool {
@@ -35,6 +34,10 @@
 
     public function addMessage(string $type, string $text) {
       $_SESSION['messages'][] = array('type' => $type, 'text' => $text);
+    }
+
+    public function clearMessages() {
+      $_SESSION['messages'] = array();
     }
 
     public function getMessages() {
