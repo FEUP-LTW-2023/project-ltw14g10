@@ -4,7 +4,7 @@
   require_once(__DIR__ . '/../utils/session.php');
 ?>
 
-<?php function drawHeaderRegister(Session $session) { ?>
+<?php function drawHeaderRegister() { ?>
     <!DOCTYPE html>
 <html lang="en">
 
@@ -37,12 +37,14 @@
 <?php function drawRegisterForm() { ?>
     <p class="sign-title">Register</p>
     <form action="../actions/action_register.php" method="post">
+      <div class = "input-box">
         <input type="text" name="name" placeholder="Enter your name here" required />
         <input type="text" name="username" placeholder="Choose a username" required />
-        <input type="text" name="email" placeholder="Enter your email address" required />
-        <input type="text" name="password" placeholder="Choose a password" required />
-        <input type="text" name="confirm-password" placeholder="Confirm your password" required />
+        <input type="email" name="email" placeholder="Enter your email address" required />
+        <input type="password" name="password" placeholder="Choose a password" required />
+        <input type="password" name="confirm-password" placeholder="Confirm your password" required />
         <input type="submit" value="Sign up" />
+      </div>
     </form>
     <p class="bottom-text">
         <a href="../pages/login.php">Already have an account? Log in</a>
