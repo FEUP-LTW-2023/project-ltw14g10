@@ -84,6 +84,7 @@ body {
     padding-top: 0.1em;
     border-radius: clamp(0.4rem, 0.75vw, 1rem);
     text-align: center;
+    padding-bottom: 3em;
   }
   
   .description{
