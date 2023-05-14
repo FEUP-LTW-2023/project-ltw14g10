@@ -1,4 +1,3 @@
-
 <?php
   declare(strict_types = 1);
 
@@ -17,3 +16,4 @@
   drawRegisterForm($session);
   drawFooter();
   $session->clearMessages();
+?>

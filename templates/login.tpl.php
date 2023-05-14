@@ -1,4 +1,3 @@
-
 <?php 
   declare(strict_types = 1); 
 
@@ -35,7 +34,7 @@
     <input type="submit" value="Sign in" />
   </form>
   <p class="bottom-text">
-    <a href="../pages/register.php">Don't have an account? Sign up</a>
+    <a href="../pages/register.php" class="bottom-text">Don't have an account? Sign up</a>
   </p>
 <?php } ?>
 
@@ -51,19 +50,6 @@
   </div>
 <?php } ?>
 
-
-
-<?php function drawValidateUsername(Session $session) { ?>
-  <div class="error-message">
-    <?php
-    foreach($session->getMessages() as $message){
-      if ($message['text'] == "Username doesn't exist"){
-        echo "Username doesn't exist";
-      }
-    }
-    ?>
-  </div>
-<?php } ?>
 
 <?php function drawValidatePassword(Session $session) { ?>
   <div class="error-message">

@@ -35,7 +35,7 @@
       </div>
     </form>
     <p class="bottom-text">
-        <a href="../pages/login.php">Already have an account? Log in</a>
+        <a href="../pages/login.php" class="bottom-text">Already have an account? Log in</a>
     </p>
 <?php } ?>
 

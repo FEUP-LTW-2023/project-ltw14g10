@@ -16,3 +16,4 @@
   drawLoginForm($session);
   drawFooter();
   $session->clearMessages();
+  ?>

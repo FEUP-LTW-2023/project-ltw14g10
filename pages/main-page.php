@@ -1,4 +1,3 @@
-
 <?php
   declare(strict_types = 1);
 
@@ -16,3 +15,4 @@
   drawBody();
   drawFooter();
   $session->clearMessages();
+  ?>
