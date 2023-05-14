@@ -4,7 +4,7 @@ declare(strict_types=1);
 require_once(__DIR__ . '/../utils/session.php');
 ?>
 
-<?php function drawHeader(Session $session)
+<?php function setHeaderMain(Session $session)
 { ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -18,10 +18,15 @@ require_once(__DIR__ . '/../utils/session.php');
     <script src="../javascript/animation.js" defer></script>
   </head>
 
+  
+<?php } ?>
+
+<?php function drawHeader(Session $session)
+{ ?>
   <body>
 
     <header>
-      <h1><a href="index.php">help.eic</a></h1>
+      <h1><a href="../index.php">help.eic</a></h1>
 
       <?php
       $current_page = basename($_SERVER['PHP_SELF']);
@@ -29,13 +34,12 @@ require_once(__DIR__ . '/../utils/session.php');
         drawHeaderOptions();
       }?>
 
-      
-
       <?php
+      if($current_page != "login.php" && $current_page != "register.php"){
         if ($session->isLoggedIn())
           drawLogoutHeader($session);
         else
-          drawLoginHeader($session);
+          drawLoginHeader($session);}
       ?>
     </header>
 
@@ -48,7 +52,7 @@ require_once(__DIR__ . '/../utils/session.php');
     </section>
 
     <main>
-    <?php } ?>
+<?php } ?>
 
   <?php function drawBody()
   { ?>

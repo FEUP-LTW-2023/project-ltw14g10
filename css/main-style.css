@@ -108,6 +108,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: sans-serif;
   }
   
   .footer-right {

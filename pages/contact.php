@@ -6,13 +6,12 @@
 
   require_once(__DIR__ . '/../database/connection.db.php');
 
-  require_once(__DIR__ . '/../templates/about.tpl.php');
+  require_once(__DIR__ . '/../templates/contact.tpl.php');
   require_once(__DIR__ . '/../templates/main-page.tpl.php');
 
   $db = getDatabaseConnection();
-  setHeaderAbout($session);
+
+  setHeaderContact($session);
   drawHeader($session);
-  drawBodyAbout();
   drawFooter();
 ?>
-

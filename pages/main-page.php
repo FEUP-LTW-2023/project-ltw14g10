@@ -10,6 +10,7 @@
 
   $db = getDatabaseConnection();
 
+  setHeaderMain($session);
   drawHeader($session);
   drawBody();
   drawFooter();

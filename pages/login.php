@@ -11,7 +11,8 @@
 
   $db = getDatabaseConnection();
 
-  drawHeaderLogin($session);
+  setHeaderLogin($session);
+  drawHeader($session);
   drawLoginForm();
   drawFooter();
 ?>
