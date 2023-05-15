@@ -4,7 +4,7 @@
   require_once(__DIR__ . '/../utils/session.php');
 ?>
 
-<?php function setHeaderRegister(Session $session) { ?>
+<?php function setHeader(Session $session) { ?>
     <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +19,7 @@
 
 <?php } ?>
 
-<?php function drawRegisterForm(Session $session) { ?>
+<?php function drawForm(Session $session) { ?>
     <p class="sign-title">Register</p>
     <form action="../actions/action_register.php" method="post">
       <div class = "input-box">

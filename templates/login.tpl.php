@@ -3,7 +3,7 @@
 
   require_once(__DIR__ . '/../utils/session.php');
 ?>
-<?php function setHeaderLogin(Session $session)
+<?php function setHeader(Session $session)
 { ?>
   <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
 <?php } ?>
 
 
-<?php function drawLoginForm(Session $session) { ?>
+<?php function drawForm(Session $session) { ?>
     <p class="sign-title">Log in</p>
   <form action="../actions/action_login.php" method="post">
     <div class = "input-box">

@@ -5,7 +5,7 @@ require_once(__DIR__ . '/../utils/session.php');
 require_once(__DIR__ . '/../templates/main-page.tpl.php');
 ?>
 
-<?php function setHeaderFaq(Session $session)
+<?php function setHeader(Session $session)
 { ?>
   <!DOCTYPE html>
   <html lang="en">

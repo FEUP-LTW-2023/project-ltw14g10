@@ -10,9 +10,9 @@
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
   $db = getDatabaseConnection();
-  setHeaderAbout($session);
+  setHeader($session);
   drawHeader($session);
-  drawBodyAbout();
+  drawBody();
   drawFooter();
 ?>
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 require_once(__DIR__ . '/../utils/session.php');
 ?>
 
-<?php function setHeaderAbout(Session $session)
+<?php function setHeader(Session $session)
 { ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -21,7 +21,7 @@ require_once(__DIR__ . '/../utils/session.php');
 
 <?php } ?>
 
-<?php function drawBodyAbout() { ?>
+<?php function drawBody() { ?>
     <section class="about">
         <h2>About help.eic</h2>
         <p>Welcome to help.eic, the one-stop destination for academic 
