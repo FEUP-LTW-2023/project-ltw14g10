@@ -9,16 +9,16 @@
             $this->user = $user;
         }
 
-        static function addAgent(PDO $db, int $id): ?Agent {
+        static function addAgent(PDO $db, int $id): bool {
             $stmt = $db->prepare('
               INSERT INTO AGENT (USER_ID)
               VALUES (?)
             ');
         
             if ($stmt->execute(array($id))) {
-                return new Agent($id);
+                return true;
             } else {
-                return null;
+                return false;
             }
         }
 
@@ -32,6 +32,18 @@
             $stmt->execute(array($id));
 
             if($stmt->fetch()) {
+                return true;
+            }
+            return false;
+        }
+
+        static function deleteAgent(PDO $db, int $id): bool {
+            $stmt = $db->prepare('
+              DELETE FROM AGENT
+              WHERE USER_ID = ?
+            ');
+
+            if ($stmt->execute(array($id))){
                 return true;
             }
             return false;

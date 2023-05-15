@@ -36,5 +36,17 @@
             }
             return false;
         }
+
+        static function deleteClient(PDO $db, int $id): bool {
+            $stmt = $db->prepare('
+              DELETE FROM CLIENT
+              WHERE USER_ID = ?
+            ');
+
+            if ($stmt->execute(array($id))){
+                return true;
+            }
+            return false;
+        }
     }
 ?>
