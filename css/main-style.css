@@ -1,73 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
-  }
-
-  a{
-    color: white;
-    text-decoration: none;
-  }
-  
-  header {
-    background-color: #333;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  h1 {
-    margin: 0;
-    font-size: 36px;
-    font-weight: bold;
-  }
-  
-  h2 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: normal;
-  }
-  
-  #signup {
-    display: flex;
-  }
-  
-  #login,
-  #register {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 0 5px;
-    background-color: #1e90ff;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.2s;
-  }
-
-  #faq, #about, #contact{
-    padding: 10px 20px;
-    margin: 0 5px;
-    color: #fff;
-    text-decoration: none;
-  }
-
-  #login:hover,
-  #register:hover {
-    background-color: #0066cc;
-  }
-  
-  #register {
-    background-color: #ff1493;
-  }
-  
-  #register:hover {
-    background-color: #ff0066;
-  }
-
   .hacker {
     font-family: 'Space Mono', monospace;
     font-size: clamp(3rem, 10vw, 10rem);
@@ -96,29 +26,27 @@ body {
     padding-right: 20%;
     border-radius: clamp(0.4rem, 0.75vw, 1rem);
     text-align: center;
-    padding-bottom: 3em;
+    padding-bottom: 1.5em;
   }
 
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #686666;
+
+  #ticket {
+    background-color: #04AA6D;
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: 75px;
+    font-size: 24px;
+    font-family: 'Space Mono', monospace;
     color: #fff;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: sans-serif;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    text-align: center;
+    line-height: 75px;
   }
   
-  .footer-right {
-    text-align: right;
+  #ticket:hover {
+    background-color: #45a049;
   }
-
-  .footer-left {
-    text-align: left;
-  }
- 
-
+  

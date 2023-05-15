@@ -11,9 +11,9 @@
 
   $db = getDatabaseConnection();
 
-  setHeaderRegister($session);
+  setHeader($session);
   drawHeader($session);
-  drawRegisterForm($session);
+  drawForm($session);
   drawFooter();
   $session->clearMessages();
 ?>
