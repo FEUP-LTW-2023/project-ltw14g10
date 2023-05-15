@@ -109,7 +109,59 @@
                 $user['EMAIL'],
                 $user['NAME']
             );
-            
+        }
+
+        public function updateName(PDO $db, string $new_name){
+            $stmt = $db->prepare('
+                UPDATE USER
+                SET NAME = ?
+                WHERE ID = ?
+            ');
+            $stmt->execute(array($new_name, $this->id));
+        }
+
+        public function updateUsername(PDO $db, string $new_username){
+            $stmt = $db->prepare('
+                UPDATE USER
+                SET USERNAME = ?
+                WHERE ID = ?
+            ');
+            $stmt->execute(array($new_username, $this->id));
+        }
+
+        public function updateEmail(PDO $db, string $new_email){
+            $stmt = $db->prepare('
+                UPDATE USER
+                SET EMAIL = ?
+                WHERE ID = ?
+            ');
+            $stmt->execute(array($new_email, $this->id));
+        }
+
+        public function updatePassword(PDO $db, string $new_password){
+            $stmt = $db->prepare('
+                UPDATE USER
+                SET PASSWORD = ?
+                WHERE ID = ?
+            ');
+            $hashedPassword = password_hash($new_password, PASSWORD_DEFAULT);
+            $stmt->execute(array($hashedPassword, $this->id));
+        }
+
+        public function verifyPassword(PDO $db, string $old_password){
+            $stmt = $db->prepare('
+              SELECT PASSWORD
+              FROM USER 
+              WHERE ID = ?
+            ');
+      
+            $stmt->execute(array($this->id));
+
+            $user = $stmt->fetch();
+            $hashedPassword = $user['PASSWORD'];
+            if(password_verify($old_password, $hashedPassword)){
+                return true;
+            } else return false;
         }
     }
 ?>
