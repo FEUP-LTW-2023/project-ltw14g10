@@ -1,0 +1,39 @@
+.profile-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 4em;
+    margin-top: 20px;  
+}
+
+.profile-info #name {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.profile-info #username {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+#change-profile {
+    text-align: center;
+}
+
+#change-profile a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#change-profile a:hover {
+    background-color: #45a049;
+}

@@ -15,5 +15,6 @@
 
   setHeaderChangeProfile();
   drawHeader($session);
+  drawEditProfileForm($user);
   drawFooter();
 ?>
