@@ -56,3 +56,31 @@
 
   </html>
 <?php } ?>
+
+<?php function drawHeaderOptions()
+  { ?>
+  <div id="signup">
+        <a href="../pages/contact.php" id="contact">Contact us</a>
+        <a href="../pages/about.php" id="about">About</a>
+        <a href="../pages/faq.php" id="faq">FAQ</a>
+    </div>
+    
+  <?php } ?>
+ 
+<?php function drawLoginHeader($session)
+{ ?>
+  <div id="signup">
+    <a href="../pages/login.php" id="login">Login</a>
+    <a href="../pages/register.php" id="register">Register</a>
+  </div>
+<?php } ?>
+
+<?php function drawLogoutHeader(Session $session)
+{ ?>
+  <form action="../actions/action_logout.php" method="post" class="logout">
+    <a href="../pages/profile.php">
+      <?= $session->getName() ?>
+    </a>
+    <button type="submit">Logout</button>
+  </form>
+<?php } ?>
