@@ -27,6 +27,7 @@
     $user = User::registerUser($db, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['name']);
     $session->setId($user->id);
     $session->setName($user->name);
+    Client::addClient($db,$user->id);
     $session->addMessage('success', 'Registration successful!');
     header('Location: /../pages/main-page.php');
   }
