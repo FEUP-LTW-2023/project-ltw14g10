@@ -28,8 +28,8 @@ function drawBody()
 ?> 
   <div class="container"> 
     <div class="title"> 
-      <h2>Contact Us</h2> 
-      <p>Leave us a message, we will act ASAP!</p> 
+      <h2>Submit your ticket</h2> 
+      <p>Your problem about to be solved soon, we'll be working on it!</p> 
     </div>
     <div class="column"> 
     <form action="/action_page.php"> 
