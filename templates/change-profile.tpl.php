@@ -19,3 +19,42 @@
 </head>
 
 <?php } ?>
+
+<?php function drawEditProfileForm(User $user){ ?>
+  <div id="title">
+    Edit Profile
+  </div>
+  <form action="../actions/action_edit_profile.php" method="post" enctype="multipart/form-data" class="center-form">
+    <div class="flex">
+      <div class="input-box general-section">
+        <div class="sub-title">General</div>
+        <div class="form-wrapper">
+          <div class="prefix">Username:</div>
+          <input type="text" name="update_username" value="<?php echo $user->username; ?>" class="box">
+        </div>
+        <div class="form-wrapper">
+          <div class="prefix">Email:</div>
+          <input type="email" name="update_email" value="<?php echo $user->email; ?>" class="box">
+        </div>
+        <div class="form-wrapper">
+          <div class="prefix">Name:</div>
+          <input type="text" name="update_name" value="<?php echo $user->name; ?>" class="box">
+        </div>
+      </div>
+      <div class="input-box password-section">
+        <div class="sub-title">Password</div>
+          <div class="form-wrapper">
+            <input type="password" name="old_password" placeholder="Enter Previous Password" class="box">
+          </div>
+          <div class="form-wrapper">
+            <input type="password" name="new_password" placeholder="Enter New Password" class="box">
+          </div>
+          <div class="form-wrapper">
+            <input type="password" name="confirm_password" placeholder="Confirm New Password" class="box">
+          </div>
+      </div>
+    </div>
+    <input type="submit" value="Update Profile" name="update_profile" class="btn">
+    <a href="home.php" class="delete-btn">go back</a>
+  </form>
+<?php } ?>

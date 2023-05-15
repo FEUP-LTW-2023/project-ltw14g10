@@ -21,19 +21,18 @@
 <?php } ?>
 
 <?php function drawProfile(User $user) { ?>
-  <h1>Profile</h1>
+  <div class="title">Profile</div>
   <body>
     <div class = "profile-info">
-      <div class="info">
+      <div id="name">
         <?php echo $user->name; ?>
       </div>
-      <div class="info">
+      <div id="username">
         @<?php echo $user->username; ?>
       </div>
     </div>
     <div id="change-profile">
       <a href="../pages/change-profile.php">Change profile</a>
     </div>
-
   </body>
 <?php } ?>
