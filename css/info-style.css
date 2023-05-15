@@ -1,15 +1,19 @@
-.about {
+section {
     max-width: 60%;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
     text-align: justify;
     padding-bottom: 3em;
   }
+  .contact{
+    max-width: 40%;
+  }
   
-  .about h2 {
+  h2 {
     padding-top: 1em;
     font-size: 36px;
     margin-bottom: 20px;
@@ -17,6 +21,15 @@
     text-align: center;
   }
   
-  .about p {
+  p {
     margin-bottom: 10px;
+  }
+
+  a{
+    color:#333;
+    text-decoration: underline;
+  }
+
+  a:hover{
+    color: lightskyblue;
   }

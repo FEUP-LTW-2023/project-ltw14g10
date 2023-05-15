@@ -5,6 +5,7 @@
     font-size: 16px;
     line-height: 1.5;
     color: #333;
+    padding-bottom: 5em;
   }
 
   a{
@@ -34,7 +35,6 @@
     display: inline-block;
     padding: 10px 20px;
     margin: 0 5px;
-    background-color: #1e90ff;
     color: #fff;
     border-radius: 5px;
     text-decoration: none;
@@ -47,9 +47,12 @@
     color: #fff;
     text-decoration: none;
   }
+  
+  #login {
+    background-color: #1e90ff;
+  }
 
-  #login:hover,
-  #register:hover {
+  #login:hover{
     background-color: #0066cc;
   }
   
@@ -60,6 +63,8 @@
   #register:hover {
     background-color: #ff0066;
   }
+
+ 
 
   header {
     background-color: #333;
