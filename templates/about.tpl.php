@@ -15,7 +15,7 @@ require_once(__DIR__ . '/../utils/session.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About help.eic</title>
     <link href="../css/common-style.css" rel="stylesheet">
-    <link href="../css/about-style.css" rel="stylesheet">
+    <link href="../css/info-style.css" rel="stylesheet">
     <script src="../javascript/animation.js" defer></script>
   </head>
 
