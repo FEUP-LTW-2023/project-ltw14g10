@@ -85,20 +85,3 @@
     
   <?php } ?>
  
-<?php function drawLoginHeader($session)
-{ ?>
-  <div id="signup">
-    <a href="../pages/login.php" id="login">Login</a>
-    <a href="../pages/register.php" id="register">Register</a>
-  </div>
-<?php } ?>
-
-<?php function drawLogoutHeader(Session $session)
-{ ?>
-  <form action="../actions/action_logout.php" method="post" class="logout">
-    <a href="../pages/profile.php">
-      <?= $session->getName() ?>
-    </a>
-    <button type="submit">Logout</button>
-  </form>
-<?php } ?>
