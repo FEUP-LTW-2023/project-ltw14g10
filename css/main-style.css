@@ -26,9 +26,27 @@
     padding-right: 20%;
     border-radius: clamp(0.4rem, 0.75vw, 1rem);
     text-align: center;
-    padding-bottom: 3em;
+    padding-bottom: 1.5em;
   }
 
- 
- 
 
+  #ticket {
+    background-color: #04AA6D;
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: 75px;
+    font-size: 24px;
+    font-family: 'Space Mono', monospace;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    text-align: center;
+    line-height: 75px;
+  }
+  
+  #ticket:hover {
+    background-color: #45a049;
+  }
+  

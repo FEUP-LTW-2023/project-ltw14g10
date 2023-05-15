@@ -4,7 +4,7 @@ declare(strict_types=1);
 require_once(__DIR__ . '/../utils/session.php');
 ?>
 
-<?php function setHeaderMain(Session $session)
+<?php function setHeader(Session $session)
 { ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -32,6 +32,7 @@ require_once(__DIR__ . '/../utils/session.php');
        we are here to support you. Our team of dedicated alumni is well-equipped to handle a diverse range 
        of academic challenges and provide you with tailored solutions. Simply submit a ticket, 
        and we'll take it from there. At help.eic, we strive to make your academic success a reality!</p>
+    <a href="../pages/ticket-submit.php" id="ticket">Submit a ticket</a>
 
 
   <?php } ?>
