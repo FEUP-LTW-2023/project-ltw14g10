@@ -11,15 +11,15 @@
 
   $user = User::getUser($db, $session->getId());
 
-  if (!User::usernameExists($db, $_POST['update_username']) && $user->name != $_POST['update_username']) {
+  if (!User::usernameExists($db, $_POST['update_username']) && $user->username != $_POST['update_username']) {
     $user->updateUsername($db,$_POST['update_username']);
   } 
   if (!User::emailExists($db, $_POST['update_email']) && $user->email != $_POST['update_email']){
     $user->updateEmail($db, $_POST['update_email']);
   }
-  if ($user->email != $_POST['update_name']){
+  if ($user->name != $_POST['update_name']){
     $user->updateName($db, $_POST['update_name']);
-    $session->setName($user->name);
+    $session->setName($_POST['update_name']);
   }
   if ($user->verifyPassword($db, $_POST['old_password']) && $_POST['new_password'] == $_POST['confirm_password']){
     $user->updatePassword($db, $_POST['new_password']);
