@@ -55,6 +55,5 @@
       </div>
     </div>
     <input type="submit" value="Update Profile" name="update_profile" class="btn">
-    <a href="home.php" class="delete-btn">go back</a>
   </form>
 <?php } ?>
