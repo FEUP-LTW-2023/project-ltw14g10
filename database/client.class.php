@@ -9,5 +9,17 @@
             $this->user = $user;
         }
 
+        static function addClient(PDO $db, int $id) {
+            $stmt = $db->prepare('
+              INSERT INTO CLIENT (USER_ID)
+              VALUES (?)
+            ');
+        
+            if ($stmt->execute(array($id))) {
+                return new Client($id);
+            } else {
+                return null;
+            }
+        }
     }
 ?>

@@ -55,9 +55,9 @@
 
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
       
-            $stmt->execute(array($username, $hashedPassword, $email, $name));
+            $executed = $stmt->execute(array($username, $hashedPassword, $email, $name));
         
-            if ($stmt->rowCount() > 0) {
+            if ($executed) {
                 $userId = (int) $db->lastInsertId();
         
                 return new User($userId, $username, $password, $email, $name);

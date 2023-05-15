@@ -14,11 +14,11 @@
     header('Location: ' . $_SERVER['HTTP_REFERER']);
   }
   else {
-    $customer = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
+    $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
 
-    if ($customer) {
-      $session->setId($customer->id);
-      $session->setName($customer->name);
+    if ($user) {
+      $session->setId($user->id);
+      $session->setName($user->name);
       $session->addMessage('success', 'Login successful!');
       header('Location: /../pages/main-page.php');
     } else {
