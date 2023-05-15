@@ -11,7 +11,7 @@
         public function __construct(int $id, string $username, string $password, string $email, string $name)
         {
             $this->id = $id;
-            $this->username = $password;
+            $this->username = $username;
             $this->password = $password;
             $this->email = $email;
             $this->name = $name;
@@ -85,11 +85,31 @@
                 return new User(
                     (int) $user['ID'],
                     $user['USERNAME'],
-                    $password,
+                    $user['PASSWORD'],
                     $user['EMAIL'],
                     $user['NAME']
                 );
             } else return null;
+        }
+
+        static function getUser(PDO $db, int $id) : User {
+            $stmt = $db->prepare('
+              SELECT ID, USERNAME, PASSWORD, EMAIL, NAME
+              FROM USER 
+              WHERE ID = ?
+            ');
+      
+            $stmt->execute(array($id));
+
+            $user = $stmt->fetch();
+            return new User(
+                (int) $user['ID'],
+                $user['USERNAME'],
+                $user['PASSWORD'],
+                $user['EMAIL'],
+                $user['NAME']
+            );
+            
         }
     }
 ?>

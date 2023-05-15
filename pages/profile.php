@@ -11,7 +11,10 @@
 
   $db = getDatabaseConnection();
 
+  $user = User::getUser($db, $session->getId());
+
   setHeaderProfile();
   drawHeader($session);
+  drawProfile($user);
   drawFooter();
 ?>
