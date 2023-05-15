@@ -37,4 +37,13 @@ require_once(__DIR__ . '/../utils/session.php');
 
   <?php } ?>
 
- 
+
+  <?php function drawHeaderOptions()
+  { ?>
+  <div id="signup">
+        <a href="../pages/contact.php" id="contact">Contact us</a>
+        <a href="../pages/about.php" id="about">About</a>
+        <a href="../pages/faq.php" id="faq">FAQ</a>
+    </div>
+    
+  <?php } ?>
