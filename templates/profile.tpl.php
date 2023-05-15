@@ -20,7 +20,7 @@
 
 <?php } ?>
 
-<?php function drawProfile(User $user) { ?>
+<?php function drawProfileBody(User $user) { ?>
   <div class="title">Profile</div>
   <body>
     <div class = "profile-info">
@@ -35,4 +35,15 @@
       <a href="../pages/change-profile.php">Change profile</a>
     </div>
   </body>
+<?php } ?>
+
+<?php function drawSwitchMode() { ?>
+  <div class="flex-switch">
+    <div id="client">Client</div>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+    <div id="agent">Agent</div>
+  </div>
 <?php } ?>
