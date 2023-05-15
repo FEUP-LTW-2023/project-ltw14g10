@@ -1,0 +1,118 @@
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  
+
+  h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+  }
+  
+  #signup {
+    display: flex;
+  }
+  
+  #login,
+  #register {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: #1e90ff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+
+  #faq, #about, #contact{
+    padding: 10px 20px;
+    margin: 0 5px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  #login:hover,
+  #register:hover {
+    background-color: #0066cc;
+  }
+  
+  #register {
+    background-color: #ff1493;
+  }
+  
+  #register:hover {
+    background-color: #ff0066;
+  }
+
+  header {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+  }
+  
+  .logo {
+    font-size: 2.25em;
+  }
+  
+  header a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  header a:hover{
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #686666;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+  }
+  
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-left {
+    text-align: left;
+  }
