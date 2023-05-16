@@ -36,14 +36,3 @@
     </div>
   </body>
 <?php } ?>
-
-<?php function drawSwitchMode() { ?>
-  <div class="flex-switch">
-    <div id="client">Client</div>
-    <label class="switch">
-      <input type="checkbox" checked>
-      <span class="slider round"></span>
-    </label>
-    <div id="agent">Agent</div>
-  </div>
-<?php } ?>

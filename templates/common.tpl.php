@@ -49,6 +49,7 @@
 <?php function drawLogoutHeader(Session $session)
 { ?>
   <div class="right-header">
+    <?php drawAdminIcon(); ?>
     <?php drawMyTicketButton(); ?>
     <form action="../actions/action_logout.php" method="post" class="logout">
       <a href="../pages/profile.php">
@@ -88,7 +89,13 @@
   <?php } ?>
 
 <?php function drawMyTicketButton() {?>
-    <a class="my-tickets-btn">
+    <a class="my-tickets-btn" href="../pages/my-tickets.php">
       My Tickets
     </a>
+<?php } ?>
+
+<?php function drawAdminIcon() { ?>
+  <a href="../pages/admin-page.php" id="shield">
+    <img src="../assests/shield_icon.png" alt="Admin Options" width="512" height="512" class="icon-shield">
+  </a>
 <?php } ?>

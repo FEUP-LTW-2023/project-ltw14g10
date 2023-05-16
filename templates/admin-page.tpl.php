@@ -5,7 +5,7 @@
   require_once(__DIR__ . '/../database/user.class.php');
 ?>
 
-<?php function setHeaderMyTickets() { ?>
+<?php function setHeaderAdminPage() { ?>
     <!DOCTYPE html>
 <html lang="en">
 
@@ -14,19 +14,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>help.eic Profile</title>
-    <link rel="stylesheet" href="../css/my-tickets-style.css" />
+    <link rel="stylesheet" href="../css/admin-page-style.css" />
     <link rel="stylesheet" href="../css/common-style.css"/>
 </head>
 
-<?php } ?>
-
-<?php function drawSwitchMode() { ?>
-  <div class="flex-switch">
-    <div id="client">Client</div>
-    <label class="switch">
-      <input type="checkbox" checked>
-      <span class="slider round"></span>
-    </label>
-    <div id="agent">Agent</div>
-  </div>
 <?php } ?>
