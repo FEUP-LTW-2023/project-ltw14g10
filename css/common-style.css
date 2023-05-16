@@ -1,111 +1,149 @@
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
-    padding-bottom: 5em;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  padding-bottom: 5em;
+}
 
-  a{
-    color: white;
-    text-decoration: none;
-  }
-  
+a{
+  color: white;
+  text-decoration: none;
+}
 
-  h1 {
-    margin: 0;
-    font-size: 36px;
-    font-weight: bold;
-  }
-  
-  h2 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: normal;
-  }
-  
-  #signup {
-    display: flex;
-  }
-  
-  #login,
-  #register {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 0 5px;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.2s;
-  }
 
-  #faq, #about, #contact{
-    padding: 10px 20px;
-    margin: 0 5px;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  #login {
-    background-color: #1e90ff;
-  }
+h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: bold;
+}
 
-  #login:hover{
-    background-color: #0066cc;
-  }
-  
-  #register {
-    background-color: #ff1493;
-  }
-  
-  #register:hover {
-    background-color: #ff0066;
-  }
+h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
 
- 
+#signup {
+  display: flex;
+}
 
-  header {
-    background-color: #333;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-size: 2.25em;
-  }
-  
-  header a {
-    color: #fff;
-    text-decoration: none;
-  }
+#login,
+#register {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 5px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
 
-  header a:hover{
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #686666;
-    color: #fff;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: sans-serif;
-  }
-  
-  .footer-right {
-    text-align: right;
-  }
+#faq, #about, #contact{
+  padding: 10px 20px;
+  margin: 0 5px;
+  color: #fff;
+  text-decoration: none;
+}
 
-  .footer-left {
-    text-align: left;
-  }
+#login {
+  background-color: #1e90ff;
+}
+
+#login:hover{
+  background-color: #0066cc;
+}
+
+#register {
+  background-color: #ff1493;
+}
+
+#register:hover {
+  background-color: #ff0066;
+}
+
+
+
+.main-header {
+  background-color: #333;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.center-header {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.right-header {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header a:hover{
+  text-decoration: none;
+  color: #fff;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #686666;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.my-tickets-btn {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background-size: 120% auto;
+  background-image: linear-gradient(315deg, #7b4397 0%, #dc2430 75%);
+  text-align: center;
+}
+.my-tickets-btn:hover {
+  background-position: right center;
+}
+.my-tickets-btn:active {
+  top: 2px;
+}

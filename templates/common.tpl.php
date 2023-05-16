@@ -8,8 +8,10 @@
 { ?>
   <body>
 
-    <header>
-      <h1><a href="../index.php">help.eic</a></h1>
+    <header class="main-header">
+      <h1>
+        <a href="../index.php">help.eic</a>
+      </h1>
 
       <?php
       $current_page = basename($_SERVER['PHP_SELF']);
@@ -38,7 +40,7 @@
     <main>
 <?php } ?>
 
-<?php function drawLoginHeader($session)
+<?php function drawLoginHeader()
 { ?>
   <div id="signup">
     <a href="../pages/login.php" id="login">Login</a>
@@ -48,12 +50,15 @@
 
 <?php function drawLogoutHeader(Session $session)
 { ?>
-  <form action="../actions/action_logout.php" method="post" class="logout">
-    <a href="../pages/profile.php">
-      <?= $session->getName() ?>
-    </a>
-    <button type="submit">Logout</button>
-  </form>
+  <div class="right-header">
+    <?php drawMyTicketButton(); ?>
+    <form action="../actions/action_logout.php" method="post" class="logout">
+      <a href="../pages/profile.php">
+       <?= $session->getName() ?>
+      </a>
+     <button type="submit">Logout</button>
+   </form>
+  </div>
 <?php } ?>
 
 <?php function drawFooter()
@@ -77,11 +82,15 @@
 
 <?php function drawHeaderOptions()
   { ?>
-  <div id="signup">
+  <div class="center-header">
         <a href="../pages/contact.php" id="contact">Contact us</a>
         <a href="../pages/about.php" id="about">About</a>
         <a href="../pages/faq.php" id="faq">FAQ</a>
     </div>
-    
   <?php } ?>
- 
+
+<?php function drawMyTicketButton() {?>
+    <a class="my-tickets-btn">
+      My Tickets
+    </a>
+<?php } ?>
