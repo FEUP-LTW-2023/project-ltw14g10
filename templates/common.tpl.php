@@ -91,7 +91,7 @@
   <?php } ?>
 
 <?php function drawMyTicketButton() {?>
-    <a class="my-tickets-btn">
+    <a class="my-tickets-btn" href="../pages/my-tickets.php">
       My Tickets
     </a>
 <?php } ?>
