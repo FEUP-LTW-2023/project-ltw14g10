@@ -33,3 +33,60 @@ section {
   a:hover{
     color: lightskyblue;
   }
+
+
+ /* ----------------------------- */ 
+
+
+.faq-heading{
+  border-bottom: #333;;
+  
+}
+.faq-container{
+display: flex;
+justify-content: center;
+flex-direction: column;
+max-width: 90%;
+}
+.hr-line{
+width: 100%;
+margin: auto;
+
+}
+/* Style the buttons that are used to open and close the faq-page body */
+.faq-page {
+  background-color: #fff;
+  color: #444;
+  cursor: pointer;
+  padding: 30px 20px;
+  width: 100%;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  margin: auto;
+}
+.faq-body{
+  margin: auto;
+  /* text-align: center; */
+ width: 100%; 
+ padding: auto;
+ 
+}
+
+.faq-body {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+.faq-page:after {
+  content: '\02795';
+  /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+.active:after {
+  content: "\2796";
+  /* Unicode character for "minus" sign (-) */
+}
