@@ -15,6 +15,7 @@
 
   setHeaderProfile();
   drawHeader($session);
-  drawProfile($user);
+  drawSwitchMode();
+  drawProfileBody($user);
   drawFooter();
 ?>
