@@ -10,7 +10,7 @@
 
     <header class="main-header">
       <h1>
-        <a href="../index.php">help.eic</a>
+        <a href="../index.php" class="left-header">help.eic</a>
       </h1>
 
       <?php
@@ -40,7 +40,7 @@
 
 <?php function drawLoginHeader()
 { ?>
-  <div id="signup">
+  <div class="right-header">
     <a href="../pages/login.php" id="login">Login</a>
     <a href="../pages/register.php" id="register">Register</a>
   </div>

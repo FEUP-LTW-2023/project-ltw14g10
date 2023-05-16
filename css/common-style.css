@@ -26,10 +26,6 @@ h2 {
   font-weight: normal;
 }
 
-#signup {
-  display: flex;
-}
-
 #login,
 #register {
   display: inline-block;
@@ -82,6 +78,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .right-header {
@@ -91,6 +88,16 @@ h2 {
   grid-row-end: 2;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.left-header {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
 
