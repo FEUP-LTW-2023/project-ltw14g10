@@ -13,5 +13,6 @@
 
   setHeader($session);
   drawHeader($session);
+  drawBody();
   drawFooter();
 ?>
