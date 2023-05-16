@@ -97,5 +97,7 @@
 <?php } ?>
 
 <?php function drawAdminIcon() { ?>
-  <img src="../assests/shield_icon.png" alt="Admin Options" width="512" height="512" class="icon-shield">
+  <a href="../pages/admin-page.php" id="shield">
+    <img src="../assests/shield_icon.png" alt="Admin Options" width="512" height="512" class="icon-shield">
+  </a>
 <?php } ?>
