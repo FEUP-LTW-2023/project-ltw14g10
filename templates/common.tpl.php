@@ -13,12 +13,10 @@
 
       <?php
       $current_page = basename($_SERVER['PHP_SELF']);
-      if ($current_page == "main-page.php") {
-        drawHeaderOptions();
-      }?>
-
-      <?php
       if($current_page != "login.php" && $current_page != "register.php"){
+
+        drawHeaderOptions();
+
         if ($session->isLoggedIn())
           drawLogoutHeader($session);
         else

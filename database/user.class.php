@@ -8,6 +8,8 @@
         public string $email;
         public string $name;
 
+       
+
         public function __construct(int $id, string $username, string $password, string $email, string $name)
         {
             $this->id = $id;
