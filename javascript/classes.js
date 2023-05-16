@@ -1,59 +1,67 @@
 function updateClasses() {
-  // Get the selected year value
-  var selectedYear = document.getElementById("Year").value;
+  const yearSelect = document.getElementById('Year');
+  const classContainer = document.getElementById('classContainer');
 
-  // Define the class options for each year
-  var classOptions = {
-    "1": [
-      "L.EIC001 - ALGA",
-      "L.EIC002 - AM I",
-      "L.EIC003 - FSC",
-      "L.EIC004 - MD",
-      "L.EIC005 - FP",
-      "L.EIC006 - AC",
-      "L.EIC007 - AM II",
-      "L.EIC008 - F I",
-      "L.EIC009 - P",
-      "L.EIC010 - TC"
-    ],
-    "2": [
-      "L.EIC011 - AED",
-      "L.EIC012 - BD",
-      "L.EIC013 - F II",
-      "L.EIC014 - LDTS",
-      "L.EIC015 - SO",
-      "L.EIC016 - DA",
-      "L.EIC017 - ES",
-      "L.EIC018 - LC",
-      "L.EIC019 - LTW",
-      "L.EIC020 - ME"
-    ],
-    "3": [
-      "L.EIC021 - FSI",
-      "L.EIC022 - IPC",
-      "L.EIC023 - LBAW",
-      "L.EIC024 - PFL",
-      "L.EIC025 - RC",
-      "L.EIC026 - C",
-      "L.EIC027 - CG",
-      "L.EIC028 - CPD",
-      "L.EIC029 - IA",
-      "L.EIC030 - PI"
-    ]
-  };
+  // Clear the class options
+  classContainer.innerHTML = '';
 
-  // Get the class container div
-  var classContainer = document.getElementById("classContainer");
+  // Retrieve the selected year
+  const selectedYear = yearSelect.value;
 
-  // Generate the HTML for the class options based on the selected year
-  var classOptionsHTML = "<select id='Class' name='class'>";
-  var classes = classOptions[selectedYear];
-  for (var i = 0; i < classes.length; i++) {
-    classOptionsHTML += ("<option>" + classes[i] + "</option>");
+  // If no year is selected, return
+  if (!selectedYear) {
+    return;
   }
-  classOptionsHTML += "<option>Other</option>";
-  classOptionsHTML += "</select>";
 
-  // Update the class container with the generated class options
-  classContainer.innerHTML = classOptionsHTML;
+  // Fetch the classes for the selected year
+  fetchClasses(selectedYear)
+    .then((classes) => {
+      // Create the class select element
+      const classSelect = document.createElement('select');
+      classSelect.id = 'Class';
+      classSelect.name = 'class';
+
+      // Create the default option
+      const defaultOption = document.createElement('option');
+      defaultOption.value = '';
+      defaultOption.disabled = true;
+      defaultOption.selected = true;
+      defaultOption.textContent = 'Select class';
+
+      classSelect.appendChild(defaultOption);
+
+      // Create an option for each class
+      classes.forEach((classItem) => {
+        const option = document.createElement('option');
+        option.value = classItem.id;
+        option.textContent = classItem.name;
+        classSelect.appendChild(option);
+      });
+
+      // Append the class select element to the container
+      classContainer.appendChild(classSelect);
+    })
+    .catch((error) => {
+      console.log('Error:', error);
+    });
+}
+
+function fetchClasses(year) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `/api/classes?year=${year}`);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        resolve(response.classes);
+      } else {
+        reject(xhr.statusText);
+      }
+    };
+    xhr.onerror = function () {
+      reject('Network error');
+    };
+    xhr.send();
+  });
 }

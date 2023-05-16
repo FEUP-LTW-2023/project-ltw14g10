@@ -23,17 +23,16 @@ require_once(__DIR__ . '/../utils/session.php');
 <?php } ?>
 
 <?php
-function drawBody()
+function drawBody($classes)
 {
-  ?>
-  <div class="container">
+?>
+   <div class="container">
     <div class="title">
       <h2>Submit your ticket</h2>
-      <p>Your problem about to be solved soon, we'll be working on it!</p>
+      <p>Your problem is about to be solved soon, we'll be working on it!</p>
     </div>
     <div class="column">
       <form action="/action_page.php">
-
         <select id="Year" name="year" onchange="updateClasses()">
           <option value="" disabled selected>Select year</option>
           <option value="1">1st year</option>
@@ -41,18 +40,23 @@ function drawBody()
           <option value="3">3rd year</option>
         </select>
 
-
-        <div id="classContainer"></div>
-
+        <div id="classContainer">
+          <?php if (!empty($classes)) : ?>
+            <label for="Class">Select class</label>
+            <select id="Class" name="class">
+              <?php foreach ($classes as $class) : ?>
+                <option value="<?= $class['id'] ?>"><?= $class['name'] ?></option>
+              <?php endforeach; ?>
+            </select>
+          <?php endif; ?>
+        </div>
 
         <label for="subject">Subject</label>
         <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
         <input type="submit" value="Submit">
-
       </form>
-
     </div>
   </div>
-  <?php
+<?php
 }
 ?>
