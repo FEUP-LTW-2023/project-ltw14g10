@@ -33,6 +33,7 @@
     </div>
     <div id="change-profile">
       <a href="../pages/change-profile.php">Change profile</a>
+      
     </div>
   </body>
 <?php } ?>

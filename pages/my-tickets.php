@@ -16,5 +16,10 @@
   setHeaderMyTickets();
   drawHeader($session);
   drawSwitchMode();
+  drawTitle();
+  drawMockTicketOpen();
+  drawMockTicketClosed();
+  drawMockTicketOpen();
+  drawMockTicketClosed();
   drawFooter();
 ?>
