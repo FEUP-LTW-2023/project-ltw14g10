@@ -51,9 +51,9 @@ require_once(__DIR__ . '/../database/user.class.php');
     </div> <!-- end item-right -->
     
     <div class="item-left">
+      <a href="another-page.html" class="plus-sign">&#43;</a>
       <p class="event">Ticket #1</p>
       <h2 class="title">VSCODE</h2>
-      
       <div class="sce">
         <div class="icon">
           <i class="fa fa-table"></i>
@@ -87,6 +87,7 @@ require_once(__DIR__ . '/../database/user.class.php');
     </div> <!-- end item-right -->
     
     <div class="item-left">
+      <a href="             " class="plus-sign">&#43;</a>
       <p class="event">Ticket #1</p>
       <h2 class="title">VSCODE</h2>
       
