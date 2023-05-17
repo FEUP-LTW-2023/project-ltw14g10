@@ -51,12 +51,7 @@
   <div class="right-header">
     <?php drawAdminIcon(); ?>
     <?php drawMyTicketButton(); ?>
-    <form action="../actions/action_logout.php" method="post" class="logout">
-      <a href="../pages/profile.php">
-       <?= $session->getName() ?>
-      </a>
-     <button type="submit">Logout</button>
-   </form>
+    <?php drawProfileIcon(); ?>
   </div>
 <?php } ?>
 
@@ -97,5 +92,11 @@
 <?php function drawAdminIcon() { ?>
   <a href="../pages/admin-page.php" id="shield">
     <img src="../assests/shield_icon.png" alt="Admin Options" width="512" height="512" class="icon-shield">
+  </a>
+<?php } ?>
+
+<?php function drawProfileIcon() { ?>
+  <a href="../pages/profile.php" id="profile">
+    <img src="../assests/user_icon_blue.png" alt="Admin Options" width="382" height="382" class="icon-user">
   </a>
 <?php } ?>

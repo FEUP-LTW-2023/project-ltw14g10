@@ -33,7 +33,9 @@
     </div>
     <div id="change-profile">
       <a href="../pages/change-profile.php">Change profile</a>
-      
     </div>
+    <form action="../actions/action_logout.php" method="post" class="logout">
+     <button type="submit">Logout</button>
+   </form>
   </body>
 <?php } ?>
