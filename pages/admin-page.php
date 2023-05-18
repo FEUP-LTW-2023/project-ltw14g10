@@ -12,8 +12,12 @@
   $db = getDatabaseConnection();
 
   $user = User::getUser($db, $session->getId());
+  $users = User::getAllUsers($db);
+  $statuss = Status::getAllStatus($db);
 
   setHeaderAdminPage();
   drawHeader($session);
+  listAllUsers($users, $db);
+  listAllStatus($statuss);
   drawFooter();
 ?>

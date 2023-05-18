@@ -165,5 +165,25 @@
                 return true;
             } else return false;
         }
+
+        static function getAllUsers(PDO $db) : array {
+            $stmt = $db->prepare('
+              SELECT ID, USERNAME, PASSWORD, EMAIL, NAME
+              FROM USER
+            ');
+            $stmt->execute();
+            $usersQuery = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $users = array();
+            foreach($usersQuery as $user){
+                $users[] = new User(
+                    (int) $user['ID'],
+                    $user['USERNAME'],
+                    $user['PASSWORD'],
+                    $user['EMAIL'],
+                    $user['NAME']
+                );
+            }
+            return $users;
+        }
     }
 ?>
