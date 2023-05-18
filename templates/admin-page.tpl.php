@@ -5,6 +5,7 @@
   require_once(__DIR__ . '/../database/user.class.php');
   require_once(__DIR__ . '/../database/admin.class.php');
   require_once(__DIR__ . '/../database/agent.class.php');
+  require_once(__DIR__ . '/../database/status.class.php');
 ?>
 
 <?php function setHeaderAdminPage() { ?>
@@ -61,6 +62,25 @@
             <option value="admin" <?php echo ($mode == 0) ? 'selected' : ''; ?>>Admin</option>
           </select>
         </div>
+    </div>
+  <?php } ?>
+  </div>
+<?php } ?>
+
+<?php function listAllStatus(array $statuss){ ?>
+  <div class="status-container">
+  <?php 
+      if($statuss == array()){
+        echo '<p> No Status Available </p>';
+      }
+      foreach($statuss as $status){ ?>
+    <div class="status" id="status-<?php echo $status->id; ?>">
+      <div class="status-text">
+        <?php echo $status->status_text; ?>
+      </div>
+      <button onclick="deleteStatus(<?php echo $status->id; ?>)">
+        X
+      </button>
     </div>
   <?php } ?>
   </div>
