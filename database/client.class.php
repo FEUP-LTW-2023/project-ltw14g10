@@ -22,21 +22,6 @@
             }
         }
 
-        static function isClient(PDO $db, int $id): bool {
-            $stmt = $db->prepare('
-              SELECT USER_ID
-              FROM CLIENT
-              WHERE USER_ID = ?
-            ');
-        
-            $stmt->execute(array($id));
-
-            if($stmt->fetch()) {
-                return true;
-            }
-            return false;
-        }
-
         static function deleteClient(PDO $db, int $id): bool {
             $stmt = $db->prepare('
               DELETE FROM CLIENT

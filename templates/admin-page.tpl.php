@@ -3,6 +3,8 @@
 
   require_once(__DIR__ . '/../utils/session.php');
   require_once(__DIR__ . '/../database/user.class.php');
+  require_once(__DIR__ . '/../database/admin.class.php');
+  require_once(__DIR__ . '/../database/agent.class.php');
 ?>
 
 <?php function setHeaderAdminPage() { ?>
@@ -33,7 +35,7 @@
   </a>
 <?php } ?>
 
-<?php function drawAllUsers(array $users){ ?>
+<?php function drawAllUsers(array $users, PDO $db){ ?>
   <div class="user-container">
   <?php foreach($users as $user){ ?>
     <div class="user">
@@ -46,6 +48,19 @@
       <div class="name">
         <?php echo $user->name; ?>
       </div>
+      <div class="role">
+        <?php 
+          $mode = -1;
+          if(Admin::isAdmin($db,$user->id)) $mode=0;
+          else if(Agent::isAgent($db, $user->id)) $mode=1;
+          else $mode=2;
+        ?>
+          <select class="role-select">
+            <option value="client" <?php echo ($mode == 2) ? 'selected' : ''; ?>>Client</option>
+            <option value="agent" <?php echo ($mode == 1) ? 'selected' : ''; ?>>Agent</option>
+            <option value="admin" <?php echo ($mode == 0) ? 'selected' : ''; ?>>Admin</option>
+          </select>
+        </div>
     </div>
   <?php } ?>
   </div>
