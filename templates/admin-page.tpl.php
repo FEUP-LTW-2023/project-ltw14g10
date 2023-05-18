@@ -35,7 +35,7 @@
   </a>
 <?php } ?>
 
-<?php function drawAllUsers(array $users, PDO $db){ ?>
+<?php function listAllUsers(array $users, PDO $db){ ?>
   <div class="user-container">
   <?php foreach($users as $user){ ?>
     <div class="user">

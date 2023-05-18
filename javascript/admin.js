@@ -20,4 +20,4 @@ function updateUserRole(userId, newRole) {
     };
 
     postData();
-  }
+}

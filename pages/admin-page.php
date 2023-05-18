@@ -16,6 +16,6 @@
 
   setHeaderAdminPage();
   drawHeader($session);
-  drawAllUsers($users, $db);
+  listAllUsers($users, $db);
   drawFooter();
 ?>
