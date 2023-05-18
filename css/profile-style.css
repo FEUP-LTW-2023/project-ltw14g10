@@ -1,29 +1,57 @@
-.profile-info {
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 2em;
     text-align: center;
-    margin-top: 20px;
-}
-
-.title {
-    text-align: center;
-    font-size: 4em;
-    margin-top: 20px;  
-}
-
-.profile-info #name {
+    max-width: 20%;
+  }
+  
+  .title {
     font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.profile-info #username {
+    margin-bottom: 20px;
+  }
+  .subtitle {
     font-size: 1em;
-    margin-bottom: 10px;
-}
-
-#change-profile {
+    margin-bottom: 20px;
     text-align: center;
-}
+  }
+  
+  .profile-info {
+    margin-bottom: 20px;
+  }
+  
+  .name {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .username {
+    font-size: 1em;
+    color: #888;
+    margin-bottom: 10px;
+  }
 
-#change-profile a {
+  .email{
+    font-size: 0.75em;
+    color:#888;
+    margin-bottom: 5em;
+  }
+  
+  .profile-actions {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .change-profile-btn,
+  .logout-form button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #4CAF50;
@@ -32,9 +60,30 @@
     border-radius: 4px;
     font-size: 16px;
     transition: background-color 0.3s ease;
-}
-
-#change-profile a:hover {
+  }
+  
+  .change-profile-btn:hover,
+  .logout-form button:hover {
     background-color: #45a049;
-}
+  }
+  
+  .logout-form {
+    margin-top: 10px;
+  }
+  
+  .logout-form button {
+    background-color: #DF5454;
+    border: none;
+    outline: none;
+  }
 
+  ul.classes {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul.classes li {
+    margin-left: 0;
+    padding-left: 0;
+  }
