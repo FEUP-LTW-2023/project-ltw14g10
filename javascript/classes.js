@@ -1,6 +1,25 @@
-function updateClasses() {
+function getSubjects(year) {
+  const getWithAsyncAwait = async () => {
+    const response = await fetch("/../ajax/ajax_get_classes.php?year=" + year);
+    const jsonResponse = await response.json();
+    console.log(jsonResponse);
+    const subjectContainer = document.querySelector('.subjectContainer');
+    var subjectOptionsHTML = "<select class='subject' name='subject'>";
+    for (const key in jsonResponse) {
+      if (jsonResponse.hasOwnProperty(key)) {
+        const map = jsonResponse[key];
+        subjectOptionsHTML += "<option value=" + map["ID"] + ">" + map["CODE"] + " - " + map["SUBJECT_NAME"] + "</option>";
+      }
+    }
+    subjectOptionsHTML += "<option>Other</option>";
+    subjectOptionsHTML += "</select>";
+    subjectContainer.innerHTML = subjectOptionsHTML;
+  };
+  
+  getWithAsyncAwait();
+  /*
   // Get the selected year value
-  var selectedYear = document.getElementById("Year").value;
+  var selectedYear = document.getElementsByClassName("year").value;
 
   // Define the class options for each year
   var classOptions = {
@@ -43,7 +62,7 @@ function updateClasses() {
   };
 
   // Get the class container div
-  var classContainer = document.getElementById("classContainer");
+  var classContainer = document.getElementsByClassName("classContainer");
 
   // Generate the HTML for the class options based on the selected year
   var classOptionsHTML = "<select id='Class' name='class'>";
@@ -56,4 +75,5 @@ function updateClasses() {
 
   // Update the class container with the generated class options
   classContainer.innerHTML = classOptionsHTML;
+  */
 }

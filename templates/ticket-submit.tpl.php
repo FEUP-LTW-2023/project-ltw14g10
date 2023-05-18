@@ -32,9 +32,9 @@ function drawBody()
       <p>Your problem about to be solved soon, we'll be working on it!</p>
     </div>
     <div class="column">
-      <form action="/action_page.php">
+      <form action="/../actions/action_create_ticket.php" method="post">
 
-        <select id="Year" name="year" onchange="updateClasses()">
+        <select class="year" name="year" onchange="getSubjects(this.value)">
           <option value="" disabled selected>Select year</option>
           <option value="1">1st year</option>
           <option value="2">2nd year</option>
@@ -42,11 +42,12 @@ function drawBody()
         </select>
 
 
-        <div id="classContainer"></div>
+        <div class="subjectContainer"></div>
 
 
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+        <input type="text" name="title" placeholder="Title:"></textarea>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Write something.." style="height:170px"></textarea>
         <input type="submit" value="Submit">
 
       </form>

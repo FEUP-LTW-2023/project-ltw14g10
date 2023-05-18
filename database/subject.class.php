@@ -17,5 +17,18 @@
             $this->year = $year;
         }
 
+        static function getSubjectsByYear(PDO $db, int $year) {
+            $stmt = $db->prepare('
+              SELECT ID, CODE, SUBJECT_NAME, FULL_NAME, YEAR
+              FROM SUBJECT 
+              WHERE YEAR = ?
+            ');
+      
+            $stmt->execute(array($year));
+
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        }
+
     }
 ?>
