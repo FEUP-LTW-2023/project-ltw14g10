@@ -8,8 +8,11 @@
   require_once(__DIR__ . '/../database/ticket.class.php');
 
   $db = getDatabaseConnection();
+  
+  date_default_timezone_set("Europe/Lisbon");
+  $time = date("Y-m-d H:i:s");
 
-  $ticket = Ticket::createTicket($db, $session->getId(), (int) $_POST["subject"], $_POST["title"], $_POST["description"]);
+  $ticket = Ticket::createTicket($db, $session->getId(), (int) $_POST["subject"], $_POST["title"], $_POST["description"], $time);
   if ($ticket){
     $session->addMessage('success', 'Ticket added!');
     header('Location: /../pages/main-page.php');
