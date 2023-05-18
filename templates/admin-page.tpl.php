@@ -55,7 +55,7 @@
           else if(Agent::isAgent($db, $user->id)) $mode=1;
           else $mode=2;
         ?>
-          <select class="role-select">
+          <select class="role-select" onchange="updateUserRole(<?php echo $user->id; ?>, this.value)">
             <option value="client" <?php echo ($mode == 2) ? 'selected' : ''; ?>>Client</option>
             <option value="agent" <?php echo ($mode == 1) ? 'selected' : ''; ?>>Agent</option>
             <option value="admin" <?php echo ($mode == 0) ? 'selected' : ''; ?>>Admin</option>
