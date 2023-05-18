@@ -34,7 +34,7 @@ function drawBody()
     <div class="column">
       <form action="/action_page.php">
 
-        <select id="Year" name="year" onchange="updateClasses()">
+        <select class="year" name="year" onchange="getSubjects(this.value)">
           <option value="" disabled selected>Select year</option>
           <option value="1">1st year</option>
           <option value="2">2nd year</option>
@@ -42,7 +42,7 @@ function drawBody()
         </select>
 
 
-        <div id="classContainer"></div>
+        <div class="subjectContainer"></div>
 
 
         <label for="subject">Subject</label>
