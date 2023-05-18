@@ -4,7 +4,7 @@ function getSubjects(year) {
     const jsonResponse = await response.json();
     console.log(jsonResponse);
     const subjectContainer = document.querySelector('.subjectContainer');
-    var subjectOptionsHTML = "<select class='class' name='class'>";
+    var subjectOptionsHTML = "<select class='subject' name='subject'>";
     for (const key in jsonResponse) {
       if (jsonResponse.hasOwnProperty(key)) {
         const map = jsonResponse[key];
