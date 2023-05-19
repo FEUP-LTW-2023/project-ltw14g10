@@ -95,7 +95,7 @@
       <?php
       $subjects = Subject::getSubjectsByYear($db,$i);
       foreach($subjects as $subject){ ?>
-      <div class="subject">
+      <div class="subject" id="subject-<?php echo $subject->id; ?>">
         <div class="code">
         <?php echo $subject->code; ?>
         </div>
@@ -105,7 +105,7 @@
         <div class="full-name">
           <?php echo $subject->full_name; ?>
         </div>
-        <button onclick="">
+        <button onclick="deleteSubject(<?php echo $subject->id; ?>)">
           X
         </button>
       </div>
@@ -134,7 +134,7 @@
 <?php function drawStatusForm(){ ?>
   <div class="status-form">
     <form action="../actions/action_create_status.php" method="post">
-      <input type="text" name="status_text" placeholder="Status Text" required>
+      <input type="text" name="status-text" placeholder="Status Text" required>
       <input type="submit" value="+">
     </form>
   </div>

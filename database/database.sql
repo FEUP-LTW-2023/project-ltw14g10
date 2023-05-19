@@ -61,8 +61,7 @@ CREATE TABLE TICKET (
 
 CREATE TABLE STATUS (
     ID INTEGER PRIMARY KEY,
-    STATUS_TEXT TEXT NOT NULL,
-    CSS_TEXT TEXT NOT NULL
+    STATUS_TEXT TEXT NOT NULL
 );
 
 CREATE TABLE HASHTAG (
@@ -144,8 +143,8 @@ INSERT INTO USER(ID, USERNAME, [PASSWORD], EMAIL, [NAME]) VALUES
   (1),
   (2);
 
-  INSERT INTO STATUS (ID, STATUS_TEXT, CSS_TEXT) VALUES
-  (1, "Open", "open"),
-  (2, "In Progress", "in_progress"),
-  (3, "Closed", "closed"),
-  (4, "To Be Assigned", "tba");
+  INSERT INTO STATUS (ID, STATUS_TEXT) VALUES
+  (1, "Open"),
+  (2, "In Progress"),
+  (3, "Closed"),
+  (4, "To Be Assigned");

@@ -51,11 +51,11 @@
             $tickets = array();
             foreach($ticketsQuery as $ticket){
                 $tickets[] = new Ticket(
-                    $ticket['ID'],
-                    $ticket['CLIENT_ID'],
-                    $ticket['AGENT_ID'],
-                    $ticket['SUBJECT_ID'],
-                    $ticket['STATUS_ID'],
+                    (int) $ticket['ID'],
+                    (int) $ticket['CLIENT_ID'],
+                    $ticket['AGENT_ID']==null ? null : (int) $ticket['AGENT_ID'],
+                    (int) $ticket['SUBJECT_ID'],
+                    (int) $ticket['STATUS_ID'],
                     $ticket['TITLE'],
                     $ticket['DESCRIPTION'],
                     $ticket['CREATED_AT']

@@ -5,18 +5,15 @@
         public int $id;
         public string $status_text;
 
-        public string $css_text;
-
-        public function __construct(int $id, string $status_text, string $css_text)
+        public function __construct(int $id, string $status_text)
         {
             $this->id = $id;
             $this->status_text = $status_text;
-            $this->css_text = $css_text;
         }
 
         static function getAllStatus(PDO $db) : array {
             $stmt = $db->prepare('
-              SELECT ID, STATUS_TEXT
+              SELECT *
               FROM STATUS
             ');
             $stmt->execute();
@@ -25,8 +22,7 @@
             foreach($statussQuery as $status){
                 $statuss[] = new Status(
                     (int) $status['ID'],
-                    $status['STATUS_TEXT'],
-                    $status['CSS_TEXT']
+                    $status['STATUS_TEXT']
                 );
             }
             return $statuss;
@@ -43,8 +39,7 @@
             if($status){
                 return new Status(
                     (int) $status['ID'],
-                    $status['STATUS_TEXT'],
-                    $status['CSS_TEXT']
+                    $status['STATUS_TEXT']
                 );
             }
             return null;

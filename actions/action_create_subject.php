@@ -9,7 +9,7 @@
 
   $db = getDatabaseConnection();
   
-  $subject = Subject::createSubject($db, $_POST["name"], $_POST["code"], $_POST["subject_name"], $_POST["year"]);
+  $subject = Subject::createSubject($db, $_POST["code"], $_POST["subject_name"], $_POST["full_name"], (int) $_POST["year"]);
   if (!$subject){
     $session->addMessage('error', 'Error adding Ticket. Please Try later...');
   }

@@ -79,5 +79,16 @@
             }
         }
 
+        static function deleteSubject(PDO $db, int $id): bool {
+            $stmt = $db->prepare('
+              DELETE FROM SUBJECT
+              WHERE ID = ?
+            ');
+      
+            if ($stmt->execute(array($id))){
+                return true;
+            }
+            return false;
+        }
     }
 ?>

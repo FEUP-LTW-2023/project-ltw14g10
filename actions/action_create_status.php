@@ -9,8 +9,8 @@
 
   $db = getDatabaseConnection();
 
-  $status = Status::createStatus($db, $_POST["name"]);
-  if (!$ticket){
+  $status = Status::createStatus($db, $_POST["status-text"]);
+  if (!$status){
     $session->addMessage('error', 'Error adding Ticket. Please Try later...');
   }
   header('Location: ' . $_SERVER['HTTP_REFERER']);
