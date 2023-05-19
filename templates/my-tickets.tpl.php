@@ -20,6 +20,7 @@ require_once(__DIR__ . '/../database/status.class.php');
     <title>help.eic Profile</title>
     <link rel="stylesheet" href="../css/my-tickets-style.css" />
     <link rel="stylesheet" href="../css/common-style.css" />
+    <script src="../javascript/my-tickets.js"></script>
   </head>
 
 <?php } ?>
@@ -111,10 +112,12 @@ require_once(__DIR__ . '/../database/status.class.php');
           </p>
         </div>
         <div class="fix"></div>
-        <button class="<?php 
-          $status = Status::getStatus($db,$ticket->status);
-          echo "Open"; ?>"> <!--//TODO: change the status -->
-            <?php echo $status->status_text; ?>
+        <button class="<?php
+          $status = Status::getStatus($db, $ticket->status);
+          $className = strtolower(str_replace(' ', '-', $status->status_text));
+          echo $className;
+        ?>" onloadstart="changeColor(<?php echo $className;?>)"> <!-- TODO: NOT WORKING -->
+          <?php echo $status->status_text; ?>
         </button>
       </div>
     </div>

@@ -176,10 +176,6 @@ input:checked + .slider:before {
       border: none;
       cursor: pointer
   }
-  .container .item .closed {background: #777}
-  .container .item .open {background: #0ca33f}
-  .container .item .to-be-assigned {background: #f44336}
-  .container .item .in-progress {background: #ff9800}
 
   .linethrough {text-decoration: line-through}
 
