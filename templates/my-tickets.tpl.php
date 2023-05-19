@@ -113,7 +113,7 @@ require_once(__DIR__ . '/../database/status.class.php');
         <div class="fix"></div>
         <button class="<?php 
           $status = Status::getStatus($db,$ticket->status);
-          echo $status->css_text; ?>">
+          echo "Open"; ?>"> <!--//TODO: change the status -->
             <?php echo $status->status_text; ?>
         </button>
       </div>
