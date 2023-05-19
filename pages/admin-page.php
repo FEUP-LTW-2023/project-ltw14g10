@@ -20,5 +20,6 @@
   listAllUsers($users, $db);
   listAllStatus($statuss);
   listAllSubjects($db);
+  drawForms();
   drawFooter();
 ?>
