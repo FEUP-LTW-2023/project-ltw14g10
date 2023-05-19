@@ -114,3 +114,35 @@
     <?php } ?>
   </div>
 <?php } ?>
+
+<?php function drawSubjectForm(){ ?>
+  <div class="subject-form">
+    <form action="../actions/action_create_subject.php" method="post">
+      <input type="text" name="code" placeholder="Code" required>
+      <input type="text" name="subject_name" placeholder="Subject Name" required>
+      <input type="text" name="full_name" placeholder="Full Name" required>
+      <select name="year" required>
+        <option value="1">Year 1</option>
+        <option value="2">Year 2</option>
+        <option value="3">Year 3</option>
+      </select>
+      <input type="submit" value="+">
+    </form>
+  </div>
+<?php } ?>
+
+<?php function drawStatusForm(){ ?>
+  <div class="status-form">
+    <form action="../actions/action_create_status.php" method="post">
+      <input type="text" name="status_text" placeholder="Status Text" required>
+      <input type="submit" value="+">
+    </form>
+  </div>
+<?php } ?>
+
+<?php function drawForms(){ ?>
+  <div class="forms">
+    <?php drawSubjectForm(); ?>
+    <?php drawStatusForm(); ?>
+  </div>
+<?php } ?>

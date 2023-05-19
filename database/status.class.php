@@ -62,5 +62,17 @@
             return false;
         }
 
+        static function createStatus(PDO $db, string $status_text): bool {
+            $stmt = $db->prepare('
+              INSERT INTO STATUS (STATUS_TEXT)
+              VALUES (?)
+            ');
+
+            if ($stmt->execute(array($status_text))){
+                return true;
+            }
+            return false;
+        }
+
     }
 ?>

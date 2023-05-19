@@ -45,6 +45,19 @@
             return $subjects;
         }
 
+
+        static function createSubject(PDO $db, string $code, string $subject_name, string $full_name, int $year): bool {
+            $stmt = $db->prepare('
+              INSERT INTO SUBJECT (CODE, SUBJECT_NAME, FULL_NAME, YEAR)
+              VALUES (?, ?, ?, ?)
+            ');
+      
+            if ($stmt->execute(array($code, $subject_name, $full_name, $year))){
+                return true;
+            }
+            return false;
+        }
+
         static function getSubject(PDO $db, int $id) : ?Subject {
             $stmt = $db->prepare('
               SELECT *
