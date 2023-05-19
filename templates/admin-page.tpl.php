@@ -70,18 +70,20 @@
 
 <?php function listAllStatus(array $statuss){ ?>
   <div class="status-container">
-  <?php 
-      if($statuss == array()){
-        echo '<p> No Status Available </p>';
-      }
-      foreach($statuss as $status){ ?>
+  <?php foreach($statuss as $status){ ?>
     <div class="status" id="status-<?php echo $status->id; ?>">
       <div class="status-text">
         <?php echo $status->status_text; ?>
       </div>
+      <?php if($status->id == 1) { ?>
+        <button class="disabled">  
+          X
+        </button>
+      <?php } else { ?>
       <button onclick="deleteStatus(<?php echo $status->id; ?>)">
         X
       </button>
+      <?php } ?>
     </div>
   <?php } ?>
   </div>
