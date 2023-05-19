@@ -12,7 +12,7 @@
 
 .user{
     display:grid;
-    grid-template-columns: 1fr 3fr 2fr 1fr;
+    grid-template-columns: 1fr 5fr 2fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
     background-color: gray;
@@ -80,7 +80,7 @@
     min-width: 9em;
 }
 
-.status button {
+button {
     background-color: red;
     color: white;
     border: none;
@@ -89,9 +89,10 @@
     font-size: 14px;
     cursor: pointer;
     margin-right: 5px;
+    max-width: 25px;
 }
   
-.status button:hover {
+button:hover {
     background-color: darkred;
 }
   
@@ -99,4 +100,63 @@
     margin-left: 5px;
     margin-right: 5px;
     font-weight: bold;
+}
+
+.subject-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: antiquewhite;
+    max-width: 70%;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 1em;
+    margin-top: 1em
+}
+
+.subject{
+    display:grid;
+    grid-template-columns: 2fr 2fr 10fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    background-color: gray;
+    margin:1em;
+    border-radius: 1em;
+    min-height: 3em;
+    min-width: 97%;
+}
+
+.subject .code{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.subject .subject-name{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.subject .full-name{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.subject button{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: end;
 }

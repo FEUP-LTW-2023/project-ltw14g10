@@ -19,5 +19,6 @@
   drawHeader($session);
   listAllUsers($users, $db);
   listAllStatus($statuss);
+  listAllSubjects($db);
   drawFooter();
 ?>
