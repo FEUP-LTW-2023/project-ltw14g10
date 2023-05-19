@@ -40,5 +40,30 @@
             }
         }
 
+        static function getUserTickets(PDO $db, int $userId) : array {
+            $stmt = $db->prepare('
+              SELECT *
+              FROM TICKET 
+              WHERE CLIENT_ID = ?
+            ');
+            $stmt->execute(array($userId));
+            $ticketsQuery = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $tickets = array();
+            foreach($ticketsQuery as $ticket){
+                $tickets[] = new Ticket(
+                    $ticket['ID'],
+                    $ticket['CLIENT_ID'],
+                    $ticket['AGENT_ID'],
+                    $ticket['SUBJECT_ID'],
+                    $ticket['STATUS_ID'],
+                    $ticket['TITLE'],
+                    $ticket['DESCRIPTION'],
+                    $ticket['CREATED_AT']
+                );
+            }
+            return $tickets;
+        }
+
+
     }
 ?>

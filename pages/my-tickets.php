@@ -7,19 +7,23 @@
   require_once(__DIR__ . '/../database/connection.db.php');
 
   require_once(__DIR__ . '/../templates/my-tickets.tpl.php');
-  require_once(__DIR__ . '/../templates/common.tpl.php');
+  require_once(__DIR__ . '/../templates/common.tpl.php'); 
+
 
   $db = getDatabaseConnection();
 
   $user = User::getUser($db, $session->getId());
 
+  $tickets = Ticket::getUserTickets($db, $user->id);
+  
+
+
   setHeaderMyTickets();
   drawHeader($session);
   drawSwitchMode();
   drawTitle();
-  drawMockTicketOpen();
-  drawMockTicketClosed();
-  drawMockTicketOpen();
-  drawMockTicketClosed();
+  foreach ($tickets as $ticket) {
+    drawTicket($db,$ticket);
+  }
   drawFooter();
 ?>

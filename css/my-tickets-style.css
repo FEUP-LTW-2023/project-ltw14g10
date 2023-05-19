@@ -167,7 +167,7 @@ input:checked + .slider:before {
   }
   .container .item-left .loc {display: block}
   .fix {clear: both}
-  .container .closed, .container .open{
+  .container .closed, .container .open, .container .tba, .container .in_progress{
       color: #fff;
       padding: 6px 14px;
       float: right;
@@ -178,6 +178,9 @@ input:checked + .slider:before {
   }
   .container .item .closed {background: #777}
   .container .item .open {background: #0ca33f}
+  .container .item .tba {background: #f44336}
+  .container .item .in_progress {background: #ff9800}
+
   .linethrough {text-decoration: line-through}
 
   .item {
