@@ -45,5 +45,26 @@
             return $subjects;
         }
 
+        static function getSubject(PDO $db, int $id) : ?Subject {
+            $stmt = $db->prepare('
+              SELECT *
+              FROM SUBJECT 
+              WHERE ID = ?
+            ');
+            $stmt->execute(array($id));
+            $subject = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($subject){
+                return new Subject(
+                    (int) $subject['ID'],
+                    $subject['CODE'],
+                    $subject['SUBJECT_NAME'],
+                    $subject['FULL_NAME'],
+                    (int) $subject['YEAR']
+                );
+            } else {
+                return null;
+            }
+        }
+
     }
 ?>
