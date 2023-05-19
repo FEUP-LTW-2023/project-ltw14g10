@@ -6,6 +6,7 @@
   require_once(__DIR__ . '/../database/admin.class.php');
   require_once(__DIR__ . '/../database/agent.class.php');
   require_once(__DIR__ . '/../database/status.class.php');
+  require_once(__DIR__ . '/../database/subject.class.php');
 ?>
 
 <?php function setHeaderAdminPage() { ?>
@@ -83,5 +84,33 @@
       </button>
     </div>
   <?php } ?>
+  </div>
+<?php } ?>
+
+<?php function listAllSubjects(PDO $db){ ?>
+  <div class="year-container">
+    <?php for($i=1; $i<=3; $i++){ ?>
+    <h2 class="year" id="year-<?php echo $i; ?>">Year <?php echo $i; ?></h2>
+    <div class="subject-container">
+      <?php
+      $subjects = Subject::getSubjectsByYear($db,$i);
+      foreach($subjects as $subject){ ?>
+      <div class="subject">
+        <div class="code">
+        <?php echo $subject->code; ?>
+        </div>
+        <div class="subject-name">
+          <?php echo $subject->subject_name; ?>
+        </div>
+        <div class="full-name">
+          <?php echo $subject->full_name; ?>
+        </div>
+        <button onclick="">
+          X
+        </button>
+      </div>
+      <?php } ?>
+    </div>
+    <?php } ?>
   </div>
 <?php } ?>
