@@ -185,5 +185,15 @@
             }
             return $users;
         }
+
+        static function getName(PDO $db, int $id) : string{
+            $stmt = $db->prepare('
+              SELECT NAME FROM USER WHERE ID = ?
+            ');
+            $stmt->execute(array($id));
+            $name = $stmt->fetch();
+            
+            return $name['NAME'];
+        }
     }
 ?>
