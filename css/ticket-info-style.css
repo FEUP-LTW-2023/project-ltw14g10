@@ -21,21 +21,22 @@
   .ticket-subject,
   .ticket-description,
   .ticket-status,
-  .ticket-time {
+  .ticket-time,
+  .ticket-agent,
+  .ticket-client {
     margin-bottom: 15px;
   }
   
-  .subject-title,
-  .description-title,
-  .status-title,
-  .time-title {
+  .subtitle {
     font-weight: bold;
   }
   
   .subject,
   .description,
   .status,
-  .time {
+  .time,
+  .agent,
+  .client {
     margin-top: 5px;
     color: #555;
   }
