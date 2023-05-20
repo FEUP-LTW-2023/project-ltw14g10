@@ -108,7 +108,7 @@ require_once(__DIR__ . '/../database/status.class.php');
             <?php 
               $subject = Subject::getSubject($db, $ticket->subject);
               
-              echo "$subject->code $subject->subject_name <br /> $subject->full_name";?>
+              echo "$subject->code  <br /> $subject->subject_name";?>
           </p>
         </div>
         <div class="fix"></div>
