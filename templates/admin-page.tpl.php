@@ -165,6 +165,7 @@
       <?php 
         $agent = Agent::getAgent($db, $user->id);
       ?>
+      <form>
       <select class="year" name="year" onchange="getSubjects(this.value)" required>
         <option value="" disabled selected>Select year</option>
         <option value="1">1st year</option>
@@ -174,9 +175,8 @@
       <select class='subjectContainer' name='subject' required>
         <option value="" disabled selected>Select subject</option>
       </select>
-      <button onclick="assignSubject(<?php echo $agent->user; ?>)">
-        Assign
-      </button>
+      <input type="submit" value="+">
+      </form>
       <!--<select class="role-select" onchange="updateAgentSubject(<?php echo $agent->subject; ?>, this.value)">
       </select> -->
     </div>

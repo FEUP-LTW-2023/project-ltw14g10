@@ -26,7 +26,7 @@
 }
 
 .agent{
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 3fr 4fr 6fr;
 }
 
 .user .username, .agent .username{
@@ -47,7 +47,7 @@
     justify-content: center;
 }
 
-.user .name, .agent .year{
+.user .name, .agent form{
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -56,12 +56,9 @@
     justify-content: center;
 }
 
-.user .role, .agent .subjectContainer{
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    display: flex;
+.agent form{
+    display: grid;
+    grid-template-columns: 3fr 3fr 1fr;
 }
 
 .user .role{
@@ -70,26 +67,6 @@
 
 .subjectContainer{
     justify-content: center;
-}
-
-.agent button{
-    grid-column-start: 5;
-    grid-column-end: 6;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: darkcyan;
-    border: none;
-    border-radius: 1em;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0.5em;
-    margin: 0.5em;
-    width: 6em;
-    height: 2em;
 }
 
 .status-container{
@@ -218,19 +195,15 @@
   border: 1px solid #6c757d;
 }
 
-.subject-form input[type="submit"],
-.status-form input[type="submit"] {
+input[type="submit"] {
   background-color: #4caf50;
 }
 
-.subject-form input[type="submit"]:hover,
-.status-form input[type="submit"]:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-.subject-form input[type="submit"],
-.status-form input[type="submit"],
-button {
+input[type="submit"], button {
     color: white;
     border: none;
     border-radius: 20px;
@@ -264,6 +237,7 @@ button.disabled {
 .user-container,
 .status-container,
 .subject-container,
+.agent-container,
 .subject-form,
 .status-form {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow for a 3D effect */

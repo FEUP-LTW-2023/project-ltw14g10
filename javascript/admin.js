@@ -22,25 +22,6 @@ function updateUserRole(userId, newRole) {
     postData();
 }
 
-function updateAgentSubject(agentId, newSubject) {
-  const encodeForAjax = (data) => {
-      return Object.keys(data).map(function(k){
-        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-      }).join('&')
-  };
-
-  const postData = async () => {
-      const dataToSend = { id: agentId, subject: newSubject};
-      const response = await fetch("/../ajax/ajax_change_subject.php", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encodeForAjax(dataToSend)
-      });
-  };
-
-  postData();
-}
-
 function deleteStatus(statusId) {
   const encodeForAjax = (data) => {
     return Object.keys(data).map(function(k){
