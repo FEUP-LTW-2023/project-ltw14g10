@@ -5,8 +5,8 @@
 
     $db = getDatabaseConnection();
 
-    if (isset($_POST["id"]) && isset($_POST["subject"])) {
-        Agent::changeSubject($db, $_POST["id"], $_POST["subject"]);
-        exit();
+    if (isset($_POST["agent_id"]) && isset($_POST["subject"])) {
+        Agent::changeSubject($db, $_POST["agent_id"], $_POST["subject"]);
+        header('Location: /../pages/admin-page.php');
     }
 ?>

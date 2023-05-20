@@ -165,20 +165,19 @@
       <?php 
         $agent = Agent::getAgent($db, $user->id);
       ?>
-      <form>
-      <select class="year" name="year" onchange="getSubjects(this.value)" required>
-        <option value="" disabled selected>Select year</option>
-        <option value="1">1st year</option>
-        <option value="2">2nd year</option>
-        <option value="3">3rd year</option>
-      </select>
-      <select class='subjectContainer' name='subject' required>
-        <option value="" disabled selected>Select subject</option>
-      </select>
-      <input type="submit" value="+">
+      <form action="../actions/action_change_subject.php" method="post">
+        <input type="hidden" name="agent_id" value="<?php echo $agent->user; ?>">
+        <select class="year" name="year" onchange="getSubjectsUser(this.value, <?php echo $agent->user; ?>)" required>
+          <option value="" disabled selected>Select year</option>
+          <option value="1">1st year</option>
+          <option value="2">2nd year</option>
+          <option value="3">3rd year</option>
+        </select>
+        <select class='subjectContainer' id="user-<?php echo $agent->user; ?>"  name='subject' required>
+          <option value="" disabled selected>Select subject</option>
+        </select>
+        <input type="submit" value="+">
       </form>
-      <!--<select class="role-select" onchange="updateAgentSubject(<?php echo $agent->subject; ?>, this.value)">
-      </select> -->
     </div>
   <?php } ?>
   </div>
