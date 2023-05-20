@@ -20,7 +20,6 @@
 
   setHeaderMyTickets();
   drawHeader($session);
-  drawSwitchMode();
   drawTitle();
   foreach ($tickets as $ticket) {
     drawTicket($db,$ticket);
