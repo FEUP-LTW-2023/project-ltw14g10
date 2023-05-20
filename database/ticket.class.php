@@ -26,7 +26,7 @@
         static function createTicket(PDO $db, int $client, int $subject, string $title, string $description, string $time): ?Ticket {
             $stmt = $db->prepare('
               INSERT INTO TICKET (CLIENT_ID, SUBJECT_ID, STATUS_ID, TITLE, DESCRIPTION, CREATED_AT)
-              VALUES (?, ?, 1, ?, ?, ?)
+              VALUES (?, ?, 2, ?, ?, ?)
             ');
       
             $executed = $stmt->execute(array($client, $subject, $title, $description, $time));
@@ -34,7 +34,7 @@
             if ($executed) {
                 $ticketId = (int) $db->lastInsertId();
         
-                return new Ticket($ticketId, $client, null, $subject, 1, $title, $description, $time);
+                return new Ticket($ticketId, $client, null, $subject, 2, $title, $description, $time);
             } else {
                 return null;
             }

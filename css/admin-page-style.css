@@ -15,7 +15,7 @@
     grid-template-columns: 1fr 5fr 2fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
-    background-color: gray;
+    background-color: darkcyan;
     margin:1em;
     border-radius: 1em;
     min-height: 3em;
@@ -73,7 +73,7 @@
     display:flex;
     align-items: center;
     justify-content: space-between;
-    background-color: gray;
+    background-color: darkcyan;
     margin:1em;
     border-radius: 1em;
     min-height: 3em;
@@ -103,7 +103,7 @@
     grid-template-columns: 2fr 2fr 10fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
-    background-color: gray;
+    background-color: darkcyan;
     margin:1em;
     border-radius: 1em;
     min-height: 3em;
@@ -223,6 +223,9 @@ button:hover {
     background-color: darkred;
 }
 
+button.disabled {
+    background-color: #444;
+}
 
 .user-container,
 .status-container,
