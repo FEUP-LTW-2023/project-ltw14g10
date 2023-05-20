@@ -75,13 +75,11 @@ require_once(__DIR__ . '/../database/user.class.php');
         <div class="time"><?php echo $ticket->time; ?></div>
       </div>
     </div>
-    <div class="ticket-actions">
-      <a href="../pages/ticket-submit.php" class="change-ticket-btn">Do sum</a>
-      <form action="../actions/action_delete_ticket.php" method="post" class="delete-ticket-form">
-        <input type="hidden" name="ticket_id" value="<?php echo $ticket->id; ?>">
-        <button type="submit">Do sum</button>
-      </form>
+    <div class="ticket-delete">
+        <button type="submit" class="del-button">Delete ticket</button>
     </div>
+    
+    
   </div>
 
 <?php } ?>
