@@ -23,10 +23,9 @@ require_once(__DIR__ . '/../database/status.class.php');
 
 <?php } ?>
 
-<?php function drawTicketInfo(PDO $db, int $id)
+<?php function drawTicketInfo(PDO $db, Ticket $ticket)
 { ?>
 
-    <?php $ticket = Ticket::getTicket($db,$id)?>
 
   <div class="container">
     <div class="title">Ticket #<?php echo $ticket->id; ?></div>
