@@ -70,7 +70,7 @@
 
         static function getUserWithPassword(PDO $db, string $username, string $password) : ?User {
             $stmt = $db->prepare('
-              SELECT ID, USERNAME, PASSWORD, EMAIL, NAME
+              SELECT *
               FROM USER 
               WHERE USERNAME = ?
             ');
@@ -96,7 +96,7 @@
 
         static function getUser(PDO $db, int $id) : User {
             $stmt = $db->prepare('
-              SELECT ID, USERNAME, PASSWORD, EMAIL, NAME
+              SELECT *
               FROM USER 
               WHERE ID = ?
             ');
@@ -168,7 +168,7 @@
 
         static function getAllUsers(PDO $db) : array {
             $stmt = $db->prepare('
-              SELECT ID, USERNAME, PASSWORD, EMAIL, NAME
+              SELECT *
               FROM USER
             ');
             $stmt->execute();
@@ -194,6 +194,27 @@
             $name = $stmt->fetch();
             
             return $name['NAME'];
+        }
+
+        static function getAllAgents(PDO $db){
+            $stmt = $db->prepare('
+              SELECT *
+              FROM USER
+              WHERE ID IN (SELECT USER_ID FROM AGENT)
+            ');
+            $stmt->execute();
+            $usersQuery = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $users = array();
+            foreach($usersQuery as $user){
+                $users[] = new User(
+                    (int) $user['ID'],
+                    $user['USERNAME'],
+                    $user['PASSWORD'],
+                    $user['EMAIL'],
+                    $user['NAME']
+                );
+            }
+            return $users;
         }
     }
 ?>
