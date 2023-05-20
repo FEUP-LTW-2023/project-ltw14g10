@@ -1,4 +1,4 @@
-.user-container{
+.user-container, .agent-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,9 +10,8 @@
     margin-top: 1em
 }
 
-.user{
+.user, .agent{
     display:grid;
-    grid-template-columns: 1fr 5fr 2fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
     background-color: darkcyan;
@@ -22,7 +21,15 @@
     min-width: 97%;
 }
 
-.user .username{
+.user{
+    grid-template-columns: 1fr 5fr 2fr 1fr;
+}
+
+.agent{
+    grid-template-columns: 3fr 4fr 6fr;
+}
+
+.user .username, .agent .username{
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
@@ -31,7 +38,7 @@
     justify-content: flex-start;
 }
 
-.user .email{
+.user .email, .agent .name{
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 1;
@@ -40,7 +47,7 @@
     justify-content: center;
 }
 
-.user .name{
+.user .name, .agent form{
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -49,13 +56,17 @@
     justify-content: center;
 }
 
+.agent form{
+    display: grid;
+    grid-template-columns: 3fr 3fr 1fr;
+}
+
 .user .role{
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    display: flex;
     justify-content: flex-end;
+}
+
+.subjectContainer{
+    justify-content: center;
 }
 
 .status-container{
@@ -145,7 +156,7 @@
     justify-self: end;
 }
 
-.year {
+.year-title {
     text-align: center;
     font-weight: bold;
     font-size: x-large;
@@ -184,19 +195,15 @@
   border: 1px solid #6c757d;
 }
 
-.subject-form input[type="submit"],
-.status-form input[type="submit"] {
+input[type="submit"] {
   background-color: #4caf50;
 }
 
-.subject-form input[type="submit"]:hover,
-.status-form input[type="submit"]:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-.subject-form input[type="submit"],
-.status-form input[type="submit"],
-button {
+input[type="submit"], button {
     color: white;
     border: none;
     border-radius: 20px;
@@ -230,7 +237,33 @@ button.disabled {
 .user-container,
 .status-container,
 .subject-container,
+.agent-container,
 .subject-form,
 .status-form {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow for a 3D effect */
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: antiquewhite;
+    max-width: 70%;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 1em;
+    margin-top: 1em
+}
+
+.info-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkcyan;
+    margin: 1em;
+    border-radius: 1em;
+    min-height: 200px;
+    min-width: 200px;
 }

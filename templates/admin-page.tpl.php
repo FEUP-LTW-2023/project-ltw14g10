@@ -21,20 +21,23 @@
     <link rel="stylesheet" href="../css/admin-page-style.css" />
     <link rel="stylesheet" href="../css/common-style.css"/>
     <script src="../javascript/admin.js"></script>
+    <script src="../javascript/classes.js"></script>
 </head>
 
 <?php } ?>
 
 <?php function adminMainCards() { ?>
-  <a class="my-tickets-btn" href="../pages/my-tickets.php">
-      My Tickets
-  </a>
-  <a class="my-tickets-btn" href="../pages/my-tickets.php">
-      My Tickets
-  </a>
-  <a class="my-tickets-btn" href="../pages/my-tickets.php">
-      My Tickets
-  </a>
+  <div class="cards-container">
+    <a class="info-card" href="../pages/admin-users-page.php">
+        Users & Roles
+    </a>
+    <a class="info-card" href="../pages/admin-entities-page.php">
+        Subjects & Status
+    </a>
+    <a class="info-card" href="../pages/admin-assign-page.php">
+        Assign Agents
+    </a>
+  </div>
 <?php } ?>
 
 <?php function listAllUsers(array $users, PDO $db){ ?>
@@ -92,7 +95,7 @@
 <?php function listAllSubjects(PDO $db){ ?>
   <div class="year-container">
     <?php for($i=1; $i<=3; $i++){ ?>
-    <h2 class="year" id="year-<?php echo $i; ?>">Year <?php echo $i; ?></h2>
+    <h2 class="year-title" id="year-<?php echo $i; ?>">Year <?php echo $i; ?></h2>
     <div class="subject-container">
       <?php
       $subjects = Subject::getSubjectsByYear($db,$i);
@@ -146,5 +149,36 @@
   <div class="forms">
     <?php drawSubjectForm(); ?>
     <?php drawStatusForm(); ?>
+  </div>
+<?php } ?>
+
+<?php function listAllAgents(array $users, PDO $db){ ?>
+  <div class="agent-container">
+  <?php foreach($users as $user){ ?>
+    <div class="agent">
+      <div class="username">
+        <?php echo '@' . $user->username; ?>
+      </div>
+      <div class="name">
+        <?php echo $user->name; ?>
+      </div>
+      <?php 
+        $agent = Agent::getAgent($db, $user->id);
+      ?>
+      <form action="../actions/action_change_subject.php" method="post">
+        <input type="hidden" name="agent_id" value="<?php echo $agent->user; ?>">
+        <select class="year" name="year" onchange="getSubjectsUser(this.value, <?php echo $agent->user; ?>)" required>
+          <option value="" disabled selected>Select year</option>
+          <option value="1">1st year</option>
+          <option value="2">2nd year</option>
+          <option value="3">3rd year</option>
+        </select>
+        <select class='subjectContainer' id="user-<?php echo $agent->user; ?>"  name='subject' required>
+          <option value="" disabled selected>Select subject</option>
+        </select>
+        <input type="submit" value="+">
+      </form>
+    </div>
+  <?php } ?>
   </div>
 <?php } ?>

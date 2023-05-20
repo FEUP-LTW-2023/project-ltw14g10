@@ -11,8 +11,10 @@
 
   $db = getDatabaseConnection();
 
+  $agents = User::getAllAgents($db);
+
   setHeaderAdminPage();
   drawHeader($session);
-  adminMainCards();
+  listAllAgents($agents, $db);
   drawFooter();
 ?>

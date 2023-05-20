@@ -11,8 +11,12 @@
 
   $db = getDatabaseConnection();
 
+  $statuss = Status::getAllStatus($db);
+
   setHeaderAdminPage();
   drawHeader($session);
-  adminMainCards();
+  drawForms();
+  listAllStatus($statuss);
+  listAllSubjects($db);
   drawFooter();
 ?>

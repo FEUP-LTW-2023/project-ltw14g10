@@ -34,7 +34,7 @@ function drawBody()
     <div class="column">
       <form action="/../actions/action_create_ticket.php" method="post">
 
-        <select class="year" name="year" onchange="getSubjects(this.value)">
+        <select class="year" name="year" onchange="getSubjects(this.value)" required>
           <option value="" disabled selected>Select year</option>
           <option value="1">1st year</option>
           <option value="2">2nd year</option>
@@ -42,12 +42,14 @@ function drawBody()
         </select>
 
 
-        <div class="subjectContainer"></div>
+          <select class='subjectContainer' name='subject' required>
+            <option value="" disabled selected>Select subject</option>
+          </select>
 
 
-        <input type="text" name="title" placeholder="Title:"></textarea>
+        <input type="text" name="title" placeholder="Title:" required></textarea>
         <label for="description">Description</label>
-        <textarea id="description" name="description" placeholder="Write something.." style="height:170px"></textarea>
+        <textarea id="description" name="description" placeholder="Write something.." style="height:170px" required></textarea>
         <input type="submit" value="Submit">
 
       </form>
