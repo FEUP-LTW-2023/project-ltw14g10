@@ -26,15 +26,17 @@
 <?php } ?>
 
 <?php function adminMainCards() { ?>
-  <a class="my-tickets-btn" href="../pages/my-tickets.php">
-      My Tickets
-  </a>
-  <a class="my-tickets-btn" href="../pages/my-tickets.php">
-      My Tickets
-  </a>
-  <a class="my-tickets-btn" href="../pages/my-tickets.php">
-      My Tickets
-  </a>
+  <div class="cards-container">
+    <a class="info-card" href="../pages/admin-users-page.php">
+        Users & Roles
+    </a>
+    <a class="info-card" href="../pages/admin-entities-page.php">
+        Subjects & Status
+    </a>
+    <a class="info-card" href="../pages/admin-assign-page.php">
+        Assign Agents
+    </a>
+  </div>
 <?php } ?>
 
 <?php function listAllUsers(array $users, PDO $db){ ?>
@@ -146,5 +148,36 @@
   <div class="forms">
     <?php drawSubjectForm(); ?>
     <?php drawStatusForm(); ?>
+  </div>
+<?php } ?>
+
+<?php function listAllAgents(array $users, PDO $db){ ?>
+  <div class="user-container">
+  <?php foreach($users as $user){ ?>
+    <div class="user">
+      <div class="username">
+        <?php echo '@' . $user->username; ?>
+      </div>
+      <div class="email">
+        <?php echo $user->email; ?>
+      </div>
+      <div class="name">
+        <?php echo $user->name; ?>
+      </div>
+      <div class="role">
+        <?php 
+          $mode = -1;
+          if(Admin::isAdmin($db,$user->id)) $mode=0;
+          else if(Agent::isAgent($db, $user->id)) $mode=1;
+          else $mode=2;
+        ?>
+          <select class="role-select" onchange="updateUserRole(<?php echo $user->id; ?>, this.value)">
+            <option value="client" <?php echo ($mode == 2) ? 'selected' : ''; ?>>Client</option>
+            <option value="agent" <?php echo ($mode == 1) ? 'selected' : ''; ?>>Agent</option>
+            <option value="admin" <?php echo ($mode == 0) ? 'selected' : ''; ?>>Admin</option>
+          </select>
+        </div>
+    </div>
+  <?php } ?>
   </div>
 <?php } ?>

@@ -13,6 +13,5 @@
 
   setHeaderAdminPage();
   drawHeader($session);
-  adminMainCards();
   drawFooter();
 ?>

@@ -234,3 +234,28 @@ button.disabled {
 .status-form {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow for a 3D effect */
 }
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: antiquewhite;
+    max-width: 70%;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 1em;
+    margin-top: 1em
+}
+
+.info-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkcyan;
+    margin: 1em;
+    border-radius: 1em;
+    min-height: 200px;
+    min-width: 200px;
+}
