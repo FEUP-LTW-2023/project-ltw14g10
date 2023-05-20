@@ -5,6 +5,8 @@ require_once(__DIR__ . '/../utils/session.php');
 require_once(__DIR__ . '/../database/ticket.class.php');
 require_once(__DIR__ . '/../database/subject.class.php');
 require_once(__DIR__ . '/../database/status.class.php');
+require_once(__DIR__ . '/../database/user.class.php');
+
 ?>
 
 <?php function setHeaderTicket()
@@ -28,10 +30,10 @@ require_once(__DIR__ . '/../database/status.class.php');
 
 
   <div class="container">
-    <div class="title">Ticket #<?php echo $ticket->id; ?></div>
+    <div class="title">Ticket #<?php echo "$ticket->id - $ticket->title" ?></div>
     <div class="ticket-info">
       <div class="ticket-subject">
-        <div class="subject-title">Subject</div>
+        <div class="subtitle">Subject</div>
         <div class="subject">
           <?php  
             $subject = Subject::getSubject($db, $ticket->subject);
@@ -40,26 +42,44 @@ require_once(__DIR__ . '/../database/status.class.php');
         </div>
       </div>
       <div class="ticket-description">
-        <div class="description-title">Description</div>
+        <div class="subtitle">Description</div>
         <div class="description"><?php echo $ticket->description; ?></div>
       </div>
+      <div class="ticket-agent">
+        <div class="subtitle">Agent</div>
+        <div class="agent">
+          <?php 
+            if ($ticket->agent == null) {
+              echo "No agent assigned";
+            } else {
+            $agent = User::getUser($db, $ticket->agent);
+            echo $agent->name;} ?></div>
+        </div>
+        <div class="ticket-client">
+          <div class="subtitle">Client</div>
+          <div class="client">
+            <?php
+              $client = User::getUser($db, $ticket->client);
+              echo $client->name; ?></div>
+        </div>
+    
       <div class="ticket-status">
-        <div class="status-title">Status</div>
+        <div class="subtitle">Status</div>
         <div class="status">
           <?php 
             $status = Status::getStatus($db, $ticket->status);
             echo $status->status_text; ?></div>
       </div>
       <div class="ticket-time">
-        <div class="time-title">Time</div>
+        <div class="subtitle">Time</div>
         <div class="time"><?php echo $ticket->time; ?></div>
       </div>
     </div>
     <div class="ticket-actions">
-      <a href="../pages/ticket-submit.php" class="change-ticket-btn">Change ticket</a>
+      <a href="../pages/ticket-submit.php" class="change-ticket-btn">Do sum</a>
       <form action="../actions/action_delete_ticket.php" method="post" class="delete-ticket-form">
         <input type="hidden" name="ticket_id" value="<?php echo $ticket->id; ?>">
-        <button type="submit">Delete ticket</button>
+        <button type="submit">Do sum</button>
       </form>
     </div>
   </div>
