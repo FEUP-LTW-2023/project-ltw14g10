@@ -11,7 +11,6 @@ require_once(__DIR__ . '/../templates/common.tpl.php');
 
 $db = getDatabaseConnection();
 $ticket = Ticket::getTicket($db, (int) $_GET['id']);
-
 setHeaderTicket();
 drawHeader($session);
 drawTicketInfo($db, $ticket);
