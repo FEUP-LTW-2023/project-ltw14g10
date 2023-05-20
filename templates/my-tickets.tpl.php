@@ -112,13 +112,16 @@ require_once(__DIR__ . '/../database/status.class.php');
           </p>
         </div>
         <div class="fix"></div>
-        <button class="<?php
+        <?php
           $status = Status::getStatus($db, $ticket->status);
           $className = strtolower(str_replace(' ', '-', $status->status_text));
-          echo $className;
-        ?>" onloadstart="changeColor(<?php echo $className;?>)"> <!-- TODO: NOT WORKING -->
+        ?>
+        <button class="<?php echo $className; ?>"> <!-- TODO: NOT WORKING -->
           <?php echo $status->status_text; ?>
         </button>
+        <script>
+          changeColor("<?php echo $className; ?>", "<?php echo md5($className); ?>");
+        </script>
       </div>
     </div>
 

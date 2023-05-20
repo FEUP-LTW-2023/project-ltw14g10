@@ -1,5 +1,4 @@
-function getRandomColor(string) {
-    var hash = md5(string);
+function getRandomColor(hash) {
     var color = hash.substring(0, 6); 
   
     var red = parseInt(color.substring(0, 2), 16);
@@ -9,11 +8,11 @@ function getRandomColor(string) {
     return "rgb(" + red + ", " + green + ", " + blue + ")";
   }
   
-  function changeColor(className) {
-    var color = getRandomColor(className);
-    var elements = document.getElementsByClassName(className);
-  
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.color = color;
-    }
+function changeColor(className, hash) {
+  var color = getRandomColor(hash);
+  var elements = document.getElementsByClassName(className);
+
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].style.backgroundColor = color;
   }
+}
