@@ -26,7 +26,7 @@
 }
 
 .agent{
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .user .username, .agent .username{
@@ -56,13 +56,40 @@
     justify-content: center;
 }
 
-.user .role, .agent .subject-fetched{
+.user .role, .agent .subjectContainer{
     grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
     display: flex;
+}
+
+.user .role{
     justify-content: flex-end;
+}
+
+.subjectContainer{
+    justify-content: center;
+}
+
+.agent button{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkcyan;
+    border: none;
+    border-radius: 1em;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5em;
+    margin: 0.5em;
+    width: 6em;
+    height: 2em;
 }
 
 .status-container{
