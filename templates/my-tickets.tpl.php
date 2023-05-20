@@ -78,10 +78,9 @@ require_once(__DIR__ . '/../database/status.class.php');
       </div> <!-- end item-right -->
 
       <div class="item-left">
-        <a href="another-page.html" class="plus-sign">&#43;</a>
+        <a href="ticket-info.php" class="plus-sign">&#43;</a>
         <p class="event">Ticket
-          #
-          <?php echo $ticket->id ?>
+          #<?php echo $ticket->id ?>
         </p>
         <h2 class="title">
           <?php echo $ticket->title ?>

@@ -23,6 +23,7 @@
             $this->time = $time;
         }
 
+
         static function createTicket(PDO $db, int $client, int $subject, string $title, string $description, string $time): ?Ticket {
             $stmt = $db->prepare('
               INSERT INTO TICKET (CLIENT_ID, SUBJECT_ID, STATUS_ID, TITLE, DESCRIPTION, CREATED_AT)
@@ -38,6 +39,29 @@
             } else {
                 return null;
             }
+        }
+
+        static function getTicket(PDO $db, int $ticketId) : ?Ticket {
+            $stmt = $db->prepare('
+              SELECT *
+              FROM TICKET 
+              WHERE ID = ?
+            ');
+            $stmt->execute(array($ticketId));
+            $ticketQuery = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($ticketQuery == null){
+                return null;
+            }
+            return new Ticket(
+                (int) $ticketQuery['ID'],
+                (int) $ticketQuery['CLIENT_ID'],
+                $ticketQuery['AGENT_ID']==null ? null : (int) $ticketQuery['AGENT_ID'],
+                (int) $ticketQuery['SUBJECT_ID'],
+                (int) $ticketQuery['STATUS_ID'],
+                $ticketQuery['TITLE'],
+                $ticketQuery['DESCRIPTION'],
+                $ticketQuery['CREATED_AT']
+            );
         }
 
         static function getUserTickets(PDO $db, int $userId) : array {
