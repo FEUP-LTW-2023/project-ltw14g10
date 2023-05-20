@@ -33,7 +33,12 @@ require_once(__DIR__ . '/../database/status.class.php');
     <div class="ticket-info">
       <div class="ticket-subject">
         <div class="subject-title">Subject</div>
-        <div class="subject"><?php  echo $->subject; ?></div>
+        <div class="subject">
+          <?php  
+            $subject = Subject::getSubject($db, $ticket->subject);
+              
+            echo "$subject->code $subject->subject_name <br /> $subject->full_name";?>
+        </div>
       </div>
       <div class="ticket-description">
         <div class="description-title">Description</div>
@@ -41,7 +46,10 @@ require_once(__DIR__ . '/../database/status.class.php');
       </div>
       <div class="ticket-status">
         <div class="status-title">Status</div>
-        <div class="status"><?php echo $ticket->status; ?></div>
+        <div class="status">
+          <?php 
+            $status = Status::getStatus($db, $ticket->status);
+            echo $status->status_text; ?></div>
       </div>
       <div class="ticket-time">
         <div class="time-title">Time</div>
