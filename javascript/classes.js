@@ -3,7 +3,7 @@ function getSubjects(year) {
     const response = await fetch("/../ajax/ajax_get_classes.php?year=" + year);
     const jsonResponse = await response.json();
     const subjectContainer = document.querySelector('.subjectContainer');
-    var subjectOptionsHTML = "<select class='subject' name='subject'>";
+    var subjectOptionsHTML = "<select class='subject-fetched' name='subject'>";
     for (const key in jsonResponse) {
       if (jsonResponse.hasOwnProperty(key)) {
         const map = jsonResponse[key];

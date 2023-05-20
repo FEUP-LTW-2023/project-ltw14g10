@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="../css/admin-page-style.css" />
     <link rel="stylesheet" href="../css/common-style.css"/>
     <script src="../javascript/admin.js"></script>
+    <script src="../javascript/classes.js"></script>
 </head>
 
 <?php } ?>
@@ -94,7 +95,7 @@
 <?php function listAllSubjects(PDO $db){ ?>
   <div class="year-container">
     <?php for($i=1; $i<=3; $i++){ ?>
-    <h2 class="year" id="year-<?php echo $i; ?>">Year <?php echo $i; ?></h2>
+    <h2 class="year-title" id="year-<?php echo $i; ?>">Year <?php echo $i; ?></h2>
     <div class="subject-container">
       <?php
       $subjects = Subject::getSubjectsByYear($db,$i);
@@ -152,31 +153,27 @@
 <?php } ?>
 
 <?php function listAllAgents(array $users, PDO $db){ ?>
-  <div class="user-container">
+  <div class="agent-container">
   <?php foreach($users as $user){ ?>
-    <div class="user">
+    <div class="agent">
       <div class="username">
         <?php echo '@' . $user->username; ?>
-      </div>
-      <div class="email">
-        <?php echo $user->email; ?>
       </div>
       <div class="name">
         <?php echo $user->name; ?>
       </div>
-      <div class="role">
-        <?php 
-          $mode = -1;
-          if(Admin::isAdmin($db,$user->id)) $mode=0;
-          else if(Agent::isAgent($db, $user->id)) $mode=1;
-          else $mode=2;
-        ?>
-          <select class="role-select" onchange="updateUserRole(<?php echo $user->id; ?>, this.value)">
-            <option value="client" <?php echo ($mode == 2) ? 'selected' : ''; ?>>Client</option>
-            <option value="agent" <?php echo ($mode == 1) ? 'selected' : ''; ?>>Agent</option>
-            <option value="admin" <?php echo ($mode == 0) ? 'selected' : ''; ?>>Admin</option>
-          </select>
-        </div>
+      <?php 
+        $agent = Agent::getAgent($db, $user->id);
+      ?>
+      <select class="year" name="year" onchange="getSubjects(this.value)">
+        <option value="" disabled selected>Select year</option>
+        <option value="1">1st year</option>
+        <option value="2">2nd year</option>
+        <option value="3">3rd year</option>
+      </select>
+      <div class="subjectContainer"></div>
+      <!--<select class="role-select" onchange="updateAgentSubject(<?php echo $agent->subject; ?>, this.value)">
+      </select> -->
     </div>
   <?php } ?>
   </div>

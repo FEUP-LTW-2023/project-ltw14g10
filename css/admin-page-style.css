@@ -1,4 +1,4 @@
-.user-container{
+.user-container, .agent-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,9 +10,8 @@
     margin-top: 1em
 }
 
-.user{
+.user, .agent{
     display:grid;
-    grid-template-columns: 1fr 5fr 2fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
     background-color: darkcyan;
@@ -22,7 +21,15 @@
     min-width: 97%;
 }
 
-.user .username{
+.user{
+    grid-template-columns: 1fr 5fr 2fr 1fr;
+}
+
+.agent{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.user .username, .agent .username{
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
@@ -31,7 +38,7 @@
     justify-content: flex-start;
 }
 
-.user .email{
+.user .email, .agent .name{
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 1;
@@ -40,7 +47,7 @@
     justify-content: center;
 }
 
-.user .name{
+.user .name, .agent .year{
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -49,7 +56,7 @@
     justify-content: center;
 }
 
-.user .role{
+.user .role, .agent .subject-fetched{
     grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start: 1;
@@ -145,7 +152,7 @@
     justify-self: end;
 }
 
-.year {
+.year-title {
     text-align: center;
     font-weight: bold;
     font-size: x-large;
