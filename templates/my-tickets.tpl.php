@@ -25,18 +25,6 @@ require_once(__DIR__ . '/../database/status.class.php');
 
 <?php } ?>
 
-<?php function drawSwitchMode()
-{ ?>
-  <div class="flex-switch">
-    <div id="client">Client</div>
-    <label class="switch">
-      <input type="checkbox" checked>
-      <span class="slider round"></span>
-    </label>
-    <div id="agent">Agent</div>
-  </div>
-<?php } ?>
-
 <?php function drawTitle()
 { ?>
   <div class="container">
