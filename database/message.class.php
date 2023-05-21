@@ -6,7 +6,6 @@ class Message
     public $id;
     public $ticketId;
     public $senderId;
-    public $receiverId;
     public $messageText;
     public $createdAt;
 
@@ -14,14 +13,12 @@ class Message
         int $id,
         int $ticketId,
         int $senderId,
-        int $receiverId,
         string $messageText,
         string $createdAt
     ) {
         $this->id = $id;
         $this->ticketId = $ticketId;
         $this->senderId = $senderId;
-        $this->receiverId = $receiverId;
         $this->messageText = $messageText;
         $this->createdAt = $createdAt;
     }
@@ -41,7 +38,6 @@ class Message
                 (int) $message['ID'],
                 (int) $message['TICKET_ID'],
                 (int) $message['SENDER_ID'],
-                (int) $message['RECEIVER_ID'],
                 $message['MESSAGE_TEXT'],
                 $message['CREATED_AT']
             );
@@ -49,7 +45,34 @@ class Message
         return $messages;
     }
 
+    public static function createMessage(PDO $db, int $ticketId, int $senderId, string $messageText): ?Message
+    {
+        $stmt = $db->prepare('
+            INSERT INTO MESSAGE (TICKET_ID, SENDER_ID, MESSAGE_TEXT, CREATED_AT)
+            VALUES (?, ?, ?, ?)
+        ');
 
+        $createdAt = date('Y-m-d H:i:s');
+        $executed = $stmt->execute([$ticketId, $senderId, $messageText, $createdAt]);
+
+        if ($executed) {
+            $messageId = (int) $db->lastInsertId();
+
+            return new Message(
+                (int)$messageId,
+                (int)$ticketId,
+                (int)$senderId,
+                $messageText,
+                $createdAt
+            );
+        } else {
+            return null;
+        }
+    }
 
 }
+
+
+
+
 ?>

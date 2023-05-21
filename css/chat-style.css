@@ -81,7 +81,7 @@
     background-color: #555555; /* Color of the scrollbar thumb on hover */
   }
   
-  .chat-input {
+  .chat-input, .input-form {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -89,7 +89,7 @@
   }
   
   .chat-input textarea {
-    width: 70%;
+    max-width: 200%;
     height: 60px;
     resize: none;
     padding: 10px;

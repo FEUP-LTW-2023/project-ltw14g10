@@ -20,11 +20,10 @@ require_once(__DIR__ . '/../database/message.class.php');
         <link href="../css/chat-style.css" rel="stylesheet">
 
     </head>
-
 <?php } ?>
 
 <?php
-function drawBody(array $messages, PDO $db)
+function drawBody(array $messages, int $ticketId, PDO $db)
 { ?>
     <div class="chat-outer-container">
         <div class="chat-inner-container">
@@ -32,12 +31,10 @@ function drawBody(array $messages, PDO $db)
             <div class="chat-messages">
                 <?php foreach ($messages as $message) drawMessage($message,$db)?>
             </div>
-            <?php drawInput(); ?>
+            <?php drawInput($ticketId); ?>
         </div>
     </div>
 <?php } ?>
-
-
 
 <?php function drawMessage(Message $message, PDO $db)
 { ?>
@@ -48,11 +45,14 @@ function drawBody(array $messages, PDO $db)
     </div>
 <?php } ?>
 
-
-<?php function drawInput()
-{ ?>
+<?php function drawInput(int $ticketId) { ?>
     <div class="chat-input">
-        <textarea placeholder="Type your message"></textarea>
-        <button class="send-button">Send</button>
+        <form method="post" action="../actions/action_send_message.php" class="input-form">
+            <input type="hidden" name="ticket_id" value="<?php echo $ticketId; ?>">
+            <textarea name="message" placeholder="Type your message"></textarea>
+            <button type="submit" class="send-button">Send</button>
+        </form>
     </div>
 <?php } ?>
+
+
