@@ -99,15 +99,6 @@
   }
   .container .item-left .loc {display: block}
   .fix {clear: both}
-  .container .closed, .container .open, .container .tba, .container .in_progress{
-      color: #fff;
-      padding: 6px 14px;
-      float: right;
-      margin-top: 10px;
-      font-size: 18px;
-      border: none;
-      cursor: pointer
-  }
 
   .linethrough {text-decoration: line-through}
 

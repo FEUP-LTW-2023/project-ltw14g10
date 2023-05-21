@@ -21,7 +21,7 @@ require_once(__DIR__ . '/../database/status.class.php');
     <title>help.eic Profile</title>
     <link rel="stylesheet" href="../css/common-tickets-style.css" />
     <link rel="stylesheet" href="../css/common-style.css" />
-    <script src="../javascript/my-tickets.js"></script>
+    <script src="../javascript/common-tickets.js"></script>
   </head>
 
 <?php } ?>
@@ -117,15 +117,16 @@ require_once(__DIR__ . '/../database/status.class.php');
         </div>
         <div class="fix"></div>
         <?php
-          $status = Status::getStatus($db, $ticket->status);
-          $className = strtolower(str_replace(' ', '-', $status->status_text));
-        ?>
-        <button class="<?php echo $className; ?>"> <!-- TODO: NOT WORKING -->
-          <?php echo $status->status_text; ?>
-        </button>
-        <script>
-          changeColor("<?php echo $className; ?>", "<?php echo md5($className); ?>");
-        </script>
+          $statusArray = Status::getAllStatus($db);
+          ?>
+          <select name="status" id="status-selector">
+            <?php foreach ($statusArray as $status) { ?>
+              <?php $className = strtolower(str_replace(' ', '-', $status->status_text)); ?>
+              <option class="<?php echo $className; ?>"  value="<?php echo $status->id; ?>" <?php if ($ticket->status == $status->id) echo "selected"; ?>>
+                <?php echo $status->status_text; ?>
+              </option>
+            <?php } ?>
+        </select>
       </div>
     </div>
 

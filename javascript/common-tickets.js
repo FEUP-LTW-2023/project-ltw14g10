@@ -25,3 +25,11 @@ function getRandomColor(hash) {
       elements[i].style.cursor = 'pointer';
     }
   }
+
+  function selectorBackgroundColor(className, hash) {
+    var color;
+    if(className=="unkown") color = "#000000";
+    else color = getRandomColor(hash);
+    var element = document.getElementById("status-selector");
+    element.style.backgroundColor = color;
+  }

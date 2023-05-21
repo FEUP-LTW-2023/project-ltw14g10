@@ -20,7 +20,7 @@ require_once(__DIR__ . '/../database/status.class.php');
     <title>help.eic Profile</title>
     <link rel="stylesheet" href="../css/common-tickets-style.css" />
     <link rel="stylesheet" href="../css/common-style.css" />
-    <script src="../javascript/my-tickets.js"></script>
+    <script src="../javascript/common-tickets.js"></script>
   </head>
 
 <?php } ?>
