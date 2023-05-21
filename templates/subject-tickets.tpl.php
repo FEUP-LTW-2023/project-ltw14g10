@@ -37,8 +37,8 @@ require_once(__DIR__ . '/../database/status.class.php');
     <div class="filters">
       <div class="filter">
         <p>Filter by Status:</p>
-        <select name="status" class="status-selector" onchange="filterByStatus(this.value, <?php echo $subject; ?>)">
-          <option value="all">All</option>
+        <select name="status" id="status-selector" onchange="filterByStatus(this.value, <?php echo $subject; ?>)">
+          <option value="all" selected>All</option>
           <?php
           $statusArray = Status::getAllStatus($db);
           foreach ($statusArray as $status) { ?>
@@ -50,8 +50,8 @@ require_once(__DIR__ . '/../database/status.class.php');
       </div>
       <div class="filter">
         <p>Filter by Agent:</p>
-        <select name="agent" class="agent-selector">
-          <option value="all">All</option>
+        <select name="agent" id="agent-selector" onchange="filterByAgent(this.value, <?php echo $subject; ?>)">
+          <option value="all" selected>All</option>
           <?php
           $agents = Agent::getAllAgentsBySubject($db, $subject);
           foreach ($agents as $agent) { ?>
@@ -63,7 +63,7 @@ require_once(__DIR__ . '/../database/status.class.php');
       </div>
       <div class="filter">
         <p>Sort by Date:</p>
-        <select name="date" class="order-selector">
+        <select name="date" id="order-selector">
           <option value=""></option>
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
