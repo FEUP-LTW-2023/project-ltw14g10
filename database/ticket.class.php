@@ -115,7 +115,7 @@
         static function changeTicketAgent(PDO $db, int $ticketId, int $agentId) : bool {
             $stmt = $db->prepare('
               UPDATE TICKET
-              SET AGENT_ID = ?
+              SET AGENT_ID = ?, STATUS_ID = 3
               WHERE ID = ?
             ');
             return $stmt->execute(array($agentId, $ticketId));
@@ -124,10 +124,19 @@
         static function changeTicketSubject(PDO $db, int $ticketId, int $subjectId) : bool {
             $stmt = $db->prepare('
               UPDATE TICKET
-              SET SUBJECT_ID = ?, AGENT_ID = NULL
+              SET SUBJECT_ID = ?, AGENT_ID = NULL, STATUS_ID = 2
               WHERE ID = ?
             ');
             return $stmt->execute(array($subjectId, $ticketId));
+        }
+
+        static function changeTicketStatus(PDO $db, int $ticketId, int $statusId) : bool {
+            $stmt = $db->prepare('
+              UPDATE TICKET
+              SET STATUS_ID = ?
+              WHERE ID = ?
+            ');
+            return $stmt->execute(array($statusId, $ticketId));
         }
 
     }

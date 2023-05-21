@@ -6,6 +6,7 @@
 
   require_once(__DIR__ . '/../database/connection.db.php');
   require_once(__DIR__ . '/../database/user.class.php');
+  require_once(__DIR__ . '/../database/client.class.php');
 
   $db = getDatabaseConnection();
 
