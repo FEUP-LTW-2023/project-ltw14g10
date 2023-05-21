@@ -6,8 +6,10 @@
     background-color: #f5f5f5;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
+    position: relative;
+  } 
+
+
   .title {
     font-size: 24px;
     font-weight: bold;
@@ -41,25 +43,42 @@
     color: #555;
   }
 
-  .ticket-chat {
-    text-align: right;
-  }
+
 
   
-  .chat-button {
-    background-color: #dc3545;
+  
+
+
+  .ticket-buttons {
+    
+    bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .chat-button,
+  .history-button {
     color: #fff;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
-
   }
   
+  .chat-button {
+    background-color: #dc3545;
+  }
   
   .chat-button:hover {
     background-color: #c82333;
   }
   
+  .history-button {
+    background-color: #007bff;
+  }
   
+  .history-button:hover {
+    background-color: #0069d9;
+  }
