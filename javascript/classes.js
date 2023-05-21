@@ -50,15 +50,10 @@ window.addEventListener("load", function() {
     console.log(agentId);
     var yearSelect = agent.querySelector(".year");
 
-    // Get the initial values for year and subject
     var initialYear = yearSelect.value;
-    console.log(initialYear);
     var initialSubject = agent.querySelector("#data-subject-id");
     initialSubject = initialSubject.value;
-    console.log(initialSubject);
-    console.log("--------------------");
 
-    // Call getSubjectsUser with the initial values
     getSubjectsUser(initialYear, agentId, initialSubject);
   }
 }, false);

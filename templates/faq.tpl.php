@@ -18,17 +18,18 @@ require_once(__DIR__ . '/../utils/session.php');
     <link href="../css/info-style.css" rel="stylesheet">
     <link href="../css/common-style.css" rel="stylesheet">
     <script src="../javascript/faq.js" defer></script>
+    <script src="../javascript/classes.js" defer></script>
   </head>
 
 <?php } ?>
 
 <?php function drawBody()
 { ?>
-
+  <?php drawFAQSubjectSelector(); ?>
   <body>
     <main>
       <section class="faq-container">
-        <div class="faq-one">
+        <div class="faq">
           <!-- faq question -->
           <h1 class="faq-page">What is an FAQ Page?</h1>
           <!-- faq answer -->
@@ -65,8 +66,17 @@ require_once(__DIR__ . '/../utils/session.php');
         </div>
       </section>
     </main>
-    <script src="main.js"></script>
   </body>
+<?php } ?>
 
-
+<?php function drawFAQSubjectSelector(){ ?>
+  <select class="year" name="year" onchange="getSubjects(this.value)" required>
+    <option value="" disabled selected>Select year</option>
+    <option value="1">1st year</option>
+    <option value="2">2nd year</option>
+    <option value="3">3rd year</option>
+  </select>
+  <select class='subjectContainer' name='subject' onchange="getFAQsSubject(this.value)" required>
+    <option value="" disabled selected>Select subject</option>
+  </select>
 <?php } ?>

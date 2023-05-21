@@ -120,7 +120,7 @@
   </div>
 <?php } ?>
 
-<?php function drawSubjectForm(){ ?>
+<?php function drawAddSubjectForm(){ ?>
   <div class="subject-form">
     <form action="../actions/action_create_subject.php" method="post">
       <input type="text" name="code" placeholder="Code" required>
@@ -136,7 +136,7 @@
   </div>
 <?php } ?>
 
-<?php function drawStatusForm(){ ?>
+<?php function drawAddStatusForm(){ ?>
   <div class="status-form">
     <form action="../actions/action_create_status.php" method="post">
       <input type="text" name="status-text" placeholder="Status Text" required>
@@ -147,8 +147,8 @@
 
 <?php function drawForms(){ ?>
   <div class="forms">
-    <?php drawSubjectForm(); ?>
-    <?php drawStatusForm(); ?>
+    <?php drawAddSubjectForm(); ?>
+    <?php drawAddStatusForm(); ?>
   </div>
 <?php } ?>
 
