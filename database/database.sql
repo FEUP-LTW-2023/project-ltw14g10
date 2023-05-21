@@ -3,6 +3,7 @@ PRAGMA foreign_keys = ON;
 DROP TABLE IF EXISTS TICKET_HASHTAG;
 DROP TABLE IF EXISTS FAQ;
 DROP TABLE IF EXISTS HASHTAG;
+DROP TABLE IF EXISTS MESSAGE;
 DROP TABLE IF EXISTS TICKET;
 DROP TABLE IF EXISTS ADMIN;
 DROP TABLE IF EXISTS AGENT;
@@ -86,9 +87,31 @@ CREATE TABLE FAQ (
     FOREIGN KEY (SUBJECT_ID) REFERENCES SUBJECT(ID) ON DELETE CASCADE
 );
 
+CREATE TABLE MESSAGE (
+    ID INTEGER PRIMARY KEY,
+    TICKET_ID INTEGER NOT NULL,
+    SENDER_ID INTEGER NOT NULL,
+    RECEIVER_ID INTEGER NOT NULL,
+    MESSAGE_TEXT TEXT NOT NULL,
+    CREATED_AT TEXT,
+    FOREIGN KEY (TICKET_ID) REFERENCES TICKET(ID) ON DELETE CASCADE,
+    FOREIGN KEY (SENDER_ID) REFERENCES USER(ID) ON DELETE CASCADE,
+    FOREIGN KEY (RECEIVER_ID) REFERENCES USER(ID) ON DELETE CASCADE
+);
 
-INSERT INTO SUBJECT (ID, CODE, SUBJECT_NAME, FULL_NAME, [YEAR])
-VALUES
+CREATE TRIGGER deleted_status
+AFTER DELETE ON STATUS
+BEGIN
+  UPDATE TICKET
+  SET STATUS_ID = 1
+  WHERE STATUS_ID = OLD.ID;
+END;
+
+INSERT INTO USER(ID, USERNAME, [PASSWORD], EMAIL, [NAME]) VALUES
+  (1, 'francis802', '$2y$10$qMxaoIwyjY.Q/S7fqvF/t.140up4lEtwRFuhIEyn2pwcuF3p8sE76', 'franciscosccampos@gmail.com', 'Francisco Campos'),
+  (2, 'jotas', '$2y$10$fmLMEGlhzwOsR31aWKrizOjwMPvWwRp5w/5K06ekIz0b4Uyuz4N6u', 'j@g.com', 'João Miguel');
+
+INSERT INTO SUBJECT (ID, CODE, SUBJECT_NAME, FULL_NAME, [YEAR]) VALUES
   -- 1st year
   (1, 'L.EIC001', 'ALGA', 'Álgebra Linear e Geometria Analítica', 1),
   (2, 'L.EIC002', 'AM I', 'Análise Matemática I', 1),
@@ -121,39 +144,23 @@ VALUES
   (25, 'L.EIC025', 'RC', 'Redes de Computadores', 3),
   (26, 'L.EIC026', 'C', 'Compiladores', 3),
   (27, 'L.EIC027', 'CG', 'Computação Gráfica', 3),
-  (28, 'L.EIC028', 'CPD', 'Computação Paralelae Distribuída', 3),
+  (28, 'L.EIC028', 'CPD', 'Computação Paralela e Distribuída', 3),
   (29, 'L.EIC029', 'IA', 'Inteligência Artificial', 3),
   (30, 'L.EIC030', 'PI', 'Projeto Integrador', 3);
 
- 
+INSERT INTO CLIENT(USER_ID) VALUES (1), (2);
 
-INSERT INTO USER(ID, USERNAME, [PASSWORD], EMAIL, [NAME]) VALUES
-  (1, 'francis802', '$2y$10$qMxaoIwyjY.Q/S7fqvF/t.140up4lEtwRFuhIEyn2pwcuF3p8sE76', 'franciscosccampos@gmail.com', 'Francisco Campos'),
-  (2, 'jotas', '$2y$10$fmLMEGlhzwOsR31aWKrizOjwMPvWwRp5w/5K06ekIz0b4Uyuz4N6u', 'j@g.com', 'João Miguel');
+INSERT INTO AGENT(USER_ID, SUBJECT_ID) VALUES (1,1), (2,2);
 
-INSERT INTO CLIENT(USER_ID) VALUES
-  (1),
-  (2);
+INSERT INTO ADMIN(USER_ID) VALUES (1), (2);
 
-INSERT INTO AGENT(USER_ID, SUBJECT_ID) VALUES
-  (1,1),
-  (2,2);
+INSERT INTO STATUS (ID, STATUS_TEXT) VALUES (1, 'Unknown'), (2, 'To Be Assigned'), (3, 'Open'), (4, 'In Progress'), (5, 'Closed');
 
-INSERT INTO ADMIN(USER_ID) VALUES
-  (1),
-  (2);
+INSERT INTO TICKET(ID, CLIENT_ID, AGENT_ID, SUBJECT_ID, STATUS_ID, TITLE, DESCRIPTION, CREATED_AT) VALUES (1, 1, 2, 1, 3, 'Account Issues', 'I''m experiencing issues with my account.', '2023-05-21 09:00:00');
 
-INSERT INTO STATUS (ID, STATUS_TEXT) VALUES
-  (1, "Unkown"),
-  (2, "To Be Assigned"),
-  (3, "Open"),
-  (4, "In Progress"),
-  (5, "Closed");
-
-CREATE TRIGGER deleted_status
-AFTER DELETE ON STATUS
-BEGIN
-  UPDATE TICKET
-  SET STATUS_ID = 1
-  WHERE STATUS_ID = OLD.ID;
-END;
+INSERT INTO MESSAGE (ID, TICKET_ID, SENDER_ID, RECEIVER_ID, MESSAGE_TEXT, CREATED_AT) VALUES
+  (1, 1, 2, 1, 'Hello, how can I help you?', '2023-05-21 09:00:00'),
+  (2, 1, 1, 2, 'Hi, I''m here to assist you.', '2023-05-21 09:01:00'),
+  (3, 1, 2, 1, 'I''m experiencing issues with my account.', '2023-05-21 09:02:00'),
+  (4, 1, 1, 2, 'I''ll do my best to resolve the issue. Could you provide me with your account details?', '2023-05-21 09:03:00'),
+  (5, 1, 2, 1, 'Sure, my account username is "exampleuser".', '2023-05-21 09:04:00');
