@@ -106,6 +106,7 @@ CREATE TABLE CHANGE (
 );
 
 
+
 INSERT INTO USER(ID, USERNAME, [PASSWORD], EMAIL, [NAME]) VALUES
   (1, 'francis802', '$2y$10$qMxaoIwyjY.Q/S7fqvF/t.140up4lEtwRFuhIEyn2pwcuF3p8sE76', 'franciscosccampos@gmail.com', 'Francisco Campos'),
   (2, 'jotas', '$2y$10$fmLMEGlhzwOsR31aWKrizOjwMPvWwRp5w/5K06ekIz0b4Uyuz4N6u', 'j@g.com', 'João Miguel'),
@@ -231,6 +232,27 @@ INSERT INTO TICKET(ID, CLIENT_ID, AGENT_ID, SUBJECT_ID, STATUS_ID, TITLE, DESCRI
   (19, 19, 9, 9, 4, 'Ticket 19', 'Description of Ticket 19', '2023-05-22 07:45:00'),
   (20, 20, 6, 6, 3, 'Ticket 20', 'Description of Ticket 20', '2023-05-22 09:00:00');
 
+-- Insert hashtags into the HASHTAG table
+INSERT INTO HASHTAG(ID, TAG) VALUES
+  (1, 'urgent'),
+  (2, 'technical'),
+  (3, 'payment'),
+  (4, 'account'),
+  (5, 'bug');
+
+-- Assign hashtags to tickets in the TICKET_HASHTAG table
+INSERT INTO TICKET_HASHTAG(TICKET_ID, TAG) VALUES
+  (1, 1),
+  (1, 2),
+  (2, 3),
+  (3, 1),
+  (4, 2),
+  (5, 3),
+  (6, 4),
+  (7, 1),
+  (8, 5),
+  (9, 2),
+  (10, 1);
 
 
 CREATE TRIGGER deleted_status
