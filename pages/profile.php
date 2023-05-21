@@ -9,12 +9,17 @@
   require_once(__DIR__ . '/../templates/profile.tpl.php');
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
+  if(!$session->isLoggedIn()) {
+    header('Location: ../pages/login.php');
+    die();
+  }
+
   $db = getDatabaseConnection();
 
   $user = User::getUser($db, $session->getId());
 
   setHeaderProfile();
-  drawHeader($session);
+  drawHeader($db, $session);
   drawProfileBody($user);
   drawFooter();
 ?>

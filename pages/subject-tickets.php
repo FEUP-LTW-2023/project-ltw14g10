@@ -12,6 +12,12 @@
 
   $db = getDatabaseConnection();
 
+  if(!Agent::isAgent($db, $session->getId())) {
+    $session->addMessage('error', 'You do not have permission to access this page.');
+    header('Location: ../pages/main-page.php');
+    die();
+  }
+
   $user = User::getUser($db, $session->getId());
 
   $agent = Agent::getAgent($db, $user->id);
@@ -28,7 +34,7 @@
 
 
   setHeaderMyTickets();
-  drawHeader($session);
+  drawHeader($db, $session);
   drawTitle($subject->subject_name);
   drawFilters($db, $agent->subject, $order);
   drawTickets($db, $tickets);

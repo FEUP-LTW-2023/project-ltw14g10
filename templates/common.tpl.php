@@ -2,9 +2,11 @@
   declare(strict_types = 1); 
 
   require_once(__DIR__ . '/../utils/session.php');
+  require_once(__DIR__ . '/../database/admin.class.php');
+  require_once(__DIR__ . '/../database/agent.class.php');
 ?>
 
-<?php function drawHeader(Session $session)
+<?php function drawHeader(PDO $db, Session $session)
 { ?>
   <body>
 
@@ -20,7 +22,7 @@
         drawHeaderOptions();
 
         if ($session->isLoggedIn())
-          drawLogoutHeader($session);
+          drawLogoutHeader($db, $session);
         else
           drawLoginHeader($session);}
       ?>
@@ -46,11 +48,11 @@
   </div>
 <?php } ?>
 
-<?php function drawLogoutHeader(Session $session)
+<?php function drawLogoutHeader(PDO $db, Session $session)
 { ?>
   <div class="right-header">
-    <?php drawAdminIcon(); ?>
-    <?php drawSubjectTicketButton(); ?>
+    <?php drawAdminIcon($db, $session); ?>
+    <?php drawSubjectTicketButton($db, $session); ?>
     <?php drawMyTicketsButton(); ?>
     <?php drawProfileIcon(); ?>
   </div>
@@ -90,10 +92,12 @@
     </a>
 <?php } ?>
 
-<?php function drawAdminIcon() { ?>
+<?php function drawAdminIcon(PDO $db, Session $session) { ?>
+  <?php if(Admin::isAdmin($db, $session->getId())){ ?>
   <a href="../pages/admin-page.php" id="shield">
     <img src="../assets/shield_icon.png" alt="Admin Options" width="512" height="512" class="icon-shield">
   </a>
+  <?php } ?>
 <?php } ?>
 
 <?php function drawProfileIcon() { ?>
@@ -102,10 +106,12 @@
   </a>
 <?php } ?>
 
-<?php function drawSubjectTicketButton() {?>
+<?php function drawSubjectTicketButton(PDO $db, Session $session) {?>
+  <?php if(Agent::isAgent($db, $session->getId())){ ?>
     <a class="subject-tickets-btn" href="../pages/subject-tickets.php">
       Subject Tickets
     </a>
+  <?php } ?>
 <?php } ?>
 
 <?php function drawTickets(PDO $db, array $tickets) { ?>

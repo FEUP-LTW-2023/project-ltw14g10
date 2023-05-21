@@ -9,10 +9,15 @@
   require_once(__DIR__ . '/../templates/common.tpl.php');
   require_once(__DIR__ . '/../templates/ticket-submit.tpl.php');
 
+  if(!$session->isLoggedIn()) {
+    header('Location: ../pages/login.php');
+    die();
+  }
+
   $db = getDatabaseConnection();
 
   setHeader($session);
-  drawHeader($session);
-  drawBody();
+  drawHeader($db, $session);
+  drawBody($session);
   drawFooter();
 ?>
