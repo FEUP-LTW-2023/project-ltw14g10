@@ -216,3 +216,49 @@ select {
   margin-top: 6px;
   margin-bottom: 16px;
 }
+
+#messages {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+#messages article {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.error {
+  background-color: #ff0000;
+}
+
+.success {
+  background-color: #00ff00;
+}
+
+.warning {
+  background-color: #ffff00;
+}
+
+/* Animation */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+#messages article {
+  animation: fadeOut 3s linear forwards;
+}
