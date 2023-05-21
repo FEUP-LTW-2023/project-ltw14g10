@@ -133,3 +133,7 @@ function filterByAgent(agent, subjectId) {
   
   getWithAsyncAwait();
 }
+
+function orderByDate(){
+  document.getElementById("order-form").submit();
+}

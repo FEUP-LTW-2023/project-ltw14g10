@@ -112,6 +112,20 @@
             return $tickets;
         }
 
+        static function getSubjectTicketsOrdered(PDO $db, int $subjectId, string $order) : array {
+            $tickets = Ticket::getSubjectTickets($db, $subjectId);
+            if($order == "newest"){
+                usort($tickets, function($a, $b) {
+                    return $b->time <=> $a->time;
+                });
+            } else if($order == "oldest"){
+                usort($tickets, function($a, $b) {
+                    return $a->time <=> $b->time;
+                });
+            }
+            return $tickets;
+        }
+
         static function changeTicketAgent(PDO $db, int $ticketId, int $agentId) : bool {
             $stmt = $db->prepare('
               UPDATE TICKET

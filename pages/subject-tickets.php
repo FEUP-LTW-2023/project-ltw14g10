@@ -16,7 +16,13 @@
 
   $agent = Agent::getAgent($db, $user->id);
 
-  $tickets = Ticket::getSubjectTickets($db, $agent->subject);
+  if(isset($_POST['order'])){
+    $order = $_POST['order'];
+    $tickets = Ticket::getSubjectTicketsOrdered($db, $agent->subject, $_POST['order']);
+  } else {
+    $order = false;
+    $tickets = Ticket::getSubjectTickets($db, $agent->subject);
+  }
 
   $subject = Subject::getSubject($db, $agent->subject);
 
@@ -24,7 +30,7 @@
   setHeaderMyTickets();
   drawHeader($session);
   drawTitle($subject->subject_name);
-  drawFilters($db, $agent->subject);
+  drawFilters($db, $agent->subject, $order);
   drawTickets($db, $tickets);
   drawFooter();
 ?>
