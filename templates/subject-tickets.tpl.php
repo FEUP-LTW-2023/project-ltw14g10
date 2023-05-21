@@ -33,7 +33,7 @@ require_once(__DIR__ . '/../database/status.class.php');
 
   <?php } ?>
 
-  <?php function drawFilters(PDO $db, int $subject, array &$tickets){ ?>
+  <?php function drawFilters(PDO $db, int $subject){ ?>
     <div class="filters">
       <div class="filter">
         <p>Filter by Status:</p>
@@ -61,14 +61,18 @@ require_once(__DIR__ . '/../database/status.class.php');
           <?php } ?>
         </select>
       </div>
-      <div class="filter">
+      <form class="filter">
         <p>Sort by Date:</p>
-        <select name="date" id="order-selector">
+        <select name="order" id="order-selector" onchange="orderByDate()">
           <option value=""></option>
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
         </select>
-      </div>
+        <input type="hidden" id="subject" value="<?php echo $subject; ?>">
+      </form>
+      <script>
+
+      </script>
     </div>
   <?php } ?>
 
