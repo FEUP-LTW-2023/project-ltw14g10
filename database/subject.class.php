@@ -90,5 +90,25 @@
             }
             return false;
         }
+
+        static function getAllSubjects(PDO $db) {
+            $stmt = $db->prepare('
+              SELECT *
+              FROM SUBJECT 
+            ');
+            $stmt->execute();
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $subjects = array();
+            foreach($data as $subject){
+                $subjects[] = new Subject(
+                    (int) $subject['ID'],
+                    $subject['CODE'],
+                    $subject['SUBJECT_NAME'],
+                    $subject['FULL_NAME'],
+                    (int) $subject['YEAR']
+                );
+            }
+            return $subjects;
+        }
     }
 ?>
