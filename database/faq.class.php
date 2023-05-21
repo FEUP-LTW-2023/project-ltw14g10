@@ -25,6 +25,25 @@
             return $stmt->fetchAll();
         }
 
+        static function getFAQ(PDO $db, int $id): ?FAQ
+        {
+            $stmt = $db->prepare('
+            SELECT *
+            FROM FAQ 
+            WHERE ID = ?');
+            $stmt->execute(array($id));
+            $faq = $stmt->fetch();
+            if ($faq == null) {
+                return null;
+            }
+            return new FAQ(
+                (int) $faq['ID'],
+                $faq['QUESTION'],
+                $faq['ANSWER'],
+                (int) $faq['SUBJECT_ID']
+            );
+        }
+
         static function getSubjectFAQs(PDO $db, int $subject_id): array
         {
             $data = FAQ::getSubjectFAQsRaw($db, $subject_id);

@@ -19,6 +19,6 @@
 
     setHeader($session);
     drawHeader($session);
-    drawBody($messages, $ticketId, $db);
+    drawBody($messages, $ticketId, $db, $session);
     drawFooter();
 ?>
