@@ -24,7 +24,9 @@ require_once(__DIR__ . '/../database/user.class.php');
 <?php function drawProfileBody(User $user)
 { ?>
   <div class="profile-container">
+    
     <div class="title">Profile</div>
+    <img src="../assets/user_icon.png" class="profile-icon">
     <div class="profile-info">
       <div class="name">
         <?php echo $user->name; ?>
@@ -36,14 +38,6 @@ require_once(__DIR__ . '/../database/user.class.php');
         email:
         <?php echo $user->email; ?>
       </div>
-      <h2 class="subtitle">Current Classes:</h2>
-      <ul class="classes">
-        <li>L.EIC016 - DA</li>
-        <li>L.EIC017 - ES</li>
-        <li>L.EIC018 - LC</li>
-        <li>L.EIC019 - LTW</li>
-        <li>L.EIC020 - ME</li>
-      </ul>
 
     </div>
     <div class="profile-actions">
