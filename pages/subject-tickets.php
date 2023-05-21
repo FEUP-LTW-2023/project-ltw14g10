@@ -14,9 +14,9 @@
 
   $user = User::getUser($db, $session->getId());
 
-  $tickets = Ticket::getSubjectTickets($db, $user->id);
-
   $agent = Agent::getAgent($db, $user->id);
+
+  $tickets = Ticket::getSubjectTickets($db, $agent->subject);
 
   $subject = Subject::getSubject($db, $agent->subject);
 

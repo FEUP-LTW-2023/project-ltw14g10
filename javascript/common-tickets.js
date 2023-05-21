@@ -26,15 +26,7 @@ function getRandomColor(hash) {
     }
   }
 
-  function selectorBackgroundColor(className, hash) {
-    var color;
-    if(className=="unkown") color = "#000000";
-    else color = getRandomColor(hash);
-    var element = document.getElementById("status-selector");
-    element.style.backgroundColor = color;
-  }
-
-  function updateTicketAgent(ticketId, newAgent) {
+  function updateTicketAgent(ticketId, newAgent, firstAssign) {
     const encodeForAjax = (data) => {
         return Object.keys(data).map(function(k){
           return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
@@ -48,6 +40,19 @@ function getRandomColor(hash) {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: encodeForAjax(dataToSend)
         });
+        if (response.ok && firstAssign) {
+          const ticket = document.getElementById("ticket-" + ticketId);
+          const statusSelector = ticket.querySelector(".status-selector");
+          const optionToSelect = statusSelector.querySelector('option[value="3"]');
+          const optionToDeselect = statusSelector.querySelector('option[value="2"]');
+          
+          if (optionToSelect) {
+            optionToSelect.selected = true;
+            if (optionToDeselect) {
+              optionToDeselect.selected = false;
+            }
+          }
+        }
     };
 
     postData();
@@ -72,4 +77,23 @@ function updateTicketSubject(ticketId, newSubject) {
   postData();
   var element = document.getElementById("ticket-"+ ticketId);
   element.style.display = "none";
+}
+
+function updateTicketStatus(ticketId, newStatus) {
+  const encodeForAjax = (data) => {
+      return Object.keys(data).map(function(k){
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+      }).join('&')
+  };
+
+  const postData = async () => {
+      const dataToSend = { ticket: ticketId, status: newStatus};
+      const response = await fetch("/../ajax/ajax_change_ticket_status.php", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeForAjax(dataToSend)
+      });
+  };
+
+  postData();
 }

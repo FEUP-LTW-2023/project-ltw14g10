@@ -83,7 +83,7 @@ require_once(__DIR__ . '/../database/status.class.php');
 
             Agent: <?php
             $agents = Agent::getAllAgentsBySubject($db, $ticket->subject); ?>
-            <select name="agent" id="agent-selector" onchange="updateTicketAgent(<?php echo $ticket->id ?>, this.value)">
+            <select name="agent" class="agent-selector" onchange='updateTicketAgent(<?php echo $ticket->id ?>, this.value, <?php echo ($ticket->agent == null ? "true":"false");?>)'>
                 <?php if ($ticket->agent == null) { ?>
                   <option value="" selected disabled>Not assigned</option>
                 <?php } else {?>
@@ -106,7 +106,7 @@ require_once(__DIR__ . '/../database/status.class.php');
             <?php 
               $subjects = Subject::getAllSubjects($db);
             ?>
-              <select name="subject" id="subject-selector" onchange="updateTicketSubject(<?php echo $ticket->id ?>, this.value)">
+              <select name="subject" class="subject-selector" onchange="updateTicketSubject(<?php echo $ticket->id ?>, this.value)">
                 <?php foreach ($subjects as $subject) { ?>
                   <option value="<?php echo $subject->id; ?>" <?php if ($ticket->subject == $subject->id) echo "selected"; ?>>
                     <?php echo $subject->code . " - " . $subject->subject_name; ?>
@@ -119,7 +119,7 @@ require_once(__DIR__ . '/../database/status.class.php');
         <?php
           $statusArray = Status::getAllStatus($db);
           ?>
-          <select name="status" id="status-selector">
+          <select name="status" class="status-selector" onchange="updateTicketStatus(<?php echo $ticket->id ?>, this.value)">
             <?php foreach ($statusArray as $status) { ?>
               <?php $className = strtolower(str_replace(' ', '-', $status->status_text)); ?>
               <option class="<?php echo $className; ?>"  value="<?php echo $status->id; ?>" <?php if ($ticket->status == $status->id) echo "selected"; ?>>
