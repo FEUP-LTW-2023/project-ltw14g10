@@ -7,7 +7,7 @@
     width: 80%;
     margin: 0 auto;
     margin-top: 1em;
-    background-color: #dbdbdb;
+    background-color: #555;
     border-radius: 8px;
     padding: 20px;
     box-sizing: border-box;
@@ -18,7 +18,7 @@
   .chat-inner-container {
     width: 80%;
     max-width: 500px;
-    background-color: #b9b9b9;
+    background-color: #ddd;
     border-radius: 8px;
     padding: 20px;
     box-sizing: border-box;
@@ -51,7 +51,10 @@
     background-color: #ffffff;
     padding: 10px;
     border-radius: 8px;
+    word-wrap: break-word; /* Added to allow words to wrap within the container */
+    max-width: 90%; /* Set a maximum width for the message container */
   }
+  
   
   .message-timestamp {
     font-size: 12px;
@@ -89,12 +92,17 @@
   }
   
   .chat-input textarea {
-    max-width: 200%;
+    
     height: 60px;
     resize: none;
     padding: 10px;
     border-radius: 4px;
+    box-sizing: border-box;
+    width: 130%;
   }
+  
+  
+
   
   .chat-input .send-button {
     margin-top: 10px;
