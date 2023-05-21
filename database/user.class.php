@@ -216,5 +216,26 @@
             }
             return $users;
         }
+
+        static function getAllAgentsBySubject(PDO $db, int $subject_id){
+            $stmt = $db->prepare('
+              SELECT *
+              FROM USER
+              WHERE ID IN (SELECT USER_ID FROM AGENT WHERE SUBJECT_ID = ?)
+            ');
+            $stmt->execute(array($subject_id));
+            $usersQuery = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $users = array();
+            foreach($usersQuery as $user){
+                $users[] = new User(
+                    (int) $user['ID'],
+                    $user['USERNAME'],
+                    $user['PASSWORD'],
+                    $user['EMAIL'],
+                    $user['NAME']
+                );
+            }
+            return $users;
+        }
     }
 ?>

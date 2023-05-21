@@ -50,7 +50,8 @@
 { ?>
   <div class="right-header">
     <?php drawAdminIcon(); ?>
-    <?php drawMyTicketButton(); ?>
+    <?php drawSubjectTicketButton(); ?>
+    <?php drawMyTicketsButton(); ?>
     <?php drawProfileIcon(); ?>
   </div>
 <?php } ?>
@@ -83,7 +84,7 @@
     </div>
   <?php } ?>
 
-<?php function drawMyTicketButton() {?>
+<?php function drawMyTicketsButton() {?>
     <a class="my-tickets-btn" href="../pages/my-tickets.php">
       My Tickets
     </a>
@@ -99,4 +100,18 @@
   <a href="../pages/profile.php" id="profile">
     <img src="../assets/user_icon_blue.png" alt="Admin Options" width="382" height="382" class="icon-user">
   </a>
+<?php } ?>
+
+<?php function drawSubjectTicketButton() {?>
+    <a class="subject-tickets-btn" href="../pages/subject-tickets.php">
+      Subject Tickets
+    </a>
+<?php } ?>
+
+<?php function drawTickets(PDO $db, array $tickets) { ?>
+  <?php foreach ($tickets as $ticket) { ?>
+    <div id="ticket-<?php echo $ticket->id; ?>" class="ticket">
+      <?php drawTicket($db, $ticket); ?>
+    </div>
+  <?php } ?>
 <?php } ?>
