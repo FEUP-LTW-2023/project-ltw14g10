@@ -10,7 +10,7 @@ require_once(__DIR__ . '/../templates/ticket-info.tpl.php');
 require_once(__DIR__ . '/../templates/common.tpl.php');
 
 $db = getDatabaseConnection();
-$ticket = Ticket::getTicket($db, (int) $_GET['id']);
+$ticket = Ticket::getTicket($db, (int) $_POST['id']);
 setHeaderTicket();
 drawHeader($session);
 drawTicketInfo($db, $ticket);

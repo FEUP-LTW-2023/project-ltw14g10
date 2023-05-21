@@ -12,9 +12,9 @@
 
   $db = getDatabaseConnection();
   
-  $messages = Message::getMessagesByTicket($db, 1);
+  $messages = Message::getMessagesByTicket($db, (int) $_POST['ticket_id']);
 
-  setHeader($session);
+  setHeader($session); 
   drawHeader($session);
   drawBody($messages,$db);
   drawFooter();
