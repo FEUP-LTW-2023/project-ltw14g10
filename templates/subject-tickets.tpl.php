@@ -90,7 +90,7 @@ require_once(__DIR__ . '/../database/status.class.php');
                     <option value="" disabled>Not assigned</option>
                 <?php } ?>
               <?php foreach ($agents as $agent) { ?>
-                <option value="<?php echo $agent->user; ?>" <?php if ($ticket->agent == $agent->user) echo "selected"; ?>>
+                <option value="<?php echo $agent->user; ?>" <?php if ($ticket->agent == $agent->user) echo "selected"; ?> <?php if ($ticket->client == $agent->user) echo "disabled"; ?>>
                   <?php echo User::getName($db, $agent->user); ?>
                 </option>
               <?php } ?>
