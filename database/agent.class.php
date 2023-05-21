@@ -76,5 +76,24 @@
             return false;
         }
 
+        
+        static function getAllAgentsBySubject(PDO $db, int $subject_id){
+            $stmt = $db->prepare('
+              SELECT *
+              FROM AGENT
+              WHERE SUBJECT_ID = ?
+            ');
+            $stmt->execute(array($subject_id));
+            $agentsQuery = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $agents = array();
+            foreach($agentsQuery as $agent){
+                $agents[] = new Agent(
+                    (int)$agent['USER_ID'],
+                    (int)$agent['SUBJECT_ID']
+                );
+            }
+            return $agents;
+        }
+
     }
 ?>

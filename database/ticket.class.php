@@ -88,6 +88,29 @@
             return $tickets;
         }
 
+        static function getSubjectTickets(PDO $db, int $subjectId) : array {
+            $stmt = $db->prepare('
+              SELECT *
+              FROM TICKET 
+              WHERE SUBJECT_ID = ?
+            ');
+            $stmt->execute(array($subjectId));
+            $ticketsQuery = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $tickets = array();
+            foreach($ticketsQuery as $ticket){
+                $tickets[] = new Ticket(
+                    (int) $ticket['ID'],
+                    (int) $ticket['CLIENT_ID'],
+                    $ticket['AGENT_ID']==null ? null : (int) $ticket['AGENT_ID'],
+                    (int) $ticket['SUBJECT_ID'],
+                    (int) $ticket['STATUS_ID'],
+                    $ticket['TITLE'],
+                    $ticket['DESCRIPTION'],
+                    $ticket['CREATED_AT']
+                );
+            }
+            return $tickets;
+        }
 
     }
 ?>

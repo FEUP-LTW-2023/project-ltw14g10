@@ -14,18 +14,18 @@
 
   $user = User::getUser($db, $session->getId());
 
-  $tickets = Ticket::getUserTickets($db, $user->id);
-  
+  $tickets = Ticket::getSubjectTickets($db, $user->id);
+
+  $agent = Agent::getAgent($db, $user->id);
+
+  $subject = Subject::getSubject($db, $agent->subject);
 
 
   setHeaderMyTickets();
   drawHeader($session);
-  drawTitle();
+  drawTitle($subject->subject_name);
   foreach ($tickets as $ticket) {
     drawTicket($db,$ticket);
-    ?>
-    <button class="accordion">Answer</button>
-    <?php
   }
   drawFooter();
 ?>

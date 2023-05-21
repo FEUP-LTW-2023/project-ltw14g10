@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require_once(__DIR__ . '/../utils/session.php');
 require_once(__DIR__ . '/../database/user.class.php');
+require_once(__DIR__ . '/../database/agent.class.php');
 require_once(__DIR__ . '/../database/ticket.class.php');
 require_once(__DIR__ . '/../database/subject.class.php');
 require_once(__DIR__ . '/../database/status.class.php');
@@ -18,17 +19,17 @@ require_once(__DIR__ . '/../database/status.class.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>help.eic Profile</title>
-    <link rel="stylesheet" href="../css/my-tickets-style.css" />
+    <link rel="stylesheet" href="../css/common-tickets-style.css" />
     <link rel="stylesheet" href="../css/common-style.css" />
     <script src="../javascript/my-tickets.js"></script>
   </head>
 
 <?php } ?>
 
-<?php function drawTitle()
+<?php function drawTitle(string $subject_name)
 { ?>
   <div class="container">
-    <h1 class="upcomming">YOUR TICKETS</h1>
+    <h1 class="upcomming"><?php echo $subject_name; ?> TICKETS</h1>
 
   <?php } ?>
 
@@ -81,10 +82,19 @@ require_once(__DIR__ . '/../database/status.class.php');
           <p>Client: <?php echo User::getName($db, $ticket->client) ?> <br />
 
             Agent: <?php
-            if ($ticket->agent == null)
-              echo "Not assigned";
-            else
-              echo User::getName($db, $ticket->agent) ?>
+            $agents = Agent::getAllAgentsBySubject($db, $ticket->subject); ?>
+            <select name="agent" id="agent">
+                <?php if ($ticket->agent == null) { ?>
+                  <option value="" selected disabled>Not assigned</option>
+                <?php } else {?>
+                    <option value="" disabled>Not assigned</option>
+                <?php } ?>
+              <?php foreach ($agents as $agent) { ?>
+                <option value="<?php echo $agent->user; ?>" <?php if ($ticket->agent == $agent->user) echo "selected"; ?>>
+                  <?php echo User::getName($db, $agent->user); ?>
+                </option>
+              <?php } ?>
+            </select>
             </p>
           </div>
           <div class="fix"></div>
