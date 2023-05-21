@@ -26,7 +26,7 @@ require_once(__DIR__ . '/../utils/session.php');
         <h2>About help.eic</h2>
         <p>Welcome to help.eic, the one-stop destination for academic 
             assistance. We are a team of dedicated alumni from the 
-            L.EIC (Licenciatura em Engenharia informatica e computacao)
+            L.EIC (Licenciatura em Engenharia Informática e Computacão)
              course at FEUP (Faculdade de Engenharia da Universidade
               do Porto), who understand the challenges that come with 
               pursuing a degree in computer science.</p>
