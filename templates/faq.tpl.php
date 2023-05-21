@@ -30,8 +30,10 @@ require_once(__DIR__ . '/../utils/session.php');
     <main>
       <section class="faq-container">
         <div class="intro-faq">
-          <h1>FAQ</h1>
-          <p>Here you can find the most frequently asked questions about the course units of L.EIC.</p>
+          <h1 class='faq-page'>Welcome to the FAQ Page!</h1>
+          <div class='faq-body'>
+          <p>Here you can find the most frequently asked questions about the course units of L.EIC. Select your subject and get started!</p>
+          </div>
       </section>
     </main>
   </body>

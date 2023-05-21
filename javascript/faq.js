@@ -16,6 +16,7 @@ function setAnimationFAQ() {
       });
     }
   }
+  setAnimationFAQ();
   
   function getFAQsSubject(subjectId) {
     const getWithAsyncAwait = async () => {

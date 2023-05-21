@@ -172,12 +172,13 @@ VALUES
   (21, 'What is Fundamentos de Segurança Informática?', 'Fundamentos de Segurança Informática is a subject that covers the principles and techniques of computer security.', 21, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
   (22, 'What is Interação Pessoa Computador?', 'Interação Pessoa Computador is a subject that focuses on designing user interfaces and studying human-computer interaction.', 22, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
   (23, 'What is Laboratório de Bases de Dados e Aplicações Web?', 'Laboratório de Bases de Dados e Aplicações Web is a lab course where students learn to develop database-driven web applications.', 23, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  (24, 'What is Redes de Computadores?', 'Redes de Computadores is a subject that covers the principles and techniques of computer networks.', 24, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  (25, 'What is Compiladores?', 'Compiladores is a subject that covers the principles and techniques of compiler design.', 25, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  (26, 'What is Computação Gráfica?', 'Computação Gráfica is a subject that covers the principles and techniques of computer graphics.', 26, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  (27, 'What is Computação Paralela e Distribuída?', 'Computação Paralela e Distribuída is a subject that covers the principles and techniques of parallel and distributed computing.', 27, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  (28, 'What is Inteligência Artificial?', 'Inteligência Artificial is a subject that covers the principles and techniques of artificial intelligence.', 28, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  (29, 'What is Projeto Integrador?', 'Projeto Integrador is a subject that focuses on the design and implementation of a software project.', 29, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+  (24, 'What is Programação Funcional e em Lógica?', 'Programação Funcional e em Lógica is a subject that covers the principles and techniques of functional and logic programming.', 24, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (25, 'What is Redes de Computadores?', 'Redes de Computadores is a subject that covers the principles and techniques of computer networks.', 24, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (26, 'What is Compiladores?', 'Compiladores is a subject that covers the principles and techniques of compiler design.', 25, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (27, 'What is Computação Gráfica?', 'Computação Gráfica is a subject that covers the principles and techniques of computer graphics.', 26, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (28, 'What is Computação Paralela e Distribuída?', 'Computação Paralela e Distribuída is a subject that covers the principles and techniques of parallel and distributed computing.', 27, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (29, 'What is Inteligência Artificial?', 'Inteligência Artificial is a subject that covers the principles and techniques of artificial intelligence.', 28, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (30, 'What is Projeto Integrador?', 'Projeto Integrador is a subject that focuses on the design and implementation of a software project.', 29, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 
 
