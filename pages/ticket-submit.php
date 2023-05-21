@@ -17,7 +17,7 @@
   $db = getDatabaseConnection();
 
   setHeader($session);
-  drawHeader($session);
+  drawHeader($db, $session);
   drawBody();
   drawFooter();
 ?>

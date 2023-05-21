@@ -23,7 +23,7 @@
   }
 
   setHeaderAdminPage();
-  drawHeader($session);
+  drawHeader($db, $session);
   adminMainCards();
   drawFooter();
 ?>

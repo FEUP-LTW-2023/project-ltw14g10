@@ -25,7 +25,7 @@
   $users = User::getAllUsers($db);
 
   setHeaderAdminPage();
-  drawHeader($session);
+  drawHeader($db, $session);
   listAllUsers($users, $db);
   drawFooter();
 ?>

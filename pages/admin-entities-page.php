@@ -25,7 +25,7 @@
   $statuss = Status::getAllStatus($db);
 
   setHeaderAdminPage();
-  drawHeader($session);
+  drawHeader($db, $session);
   drawForms();
   listAllStatus($statuss);
   listAllSubjects($db);

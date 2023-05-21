@@ -19,7 +19,7 @@
   $user = User::getUser($db, $session->getId());
 
   setHeaderProfile();
-  drawHeader($session);
+  drawHeader($db, $session);
   drawProfileBody($user);
   drawFooter();
 ?>

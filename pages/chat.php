@@ -23,7 +23,7 @@
     require_once(__DIR__ . '/../templates/chat.tpl.php');
 
     setHeader($session);
-    drawHeader($session);
+    drawHeader($db, $session);
     drawBody($messages, $ticketId, $db);
     drawFooter();
 ?>

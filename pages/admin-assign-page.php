@@ -27,7 +27,7 @@
   $agents = User::getAllAgents($db);
 
   setHeaderAdminPage();
-  drawHeader($session);
+  drawHeader($db, $session);
   listAllAgents($agents, $db);
   drawFooter();
 ?>

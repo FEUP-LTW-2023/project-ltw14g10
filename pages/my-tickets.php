@@ -23,7 +23,7 @@
 
 
   setHeaderMyTickets();
-  drawHeader($session);
+  drawHeader($db, $session);
   drawTitle();
   drawTickets($db, $tickets);
   drawFooter();

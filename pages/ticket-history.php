@@ -20,7 +20,7 @@ $changes = Change::getChangesByTicket($db, (int) $ticketId);
 
 
 setHeaderHistory();
-drawHeader($session);
+drawHeader($db, $session);
 drawBody($changes, (int) $ticketId, $db);
 drawFooter();
 

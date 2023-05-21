@@ -17,7 +17,7 @@ if(!$session->isLoggedIn()) {
 $db = getDatabaseConnection();
 $ticket = Ticket::getTicket($db, (int) $_POST['id']);
 setHeaderTicket();
-drawHeader($session);
+drawHeader($db, $session);
 drawTicketInfo($db, $ticket);
 drawFooter();
 ?>

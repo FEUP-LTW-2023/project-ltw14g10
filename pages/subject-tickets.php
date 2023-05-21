@@ -34,7 +34,7 @@
 
 
   setHeaderMyTickets();
-  drawHeader($session);
+  drawHeader($db, $session);
   drawTitle($subject->subject_name);
   drawFilters($db, $agent->subject, $order);
   drawTickets($db, $tickets);
