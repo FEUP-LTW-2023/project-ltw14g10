@@ -166,15 +166,19 @@
         $agent = Agent::getAgent($db, $user->id);
       ?>
       <form action="../actions/action_change_subject.php" method="post">
-        <input type="hidden" name="agent_id" value="<?php echo $agent->user; ?>">
-        <select class="year" name="year" onchange="getSubjectsUser(this.value, <?php echo $agent->user; ?>)" required>
-          <option value="" disabled selected>Select year</option>
-          <option value="1">1st year</option>
-          <option value="2">2nd year</option>
-          <option value="3">3rd year</option>
+        <input type="hidden" name="agent_id" value="<?php echo $agent->user; ?>" id="data-agent-id">
+        <input type="hidden" name="subject_id" value="<?php echo $agent->subject; ?>" id="data-subject-id">
+        <?php if($agent->subject != null){
+          $subject = Subject::getSubject($db, $agent->subject);
+        } ?>
+        <select class="year" name="year" onchange='getSubjectsUser(this.value, <?php echo $agent->user; ?>, "<?php echo ($agent->subject == null ? "null" : $agent->subject); ?>")' required>
+          <option value="" disabled <?php echo ($agent->subject==null?"selected":"");?>>Select year</option>
+          <option value="1" <?php if($agent->subject != null) echo ($subject->year==1?"selected":"");?>>1st year</option>
+          <option value="2" <?php if($agent->subject != null) echo ($subject->year==2?"selected":"");?>>2nd year</option>
+          <option value="3" <?php if($agent->subject != null) echo ($subject->year==3?"selected":"");?>>3rd year</option>
         </select>
         <select class='subjectContainer' id="user-<?php echo $agent->user; ?>"  name='subject' required>
-          <option value="" disabled selected>Select subject</option>
+          <option value="" disabled <?php echo ($agent->subject==null?"selected":"");?>>Select subject</option>
         </select>
         <input type="submit" value="+">
       </form>
