@@ -106,7 +106,10 @@ require_once(__DIR__ . '/../database/status.class.php');
       </div> <!-- end item-right -->
 
       <div class="item-left">
-      <a href="ticket-info.php?id=<?php echo $ticket->id; ?>" class="plus-sign">&#43;</a>
+      <form action="ticket-info.php" method="post">
+          <input type="hidden" name="id" value="<?php echo $ticket->id; ?>">
+          <button type="submit" class="plus-sign">&#43;</button>
+      </form>
 
         <p class="event">Ticket
           #<?php echo $ticket->id ?>
