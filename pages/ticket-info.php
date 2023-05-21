@@ -19,5 +19,6 @@ $ticket = Ticket::getTicket($db, (int) $_POST['id']);
 setHeaderTicket();
 drawHeader($db, $session);
 drawTicketInfo($db, $ticket);
+drawAddHashtagForm($db, $ticket);
 drawFooter();
 ?>

@@ -6,7 +6,7 @@ require_once(__DIR__ . '/../database/ticket.class.php');
 require_once(__DIR__ . '/../database/subject.class.php');
 require_once(__DIR__ . '/../database/status.class.php');
 require_once(__DIR__ . '/../database/user.class.php');
-
+require_once(__DIR__ . '/../database/hashtag.class.php');
 ?>
 
 <?php function setHeaderTicket()
@@ -74,6 +74,14 @@ require_once(__DIR__ . '/../database/user.class.php');
         <div class="subtitle">Time</div>
         <div class="time"><?php echo $ticket->time; ?></div>
       </div>
+      <div class="ticket-hashtags">
+        <div class="subtitle">#Hashtags</div>
+        <?php 
+        $hashtags = Hashtag::getHashtagsFromTicket($db, $ticket->id);
+        foreach($hashtags as $hashtag) { ?>
+          <div class="hashtag"><?php echo $hashtag->hashtag; ?></div>
+        <?php } ?>
+      </div>
     </div>
     <div class="ticket-buttons">
       <div class="ticket-history">
@@ -89,9 +97,22 @@ require_once(__DIR__ . '/../database/user.class.php');
       </form>
       </div>
     </div>
-
-    
-    
   </div>
+<?php } ?>
 
+<?php function drawAddHashtagForm(PDO $db, Ticket $ticket){ ?>
+  <div class="status-form">
+    <form action="../actions/action_add_hashtag.php" method="post">
+      <?php 
+      $hashtags = Hashtag::drawAllHashtags($db); ?>
+      <select name="hashtag" required>
+        <option value="" disabled selected>Add a hashtag</option>
+      <?php foreach($hashtags as $hashtag) { ?>
+          <option value="<?php echo $hashtag->id; ?>"><?php echo $hashtag->hashtag; ?></option>
+      <?php } ?>
+      </select>
+      <input type="hidden" name="ticket_id" value="<?php echo $ticket->id; ?>">
+      <input type="submit" value="+">
+    </form>
+  </div>
 <?php } ?>
