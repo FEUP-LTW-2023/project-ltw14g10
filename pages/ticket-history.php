@@ -11,11 +11,12 @@ require_once(__DIR__ . '/../templates/common.tpl.php');
 
 $db = getDatabaseConnection();
 $ticketId = $_POST['ticket_id'];
+$changes = Change::getChangesByTicket($db, (int) $ticketId);
+
+
 setHeaderHistory();
 drawHeader($session);
-drawMockTicketHistory((int) $ticketId);
-
-
+drawBody($changes, (int) $ticketId, $db);
 drawFooter();
 
 ?>
