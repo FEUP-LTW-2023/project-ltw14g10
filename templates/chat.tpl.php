@@ -51,7 +51,7 @@ function drawBody(array $messages, int $ticketId, PDO $db, Session $session)
 
 
 
-<?php function drawInput(int $ticketId, PDO $db, Session $session, Session $session) { ?>
+<?php function drawInput(int $ticketId, PDO $db, Session $session) { ?>
     <?php 
         $ticket = Ticket::getTicket($db, $ticketId);
         $faqs = FAQ::getSubjectFAQs($db, $ticket->subject);
@@ -60,6 +60,7 @@ function drawBody(array $messages, int $ticketId, PDO $db, Session $session)
         <form method="post" action="../actions/action_send_message.php" class="input-form">
             <input type="hidden" name="ticket_id" value="<?php echo $ticketId; ?>">
             <textarea name="message" placeholder="Type your message"></textarea>
+            <input type="hidden" name="csrf" value="<?php echo $session->getCSRF(); ?>">
             <button type="submit" class="send-button">Send</button>
         </form>
     </div>
