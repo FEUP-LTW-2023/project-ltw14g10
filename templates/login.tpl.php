@@ -31,6 +31,7 @@
       <input type="password" name="password" placeholder="Password" />
       <?php drawValidatePassword($session) ?>
     </div>
+    <input type="hidden" name="csrf" value="<?=$session->getCSRF()?>">
     <input type="submit" value="Sign in" />
   </form>
   <p class="bottom-text">

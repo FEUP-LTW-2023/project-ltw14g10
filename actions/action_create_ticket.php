@@ -8,6 +8,11 @@
   require_once(__DIR__ . '/../database/ticket.class.php');
 
   $db = getDatabaseConnection();
+  if($session->getCSRF() !== $_POST['csrf']) {
+    $validRegister = false;
+    $session->addMessage('error', 'Invalid CSRF token');
+    header('Location: /../pages/main-page.php');
+  }
   
   date_default_timezone_set("Europe/Lisbon");
   $time = date("Y-m-d H:i:s");

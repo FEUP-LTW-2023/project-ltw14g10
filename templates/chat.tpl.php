@@ -23,7 +23,7 @@ require_once(__DIR__ . '/../database/message.class.php');
 <?php } ?>
 
 <?php
-function drawBody(array $messages, int $ticketId, PDO $db)
+function drawBody(array $messages, int $ticketId, PDO $db, Session $session)
 { ?>
     <div class="chat-outer-container">
         <div class="chat-inner-container">
@@ -31,7 +31,7 @@ function drawBody(array $messages, int $ticketId, PDO $db)
             <div class="chat-messages">
                 <?php foreach ($messages as $message) drawMessage($message,$db)?>
             </div>
-            <?php drawInput($ticketId); ?>
+            <?php drawInput($ticketId, $session); ?>
         </div>
     </div>
 <?php } ?>
@@ -45,11 +45,12 @@ function drawBody(array $messages, int $ticketId, PDO $db)
     </div>
 <?php } ?>
 
-<?php function drawInput(int $ticketId) { ?>
+<?php function drawInput(int $ticketId, Session $session) { ?>
     <div class="chat-input">
         <form method="post" action="../actions/action_send_message.php" class="input-form">
             <input type="hidden" name="ticket_id" value="<?php echo $ticketId; ?>">
             <textarea name="message" placeholder="Type your message"></textarea>
+            <input type="hidden" name="csrf" value="<?php echo $session->getCSRF(); ?>">
             <button type="submit" class="send-button">Send</button>
         </form>
     </div>

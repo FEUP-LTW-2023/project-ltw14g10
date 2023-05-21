@@ -8,7 +8,11 @@
   require_once(__DIR__ . '/../database/user.class.php');
 
   $db = getDatabaseConnection();
-
+  if($session->getCSRF() !== $_POST['csrf']) {
+    $validRegister = false;
+    $session->addMessage('error', 'Invalid CSRF token');
+    header('Location: /../pages/main-page.php');
+  }
   if(!User::usernameExists($db, $_POST['username'])){
     $session->addMessage("error", "Username doesn't exist");
     header('Location: ' . $_SERVER['HTTP_REFERER']);

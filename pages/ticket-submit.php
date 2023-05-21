@@ -18,6 +18,6 @@
 
   setHeader($session);
   drawHeader($db, $session);
-  drawBody();
+  drawBody($session);
   drawFooter();
 ?>

@@ -33,6 +33,7 @@ require_once(__DIR__ . '/../utils/session.php');
       <input type="password" name="password" placeholder="Choose a password" required />
       <input type="password" name="confirm-password" placeholder="Confirm your password" required />
       <?php drawValidatePassword($session); ?>
+      <input type="hidden" name="csrf" value="<?=$session->getCSRF()?>">
       <input type="submit" value="Sign up" />
     </div>
   </form>

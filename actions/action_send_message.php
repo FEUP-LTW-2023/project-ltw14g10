@@ -8,6 +8,12 @@ require_once(__DIR__ . '/../utils/session.php');
 $db = getDatabaseConnection();
 $session = new Session();
 
+if($session->getCSRF() !== $_POST['csrf']) {
+    $validRegister = false;
+    $session->addMessage('error', 'Invalid CSRF token');
+    header('Location: /../pages/main-page.php');
+  }
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ticketId = (int) $_POST['ticket_id'];
     $messageText = $_POST['message'];
