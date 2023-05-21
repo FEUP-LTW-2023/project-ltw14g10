@@ -10,18 +10,20 @@ $db = getDatabaseConnection();
 $session = new Session();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
     $ticketId = (int) $_POST['ticket_id'];
     $messageText = $_POST['message'];
     $selectedFaqId = $_POST['faq_id'];
 
-    if (!empty($selectedFaqId)) {
-        $faq = FAQ::getFAQ($db, (int) $selectedFaqId);
-        if ($faq) {
-            $messageText = 'FAQ: ' . $faq->question . ' - ' . $faq->answer;
-        }
-    }
+    
 
     $message = Message::createMessage($db, $ticketId, $session->getId(), $messageText);
+    
+    if (!empty($selectedFaqId)) {
+        $faq = FAQ::getFAQ($db, (int) $selectedFaqId);
+        $message = Message::createMessage($db, $ticketId, $session->getId(), 'FAQ: ' . $faq->question . ' - ' . $faq->answer);
+    }
+    
     
     // Redirect back to chat.php with the preserved ticket ID
     header('Location: ../pages/chat.php');

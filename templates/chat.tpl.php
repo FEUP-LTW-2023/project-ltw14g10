@@ -62,7 +62,7 @@ function drawBody(array $messages, int $ticketId, PDO $db, Session $session)
             <textarea name="message" placeholder="Type your message"></textarea>
            
             <?php if (Agent::isAgent($db,$session->getId())) { ?>
-                <select class="faq-bar" name="faq_id"> <!-- Updated name attribute -->
+                <select class="faq-bar" name="faq_id">
                     <option class="faq-option" value="">Select FAQ</option>
                     <?php foreach ($faqs as $faq) { ?>
                         <option class="faq-option" value="<?php echo $faq->id ?>"><?php echo $faq->question ?></option>
