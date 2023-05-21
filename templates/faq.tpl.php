@@ -18,55 +18,35 @@ require_once(__DIR__ . '/../utils/session.php');
     <link href="../css/info-style.css" rel="stylesheet">
     <link href="../css/common-style.css" rel="stylesheet">
     <script src="../javascript/faq.js" defer></script>
+    <script src="../javascript/classes.js" defer></script>
   </head>
 
 <?php } ?>
 
 <?php function drawBody()
 { ?>
-
+  <?php drawFAQSubjectSelector(); ?>
   <body>
     <main>
       <section class="faq-container">
-        <div class="faq-one">
-          <!-- faq question -->
-          <h1 class="faq-page">What is an FAQ Page?</h1>
-          <!-- faq answer -->
-          <div class="faq-body">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
-              necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
-              aperiam.
-              Perspiciatis, porro!</p>
+        <div class="intro-faq">
+          <h1 class='faq-page'>Welcome to the FAQ Page!</h1>
+          <div class='faq-body'>
+          <p>Here you can find the most frequently asked questions about the course units of L.EIC. Select your subject and get started!</p>
           </div>
-        </div>
-        <hr class="hr-line">
-        <div class="faq-two">
-          <!-- faq question -->
-          <h1 class="faq-page">Why do you need an FAQ page?</h1>
-          <!-- faq answer -->
-          <div class="faq-body">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
-              necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
-              aperiam.
-              Perspiciatis, porro!</p>
-          </div>
-        </div>
-        <hr class="hr-line">
-        <div class="faq-three">
-          <!-- faq question -->
-          <h1 class="faq-page">Does it improves the user experience of a website?</h1>
-          <!-- faq answer -->
-          <div class="faq-body">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
-              necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
-              aperiam.
-              Perspiciatis, porro!</p>
-          </div>
-        </div>
       </section>
     </main>
-    <script src="main.js"></script>
   </body>
+<?php } ?>
 
-
+<?php function drawFAQSubjectSelector(){ ?>
+  <select class="year" name="year" onchange="getSubjects(this.value)" required>
+    <option value="" disabled selected>Select year</option>
+    <option value="1">1st year</option>
+    <option value="2">2nd year</option>
+    <option value="3">3rd year</option>
+  </select>
+  <select class='subjectContainer' name='subject' onchange="getFAQsSubject(this.value)" required>
+    <option value="" disabled selected>Select subject</option>
+  </select>
 <?php } ?>

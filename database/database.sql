@@ -157,6 +157,40 @@ INSERT INTO ADMIN(USER_ID) VALUES (1), (2);
 
 INSERT INTO STATUS (ID, STATUS_TEXT) VALUES (1, 'Unknown'), (2, 'To Be Assigned'), (3, 'Open'), (4, 'In Progress'), (5, 'Closed');
 
+INSERT INTO FAQ (ID, QUESTION, ANSWER, SUBJECT_ID, CREATED_AT, UPDATED_AT)
+VALUES
+  (1, 'What is Algebra Linear e Geometria Analítica?', 'Algebra Linear e Geometria Analítica is a mathematical discipline that studies vector spaces, linear transformations, and analytical geometry.', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (2, 'What is Análise Matemática I?', 'Análise Matemática I is a mathematical discipline that deals with limits, continuity, and differentiation of functions.', 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (3, 'What is Fundamentos de Sistemas Computacionais?', 'Fundamentos de Sistemas Computacionais is a subject that introduces the fundamental concepts of computer systems, including computer organization and architecture.', 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (4, 'What is Matemática Discreta?', 'Matemática Discreta is a branch of mathematics that deals with discrete structures and mathematical reasoning.', 4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (5, 'What are the Fundamentos da Programação?', 'Fundamentos da Programação is an introductory course that covers the basics of programming concepts and techniques.', 5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (6, 'What is Arquitetura de Computadores?', 'Arquitetura de Computadores is a subject that focuses on the design and organization of computer systems and architectures.', 6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (7, 'What is Análise Matemática II?', 'Análise Matemática II is a mathematical discipline that deals with integration, sequences, and series.', 7, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (8, 'What is Física I?', 'Física I is a physics course that explores topics such as mechanics, thermodynamics, and waves.', 8, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (9, 'What is Programação?', 'Programação is a subject that focuses on the design and implementation of computer programs.', 9, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (10, 'What is Teoria da Computação?', 'Teoria da Computação is a subject that covers the fundamentals of computer science, including automata theory, computability, and complexity theory.', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (11, 'What is Algoritmos e Estruturas de Dados?', 'Algoritmos e Estruturas de Dados is a subject that covers algorithms and data structures used in computer programming.', 11, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (12, 'What is Bases de Dados?', 'Bases de Dados is a subject that focuses on database design, implementation, and management.', 12, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (13, 'What is Física II?', 'Física II is a physics course that explores topics such as electromagnetism, waves, and optics.', 13, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (14, 'What is Laboratório de Desenho e Teste de Software?', 'Laboratório de Desenho e Teste de Software is a lab course where students learn to design and test software.', 14, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (15, 'What is Sistemas Operativos?', 'Sistemas Operativos is a subject that covers the principles and techniques of operating systems.', 15, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (16, 'What is Desenho de Algoritmos?', 'Desenho de Algoritmos is a subject that covers the design and analysis of algorithms.', 16, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (17, 'What is Engenharia de Software?', 'Engenharia de Software is a subject that covers the principles and techniques of software engineering.', 17, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (18, 'What is Laboratório de Computadores?', 'Laboratório de Computadores is a lab course where students learn to design and implement computer systems.', 18, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (19, 'What is Linguagens e Tecnologias Web?', 'Linguagens e Tecnologias Web is a subject that covers the principles and techniques of web development.', 19, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (20, 'What is Métodos Estatísticos?', 'Métodos Estatísticos is a subject that covers the principles and techniques of statistics.', 20, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (21, 'What is Fundamentos de Segurança Informática?', 'Fundamentos de Segurança Informática is a subject that covers the principles and techniques of computer security.', 21, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (22, 'What is Interação Pessoa Computador?', 'Interação Pessoa Computador is a subject that focuses on designing user interfaces and studying human-computer interaction.', 22, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (23, 'What is Laboratório de Bases de Dados e Aplicações Web?', 'Laboratório de Bases de Dados e Aplicações Web is a lab course where students learn to develop database-driven web applications.', 23, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (24, 'What is Programação Funcional e em Lógica?', 'Programação Funcional e em Lógica is a subject that covers the principles and techniques of functional and logic programming.', 24, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (25, 'What is Redes de Computadores?', 'Redes de Computadores is a subject that covers the principles and techniques of computer networks.', 24, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (26, 'What is Compiladores?', 'Compiladores is a subject that covers the principles and techniques of compiler design.', 25, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (27, 'What is Computação Gráfica?', 'Computação Gráfica is a subject that covers the principles and techniques of computer graphics.', 26, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (28, 'What is Computação Paralela e Distribuída?', 'Computação Paralela e Distribuída is a subject that covers the principles and techniques of parallel and distributed computing.', 27, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (29, 'What is Inteligência Artificial?', 'Inteligência Artificial is a subject that covers the principles and techniques of artificial intelligence.', 28, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  (30, 'What is Projeto Integrador?', 'Projeto Integrador is a subject that focuses on the design and implementation of a software project.', 29, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+
 
 CREATE TRIGGER deleted_status
 AFTER DELETE ON STATUS
