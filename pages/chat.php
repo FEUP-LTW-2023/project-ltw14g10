@@ -7,6 +7,11 @@
     require_once(__DIR__ . '/../database/connection.db.php');
     require_once(__DIR__ . '/../database/message.class.php');
 
+    if(!$session->isLoggedIn()) {
+        header('Location: ../pages/login.php');
+        die();
+      }
+
     $db = getDatabaseConnection();
 
     $ticketId = isset($_SESSION['ticket_id']) ? $_SESSION['ticket_id'] : (int) $_POST['ticket_id'];
@@ -18,7 +23,7 @@
     require_once(__DIR__ . '/../templates/chat.tpl.php');
 
     setHeader($session);
-    drawHeader($session);
+    drawHeader($db, $session);
     drawBody($messages, $ticketId, $db, $session);
     drawFooter();
 ?>

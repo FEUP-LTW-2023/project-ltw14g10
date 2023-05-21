@@ -9,10 +9,21 @@
   require_once(__DIR__ . '/../templates/admin-page.tpl.php');
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
+  if(!$session->isLoggedIn()) {
+    header('Location: ../pages/login.php');
+    die();
+  }
+
   $db = getDatabaseConnection();
 
+  if(!Admin::isAdmin($db, $session->getId())) {
+    $session->addMessage('error', 'You do not have permission to access this page.');
+    header('Location: ../pages/main-page.php');
+    die();
+  }
+
   setHeaderAdminPage();
-  drawHeader($session);
+  drawHeader($db, $session);
   adminMainCards();
   drawFooter();
 ?>
