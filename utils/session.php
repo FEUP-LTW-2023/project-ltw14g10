@@ -9,6 +9,7 @@
       if (!isset($_SESSION['csrf'])) {
         $_SESSION['csrf'] = $this->generate_random_token();
       }
+      $this->clearMessages();
     }
 
     public function isLoggedIn() : bool {

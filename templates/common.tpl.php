@@ -27,7 +27,7 @@
           drawLoginHeader($session);}
       ?>
     </header>
-    <?php if ($current_page == "main-page.php") { ?>
+    <?php if ($current_page == "main-page.php" || $current_page == "my-tickets.php") { ?>
     <section id="messages">
       <?php foreach ($session->getMessages() as $messsage) { ?>
         <article class="<?= $messsage['type'] ?>">

@@ -20,8 +20,8 @@
             $hashtagArray = array();
             foreach($hashtags as $hashtag) {
                 $hashtagArray[] = new Hashtag(
-                    (int) $hashtag['id'],
-                    $hashtag['tag']
+                    (int) $hashtag['ID'],
+                    $hashtag['TAG']
                 );
             }
             return $hashtagArray;
@@ -50,6 +50,20 @@
             INSERT INTO TICKET_HASHTAG (TICKET_ID, TAG)
             VALUES (?, ?)');
             $stmt->execute(array($ticket_id, $hashtag_id));
+        }
+
+        static function verifyIfHashtagExists(PDO $db, int $tag, int $ticket_id): bool {
+            $stmt = $db->prepare('
+            SELECT *
+            FROM TICKET_HASHTAG
+            WHERE TAG = ? AND TICKET_ID = ?');
+            $stmt->execute(array($tag,$ticket_id));
+            $hashtag = $stmt->fetch();
+            if ($hashtag == false) {
+                return false;
+            } else {
+                return true;
+            }
         }
 
     }

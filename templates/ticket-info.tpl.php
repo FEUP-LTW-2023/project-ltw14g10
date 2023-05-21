@@ -31,6 +31,7 @@ require_once(__DIR__ . '/../database/hashtag.class.php');
 
   <div class="container">
     <div class="title">Ticket #<?php echo "$ticket->id - $ticket->title" ?></div>
+    <?php drawAddHashtagForm($db, $ticket); ?>
     <div class="ticket-info">
       <div class="ticket-subject">
         <div class="subtitle">Subject</div>
@@ -79,7 +80,7 @@ require_once(__DIR__ . '/../database/hashtag.class.php');
         <?php 
         $hashtags = Hashtag::getHashtagsFromTicket($db, $ticket->id);
         foreach($hashtags as $hashtag) { ?>
-          <div class="hashtag"><?php echo $hashtag->hashtag; ?></div>
+          <div class="hashtag">#<?php echo $hashtag->tag; ?></div>
         <?php } ?>
       </div>
     </div>
@@ -108,7 +109,7 @@ require_once(__DIR__ . '/../database/hashtag.class.php');
       <select name="hashtag" required>
         <option value="" disabled selected>Add a hashtag</option>
       <?php foreach($hashtags as $hashtag) { ?>
-          <option value="<?php echo $hashtag->id; ?>"><?php echo $hashtag->hashtag; ?></option>
+          <option value="<?php echo $hashtag->id; ?>"><?php echo $hashtag->tag; ?></option>
       <?php } ?>
       </select>
       <input type="hidden" name="ticket_id" value="<?php echo $ticket->id; ?>">
