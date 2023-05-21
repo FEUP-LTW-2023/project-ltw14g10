@@ -230,7 +230,7 @@ select {
   margin-bottom: 10px;
   border-radius: 4px;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #666;
 }
 
 .error {
