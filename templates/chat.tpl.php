@@ -4,6 +4,9 @@ declare(strict_types=1);
 require_once(__DIR__ . '/../utils/session.php');
 require_once(__DIR__ . '/../database/user.class.php');
 require_once(__DIR__ . '/../database/message.class.php');
+require_once(__DIR__ . '/../database/faq.class.php');
+require_once(__DIR__ . '/../database/ticket.class.php');
+require_once(__DIR__ . '/../database/agent.class.php');
 ?>
 
 <?php function setHeader(Session $session)
@@ -23,7 +26,7 @@ require_once(__DIR__ . '/../database/message.class.php');
 <?php } ?>
 
 <?php
-function drawBody(array $messages, int $ticketId, PDO $db)
+function drawBody(array $messages, int $ticketId, PDO $db, Session $session)
 { ?>
     <div class="chat-outer-container">
         <div class="chat-inner-container">
@@ -31,7 +34,7 @@ function drawBody(array $messages, int $ticketId, PDO $db)
             <div class="chat-messages">
                 <?php foreach ($messages as $message) drawMessage($message,$db)?>
             </div>
-            <?php drawInput($ticketId); ?>
+            <?php drawInput($ticketId,$db, $session); ?>
         </div>
     </div>
 <?php } ?>
@@ -45,14 +48,31 @@ function drawBody(array $messages, int $ticketId, PDO $db)
     </div>
 <?php } ?>
 
-<?php function drawInput(int $ticketId) { ?>
+
+
+
+<?php function drawInput(int $ticketId, PDO $db, Session $session) { ?>
+    <?php 
+        $ticket = Ticket::getTicket($db, $ticketId);
+        $faqs = FAQ::getSubjectFAQs($db, $ticket->subject);
+    ?>
     <div class="chat-input">
         <form method="post" action="../actions/action_send_message.php" class="input-form">
             <input type="hidden" name="ticket_id" value="<?php echo $ticketId; ?>">
             <textarea name="message" placeholder="Type your message"></textarea>
+           
+            <?php if (Agent::isAgent($db,$session->getId())) { ?>
+                <select class="faq-bar" name="faq_id">
+                    <option class="faq-option" value="">Select FAQ</option>
+                    <?php foreach ($faqs as $faq) { ?>
+                        <option class="faq-option" value="<?php echo $faq->id ?>"><?php echo $faq->question ?></option>
+                    <?php } ?>
+                </select>
+            <?php } ?>
+            
+            
             <button type="submit" class="send-button">Send</button>
         </form>
     </div>
 <?php } ?>
-
 
