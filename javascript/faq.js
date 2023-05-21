@@ -26,7 +26,7 @@ function setAnimationFAQ() {
       for (const key in jsonResponse) {
         if (jsonResponse.hasOwnProperty(key)) {
           const map = jsonResponse[key];
-          subjectOptionsHTML += "<h1 class='faq-page'>" + map["QUESTION"] + "</h1><div class='faq-body'><p>" + map["ANSWER"] + "</p></div>";
+          subjectOptionsHTML += "<div class='faq'><h1 class='faq-page'>" + map["QUESTION"] + "</h1><div class='faq-body'><p>" + map["ANSWER"] + "</p></div></div>";
           subjectOptionsHTML += '<hr class="hr-line"></hr>';
         }
       }
