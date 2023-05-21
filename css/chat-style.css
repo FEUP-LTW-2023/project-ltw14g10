@@ -98,10 +98,12 @@
     padding: 10px;
     border-radius: 4px;
     box-sizing: border-box;
-    width: 130%;
+    width: 80%;
   }
   
-  
+  .faq-bar{
+    width: 80%;
+  }
 
   
   .chat-input .send-button {
