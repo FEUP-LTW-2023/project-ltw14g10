@@ -207,3 +207,12 @@ footer {
   height: 50px;
   border-radius: 10px;
 }
+
+select {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
