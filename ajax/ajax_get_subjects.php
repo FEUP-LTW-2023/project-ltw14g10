@@ -5,7 +5,7 @@
     $db = getDatabaseConnection();
 
     if (isset($_GET["year"])) {
-        $data = Subject::getSubjectsByYearRaw($db, $_GET["year"]);
+        $data = Subject::getSubjectsByYearRaw($db, (int) $_GET["year"]);
         header("Content-Type: application/json");
         echo json_encode($data);
         exit();

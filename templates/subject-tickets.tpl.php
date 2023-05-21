@@ -33,6 +33,45 @@ require_once(__DIR__ . '/../database/status.class.php');
 
   <?php } ?>
 
+  <?php function drawFilters(PDO $db, int $subject, array &$tickets){ ?>
+    <div class="filters">
+      <div class="filter">
+        <p>Filter by Status:</p>
+        <select name="status" class="status-selector" onchange="filterByStatus(this.value, <?php echo $subject; ?>)">
+          <option value="all">All</option>
+          <?php
+          $statusArray = Status::getAllStatus($db);
+          foreach ($statusArray as $status) { ?>
+            <option value="<?php echo $status->id; ?>">
+              <?php echo $status->status_text; ?>
+            </option>
+          <?php } ?>
+        </select>
+      </div>
+      <div class="filter">
+        <p>Filter by Agent:</p>
+        <select name="agent" class="agent-selector">
+          <option value="all">All</option>
+          <?php
+          $agents = Agent::getAllAgentsBySubject($db, $subject);
+          foreach ($agents as $agent) { ?>
+            <option value="<?php echo $agent->user; ?>">
+              <?php echo User::getName($db, $agent->user); ?>
+            </option>
+          <?php } ?>
+        </select>
+      </div>
+      <div class="filter">
+        <p>Sort by Date:</p>
+        <select name="date" class="order-selector">
+          <option value=""></option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+    </div>
+  <?php } ?>
+
 
   <?php function drawTicket(PDO $db, Ticket $ticket)
   { ?>

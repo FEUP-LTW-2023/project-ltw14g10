@@ -97,3 +97,20 @@ function updateTicketStatus(ticketId, newStatus) {
 
   postData();
 }
+
+function filterByStatus(status, subjectId) {
+  const getWithAsyncAwait = async () => {
+    const response = await fetch("/../ajax/ajax_get_tickets.php?subject=" + subjectId);
+    const jsonResponse = await response.json();
+    for (const key in jsonResponse) {
+      if (jsonResponse.hasOwnProperty(key)) {
+        const map = jsonResponse[key];
+        const ticket = document.getElementById("ticket-"+ map["ID"]);
+        if(map["STATUS_ID"] == status || status == "all") ticket.style.display = "block";
+        else ticket.style.display = "none";
+      }
+    }
+  };
+  
+  getWithAsyncAwait();
+}

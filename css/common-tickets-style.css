@@ -134,3 +134,8 @@
       margin: 0 20px auto
     }
   }
+
+  .filters {
+    display: flex;
+    flex-direction: row;
+  }
