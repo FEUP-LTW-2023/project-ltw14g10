@@ -1,6 +1,9 @@
-$(window).on('resize', function() {
-    var containerWidth = $('.user-container').width();
-    $('.user').css('min-width', containerWidth);
+window.addEventListener('resize', function() {
+  var containerWidth = document.querySelector('.user-container').offsetWidth;
+  var userElements = document.querySelectorAll('.user');
+  userElements.forEach(function(user) {
+    user.style.minWidth = containerWidth + 'px';
+  });
 });
 
 function updateUserRole(userId, newRole) {
