@@ -75,9 +75,13 @@ require_once(__DIR__ . '/../database/user.class.php');
         <div class="time"><?php echo $ticket->time; ?></div>
       </div>
     </div>
-    <div class="ticket-delete">
-        <button type="submit" class="del-button">Delete ticket</button>
-    </div>
+    <div class="ticket-chat">
+    <form action="../pages/chat.php" method="POST">
+        <input type="hidden" name="ticket_id" value="<?php echo $ticket->id; ?>">
+        <button type="submit" class="chat-button">Open Chat</button>
+    </form>
+</div>
+
     
     
   </div>

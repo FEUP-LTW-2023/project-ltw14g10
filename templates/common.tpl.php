@@ -78,7 +78,7 @@
 <?php function drawHeaderOptions()
   { ?>
   <div class="center-header">
-        <a href="../pages/contact.php" id="contact">Contact us</a>
+        <a href="../pages/chat.php" id="contact">Contact us</a>
         <a href="../pages/about.php" id="about">About</a>
         <a href="../pages/faq.php" id="faq">FAQ</a>
     </div>

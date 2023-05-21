@@ -41,12 +41,12 @@
     color: #555;
   }
 
-  .ticket-delete {
+  .ticket-chat {
     text-align: right;
   }
 
   
-  .del-button {
+  .chat-button {
     background-color: #dc3545;
     color: #fff;
     border: none;
@@ -58,7 +58,7 @@
   }
   
   
-  .del-button:hover {
+  .chat-button:hover {
     background-color: #c82333;
   }
   
