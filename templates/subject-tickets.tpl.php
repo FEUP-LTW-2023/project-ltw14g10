@@ -33,6 +33,49 @@ require_once(__DIR__ . '/../database/status.class.php');
 
   <?php } ?>
 
+  <?php function drawFilters(PDO $db, int $subject){ ?>
+    <div class="filters">
+      <div class="filter">
+        <p>Filter by Status:</p>
+        <select name="status" id="status-selector" onchange="filterByStatus(this.value, <?php echo $subject; ?>)">
+          <option value="all" selected>All</option>
+          <?php
+          $statusArray = Status::getAllStatus($db);
+          foreach ($statusArray as $status) { ?>
+            <option value="<?php echo $status->id; ?>">
+              <?php echo $status->status_text; ?>
+            </option>
+          <?php } ?>
+        </select>
+      </div>
+      <div class="filter">
+        <p>Filter by Agent:</p>
+        <select name="agent" id="agent-selector" onchange="filterByAgent(this.value, <?php echo $subject; ?>)">
+          <option value="all" selected>All</option>
+          <?php
+          $agents = Agent::getAllAgentsBySubject($db, $subject);
+          foreach ($agents as $agent) { ?>
+            <option value="<?php echo $agent->user; ?>">
+              <?php echo User::getName($db, $agent->user); ?>
+            </option>
+          <?php } ?>
+        </select>
+      </div>
+      <form class="filter">
+        <p>Sort by Date:</p>
+        <select name="order" id="order-selector" onchange="orderByDate()">
+          <option value=""></option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+        <input type="hidden" id="subject" value="<?php echo $subject; ?>">
+      </form>
+      <script>
+
+      </script>
+    </div>
+  <?php } ?>
+
 
   <?php function drawTicket(PDO $db, Ticket $ticket)
   { ?>

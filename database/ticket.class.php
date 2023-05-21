@@ -139,5 +139,18 @@
             return $stmt->execute(array($statusId, $ticketId));
         }
 
+        static function getTicketsBySubjectRaw(PDO $db, int $subject) {
+            $stmt = $db->prepare('
+              SELECT *
+              FROM TICKET 
+              WHERE SUBJECT_ID = ?
+            ');
+      
+            $stmt->execute(array($subject));
+
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        }
+
     }
 ?>

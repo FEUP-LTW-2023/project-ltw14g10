@@ -1,6 +1,6 @@
 function getSubjects(year) {
   const getWithAsyncAwait = async () => {
-    const response = await fetch("/../ajax/ajax_get_classes.php?year=" + year);
+    const response = await fetch("/../ajax/ajax_get_subjects.php?year=" + year);
     const jsonResponse = await response.json();
     const subjectContainer = document.querySelector('.subjectContainer');
     var subjectOptionsHTML = '<option value="" disabled selected>Select subject</option>';
@@ -18,7 +18,7 @@ function getSubjects(year) {
 
 function getSubjectsUser(year, userId) {
   const getWithAsyncAwait = async () => {
-    const response = await fetch("/../ajax/ajax_get_classes.php?year=" + year);
+    const response = await fetch("/../ajax/ajax_get_subjects.php?year=" + year);
     const jsonResponse = await response.json();
     const subjectContainer = document.querySelector('#user-'+userId+'.subjectContainer');
     var subjectOptionsHTML = '<option value="" disabled selected>Select subject</option>';
