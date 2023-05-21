@@ -83,7 +83,7 @@ require_once(__DIR__ . '/../database/status.class.php');
 
             Agent: <?php
             $agents = Agent::getAllAgentsBySubject($db, $ticket->subject); ?>
-            <select name="agent" id="agent-selector">
+            <select name="agent" id="agent-selector" onchange="updateTicketAgent(<?php echo $ticket->id ?>, this.value)">
                 <?php if ($ticket->agent == null) { ?>
                   <option value="" selected disabled>Not assigned</option>
                 <?php } else {?>
@@ -106,7 +106,7 @@ require_once(__DIR__ . '/../database/status.class.php');
             <?php 
               $subjects = Subject::getAllSubjects($db);
             ?>
-              <select name="subject" id="subject-selector">
+              <select name="subject" id="subject-selector" onchange="updateTicketSubject(<?php echo $ticket->id ?>, this.value)">
                 <?php foreach ($subjects as $subject) { ?>
                   <option value="<?php echo $subject->id; ?>" <?php if ($ticket->subject == $subject->id) echo "selected"; ?>>
                     <?php echo $subject->code . " - " . $subject->subject_name; ?>

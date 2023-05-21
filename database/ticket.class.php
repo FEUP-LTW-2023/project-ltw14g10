@@ -112,5 +112,23 @@
             return $tickets;
         }
 
+        static function changeTicketAgent(PDO $db, int $ticketId, int $agentId) : bool {
+            $stmt = $db->prepare('
+              UPDATE TICKET
+              SET AGENT_ID = ?
+              WHERE ID = ?
+            ');
+            return $stmt->execute(array($agentId, $ticketId));
+        }
+
+        static function changeTicketSubject(PDO $db, int $ticketId, int $subjectId) : bool {
+            $stmt = $db->prepare('
+              UPDATE TICKET
+              SET SUBJECT_ID = ?, AGENT_ID = NULL
+              WHERE ID = ?
+            ');
+            return $stmt->execute(array($subjectId, $ticketId));
+        }
+
     }
 ?>

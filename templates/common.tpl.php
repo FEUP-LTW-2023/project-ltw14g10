@@ -107,3 +107,11 @@
       Subject Tickets
     </a>
 <?php } ?>
+
+<?php function drawTickets(PDO $db, array $tickets) { ?>
+  <?php foreach ($tickets as $ticket) { ?>
+    <div id="ticket-<?php echo $ticket->id; ?>" class="ticket">
+      <?php drawTicket($db, $ticket); ?>
+    </div>
+  <?php } ?>
+<?php } ?>

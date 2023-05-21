@@ -24,8 +24,6 @@
   setHeaderMyTickets();
   drawHeader($session);
   drawTitle($subject->subject_name);
-  foreach ($tickets as $ticket) {
-    drawTicket($db,$ticket);
-  }
+  drawTickets($db, $tickets);
   drawFooter();
 ?>

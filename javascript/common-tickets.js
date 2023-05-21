@@ -33,3 +33,43 @@ function getRandomColor(hash) {
     var element = document.getElementById("status-selector");
     element.style.backgroundColor = color;
   }
+
+  function updateTicketAgent(ticketId, newAgent) {
+    const encodeForAjax = (data) => {
+        return Object.keys(data).map(function(k){
+          return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+        }).join('&')
+    };
+
+    const postData = async () => {
+        const dataToSend = { ticket: ticketId, agent: newAgent};
+        const response = await fetch("/../ajax/ajax_change_ticket_agent.php", {
+          method: "POST",
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encodeForAjax(dataToSend)
+        });
+    };
+
+    postData();
+}
+
+function updateTicketSubject(ticketId, newSubject) {
+  const encodeForAjax = (data) => {
+      return Object.keys(data).map(function(k){
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+      }).join('&')
+  };
+
+  const postData = async () => {
+      const dataToSend = { ticket: ticketId, subject: newSubject};
+      const response = await fetch("/../ajax/ajax_change_ticket_subject.php", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeForAjax(dataToSend)
+      });
+  };
+
+  postData();
+  var element = document.getElementById("ticket-"+ ticketId);
+  element.style.display = "none";
+}
