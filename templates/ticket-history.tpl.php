@@ -32,7 +32,8 @@ require_once(__DIR__ . '/../database/change.class.php');
     ?>
     <div class="ticket-history">
         <h2 class="title">Ticket History</h2>
-        <?php foreach ($changes as $change) drawChange($change, $db, $ticketId) ?>
+        <?php foreach ($changes as $change)
+            drawChange($change, $db, $ticketId) ?>
 
         <?php drawBack($ticketId); ?>
     </div>
@@ -45,23 +46,31 @@ require_once(__DIR__ . '/../database/change.class.php');
 {
     ?>
 
-        <div class="history-item">
-            <div class="history-details">
-                <div class="history-date"><?php echo $change->changedAt?></div>
-            </div>
-            <div class="history-description">
-                <p>Ticket <?php echo $change->whatChanged?> changed to "<?php echo $change->toWhat?>".</p>
+    <div class="history-item">
+        <div class="history-details">
+            <div class="history-date">
+                <?php echo $change->changedAt ?>
             </div>
         </div>
-   
+        <div class="history-description">
+            <p>
+                <?php if ($change->whatChanged == "hashtag") {
+                    echo "The hashtag #$change->toWhat was added to the ticket.";
+                } else
+                    echo "Ticket $change->whatChanged changed to $change->toWhat." ?>
+                </p>
+            </div>
+        </div>
+
     <?php
 } ?>
 
-<?php function drawBack(int $ticketId) { ?>
+<?php function drawBack(int $ticketId)
+{ ?>
     <div class="back-button">
-            <form method="post" action="../pages/ticket-info.php">
-                <input type="hidden" name="id" value="<?php echo $ticketId ?>">
-                <button type="submit" class="back-button-style">Back to Ticket Info</button>
-            </form>
-        </div>
+        <form method="post" action="../pages/ticket-info.php">
+            <input type="hidden" name="id" value="<?php echo $ticketId ?>">
+            <button type="submit" class="back-button-style">Back to Ticket Info</button>
+        </form>
+    </div>
 <?php } ?>

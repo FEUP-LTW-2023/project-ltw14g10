@@ -45,6 +45,19 @@
             return $hashtagArray;
         }
 
+        static function getHashtag(PDO $db, int $hashtag_id): Hashtag {
+            $stmt = $db->prepare('
+            SELECT *
+            FROM HASHTAG
+            WHERE ID = ?');
+            $stmt->execute(array($hashtag_id));
+            $hashtag = $stmt->fetch();
+            return new Hashtag(
+                (int) $hashtag['ID'],
+                $hashtag['TAG']
+            );
+        }
+
         static function associateTicket(PDO $db, int $ticket_id, int $hashtag_id): void {
             $stmt = $db->prepare('
             INSERT INTO TICKET_HASHTAG (TICKET_ID, TAG)
