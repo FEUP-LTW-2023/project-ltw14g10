@@ -9,7 +9,7 @@
 git clone https://github.com/FEUP-LTW-2023/project-ltw14g10.git
 cd project-ltw14g10
 git checkout final-delivery-v2
-sqlite3 database/tickets.db < database/script.sql
+sqlite3 database/database.db < database/database.sql
 php -S localhost:9000
 ```
 `Note: Make sure that you have installed php and sqlite3 to execute this code`
