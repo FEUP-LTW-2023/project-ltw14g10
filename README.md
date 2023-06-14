@@ -1,5 +1,5 @@
 # Features:
-### All users are able to (users can simultaneously be clients and agents):
+### All users are able to:
 - [x] Register a new account.
 - [x] Login and Logout.
 - [x] Edit their profile (at least name, username, password, and e-mail).
